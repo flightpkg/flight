@@ -56,7 +56,6 @@ module.exports = class Resolver {
     });
   }
 
-  // Resolution & Iteration
   resolveDependencies(task, registryPackage, done){
     const version = this.resolveVersion(task.version, registryPackage);
 
@@ -159,10 +158,10 @@ module.exports = class Resolver {
     }
   }
 
-  // Jpack Rendering
+
   fillJpackDep(fullName, versionPkg, dep){
     this.graph.successors(fullName).forEach(name => {
-      if(name.substr(1).indexOf('@') === -1){ // dependency is a peer
+      if(name.substr(1).indexOf('@') === -1){ 
         const peerDep = this.graph.node(name);
 
         if(peerDep){
@@ -185,10 +184,9 @@ module.exports = class Resolver {
 
   addJpackResDep(fullName){
     if(!this.jpack.resDependencies.hasOwnProperty(fullName)){
-      // TODO: encode this information in nodes instead of using string ops
       const atIndex = fullName.lastIndexOf('@');
 
-      if(atIndex <= 0){ // No '@' in string, or only '@' is first character (dependency is a peer)
+      if(atIndex <= 0){ 
         this.fillJpackDep(fullName, null, this.jpack.appDependencies[fullName])
       } else {
         const depName = fullName.substr(0, atIndex);
