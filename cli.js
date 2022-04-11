@@ -1,6 +1,6 @@
 const fs = require('fs')
 const { Resolver, NpmHttpRegistry } = require('./src/js/resolver/index.js')
-//const urlformat = `https://registry.npmjs.com/${name}/-/${name}-${version}.tgz`
+
 
 function resolve(dependencies){
   // const resolver = new Resolver(); // For server-side usage, uses https://registry.npmjs.org which doesn't have CORS enabled
@@ -15,19 +15,33 @@ function resolve(dependencies){
 async function get() {
 await resolve({
   "express": "latest",
+  "react": "latest",
 }).then(results => fs.writeFile('flight.lock', `${JSON.stringify(results)}`, function(err) {
   if (err === null) {
     console.log("Generated lockfile.")
-    // below code doesnt work
     const lockfile = fs.readFileSync('./flight.lock')
-    const json = JSON.parse(lockfile)
-    for (var i=0; i<json.jsonData.length; i++) {
-      for (var key in json.jsonData[i]) {
-          for (var j= 0; j<json.jsonData[i][key].length; j++) {
-              console.log(json.jsonData[i][key][j])
-          }
-      }
-    }
+    const parsed = JSON.parse(lockfile)
+    const json = parsed.appDependencies
+    fs.mkdirSync('.flight')
+    for (let x in json) {
+        const name = x
+        const version = json[x].version
+        const urlformat = `https://registry.npmjs.com/${name}/-/${name}-${version}.tgz`
+        console.log(urlformat)
+        const { default: { stream } } = require("got");
+        const { createWriteStream } = require("fs"); 
+        const { execSync } = require("child_process");
+        const start = () => {
+            const download = stream(urlformat).pipe(createWriteStream(`./.flight/${name}-${version}.tgz`));
+            download.on("finish", () => {
+                execSync("echo yes", { stdio: "inherit" });
+            });
+        };
+        
+        start();        
+     }
+     
+     
 
 
   }

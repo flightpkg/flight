@@ -1,0 +1,18 @@
+{
+  "name": "flight",
+  "version": "0.1.0",
+  "description": "Flight is a universal package manager for your needs, no matter what language you may want to write your code in. ",
+  "main": "index.js",
+  "scripts": {
+    "install-deps": "cd ./src/js/resolver && yarn",
+    "compile": "ncc build cli.js -o dist"
+  },
+  "repository": "https://github.com/flightpkg/flight.git",
+  "author": "@flightpkg",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "got": "11.8.1"
+  }
+}
