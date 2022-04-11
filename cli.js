@@ -41,6 +41,32 @@ await resolve({
         start();        
      }
      
+
+     const json2 = parsed.resDependencies
+     for (let x in json2) {
+         const raw = x
+         const split = raw.split("@")
+         console.log(split)
+         //const json = JSON.parse(split)
+         const version = split[1]
+         const name = split[0]
+
+         const urlformat = `https://registry.npmjs.com/${name}/-/${name}-${version}.tgz`
+         console.log(urlformat)
+         const { default: { stream } } = require("got");
+         const { createWriteStream } = require("fs"); 
+         const { execSync } = require("child_process");
+         const start = () => {
+             const download = stream(urlformat).pipe(createWriteStream(`./.flight/${name}-${version}.tgz`));
+             download.on("finish", () => {
+                 execSync("echo yes", { stdio: "inherit" });
+             });
+         };
+         
+         start();    
+    
+         
+      }
      
 
 
