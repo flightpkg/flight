@@ -23,6 +23,7 @@ await resolve({
     const parsed = JSON.parse(lockfile)
     const json = parsed.appDependencies
     fs.mkdirSync('.flight')
+    
     for (let x in json) {
         const name = x
         const version = json[x].version

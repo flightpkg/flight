@@ -2,4 +2,5 @@
 ./src/js/resolver/node_modules/*
 node_modules
 node_modules/*
-flight.lock
+*.lock
+package_lock.json

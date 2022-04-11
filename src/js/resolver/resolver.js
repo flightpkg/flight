@@ -227,7 +227,7 @@ module.exports = class Resolver {
         parentNode: 'root'
       }));
 
-      this.queue.drain = () => {
+      this.queue.drain(async () => {
         if(this.error){
           return reject(this.error);
         }
@@ -243,7 +243,7 @@ module.exports = class Resolver {
 
           return resolve(this.jpack);
         }
-      };
+      });
 
       this.startTime = Date.now();
       this.registry.batchFetch(depNames, this.queue.resume);

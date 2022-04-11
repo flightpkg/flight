@@ -12,7 +12,11 @@
   "license": "MIT",
   "private": false,
   "dependencies": {
+    "async": "^3.2.3",
     "dotenv": "^16.0.0",
-    "got": "11.8.1"
+    "got": "11.8.1",
+    "graphlib": "^2.1.8",
+    "npm-package-arg": "^9.0.2",
+    "superagent": "^7.1.2"
   }
 }
