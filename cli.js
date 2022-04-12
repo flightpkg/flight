@@ -23,26 +23,48 @@ await resolve({
     const parsed = JSON.parse(lockfile)
     const json = parsed.appDependencies
     fs.mkdirSync('.flight')
-    
     for (let x in json) {
         const name = x
         const version = json[x].version
-        const urlformat = `https://registry.npmjs.com/${name}/-/${name}-${version}.tgz`
+        const urlformat = `https://registry.yarnpkg.com/${name}/-/${name}-${version}.tgz`
         console.log(urlformat)
         const { default: { stream } } = require("got");
         const { createWriteStream } = require("fs"); 
         const { execSync } = require("child_process");
+        const existsSync = function(path) {
+            return new Promise(function(resolve, reject) {
+             fs.access(path, fs.F_OK, function(err) {
+              return resolve(err ? false : true)
+             })
+            })
+           }    
+           const existsAsync = async function(path) {
+            const exists = await existsSync(path)   
+        }          
+
+        
+         
+        
         const start = () => {
             const download = stream(urlformat).pipe(createWriteStream(`./.flight/${name}-${version}.tgz`));
             download.on("finish", () => {
-                execSync("echo yes", { stdio: "inherit" });
+                const find = existsAsync('node_modules')
+
+                if (find == true) {
+                    execSync(`cd .flight ; tar zxvf ${name}-${version}.tgz -C ../node_modules`, { stdio: "inherit" });
+                }
+
+                if (find == false) {
+                    execSync(`mkdir node_modules ; cd .flight ; tar zxvf ${name}-${version}.tgz -C ../node_modules`, { stdio: "inherit" });
+                }
+                
             });
         };
         
-        start();        
+        start();      
      }
      
-
+/**
      const json2 = parsed.resDependencies
      for (let x in json2) {
          const raw = x
@@ -68,6 +90,7 @@ await resolve({
     
          
       }
+      */
      
 
 
