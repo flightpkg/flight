@@ -17,12 +17,12 @@
 
 # :zap: Installation
 
-We don't have an official release of Volt yet, however, if you would like to give it a try, feel free to follow the steps below to build from source.
+We don't have an official release of Flight yet, however, if you would like to give it a try, feel free to follow the steps below to build from source.
 <br>
 
 ## Build From Source
 
-Prerequisites: **Git**, **Rust Toolchain**
+Prerequisites: **Git**, **NodeJS + NPM**
 
 ### Minimum Supported Rust Version (MSRV)
 
