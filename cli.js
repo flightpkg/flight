@@ -6,6 +6,7 @@ const {
   Resolver,
   NpmHttpRegistry
 } = require('./src/js/resolver/index.js')
+const kleur = require('kleur');
 
 
 function resolve(dependencies) {
@@ -50,7 +51,7 @@ async function get() {
           const name = x
           const version = json[x].version
           const urlformat = `https://registry.yarnpkg.com/${name}/-/${name}-${version}.tgz`
-          console.log(urlformat)
+          console.log(kleur.bold().blue("Downloading:") + " " + name + " @ " + version + "...");
           const {
             default: {
               stream
@@ -77,6 +78,7 @@ async function get() {
           const start = () => {
             const download = stream(urlformat).pipe(createWriteStream(`./.flight/${name}-${version}.tgz`));
             download.on("finish", () => {
+              console.log(kleur.bold().green("Downloaded: ") + " " + name + " @ " + version + ".")
               const find = existsAsync('node_modules')
 
               if (find == true) {

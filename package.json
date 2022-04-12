@@ -17,6 +17,7 @@
     "fs-extra": "^10.0.1",
     "got": "11.8.1",
     "graphlib": "^2.1.8",
+    "kleur": "^4.1.4",
     "npm-package-arg": "^9.0.2",
     "superagent": "^7.1.2"
   }
