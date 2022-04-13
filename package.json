@@ -5,6 +5,7 @@
     "main": "cli.js",
     "scripts": {
         "install-deps": "cd ./src/js/resolver && yarn",
+        "install-deps-frozen": "cd ./src/js/resolver && yarn --frozen-lockfile",
         "compile": "ncc build cli.js -o dist"
     },
     "repository": "https://github.com/flightpkg/flight.git",
