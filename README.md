@@ -7,11 +7,11 @@
 <br>
 
 <p align="center">
-<img src="https://img.shields.io/github/languages/code-size/flightpkg/flight?color=success">
-<img src="https://img.shields.io/github/issues/flightpkg/flight?color=success">
-<img src="https://img.shields.io/github/languages/top/flightpkg/flight?color=success">
-<img src="https://img.shields.io/github/package-json/v/flightpkg/flight?color=success">
-<img src="https://img.shields.io/tokei/lines/github/flightpkg/flight?color=success&label=lines%20of%20code">
+<img src="https://img.shields.io/github/languages/code-size/flightpkg/flight?color=FF3399">
+<img src="https://img.shields.io/github/issues/flightpkg/flight?color=99B380">
+<img src="https://img.shields.io/github/languages/top/flightpkg/flight?color=E69966">
+<img src="https://img.shields.io/github/package-json/v/flightpkg/flight?color=FF9999">
+<img src="https://img.shields.io/tokei/lines/github/flightpkg/flight?color=4D804D&label=lines%20of%20code">
 </p>
 <br>
 
