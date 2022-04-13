@@ -81,35 +81,29 @@ async function get() {
           const {
             execSync
           } = require("child_process");
-          const existsSync = function (path) {
-            return new Promise(function (resolve, reject) {
-              fs.access(path, fs.F_OK, function (err) {
-                return resolve(err ? false : true)
-              })
+          const existsSync = function(path) {
+            return new Promise(function(resolve, reject) {
+            fs.access(path, fs.F_OK, function(err) {
+            return resolve(err ? false : true)
             })
-          }
+            })
+        }    
+        const existsAsync = async function(path) {
+            const exists = await existsSync(path) 
 
-          const existsAsync = async function (path) {
-            const exists = await existsSync(path)
-          }
+            if (exists == false) {
+            execSync(`mkdir ${path}`, { stdio: "inherit" });   
+            }
+        }   
 
           const start = () => {
             const download = stream(urlformat).pipe(createWriteStream(`./.flight/${name}-${version}.tgz`));
             download.on("finish", () => {
               console.log(kleur.bold().green("Downloaded: ") + " " + name + " @ " + version + ".")
               const find = existsAsync('node_modules')
-
-              if (find == true) {
-                execSync(`cd .flight ; tar zxvf ${name}-${version}.tgz -C ../node_modules`, {
+                execSync(`cd node_modules ; mkdir ${name} ; tar zxvf ../.flight/${name}-${version}.tgz -C ${name} ; echo $PWD ; cd ../node_modules/${name} ; echo $PWD ; cd package ls -l ; mv * ..`, {
                   stdio: "inherit"
                 });
-              }
-
-              if (find == false) {
-                execSync(`mkdir node_modules ; cd .flight ; tar zxvf ${name}-${version}.tgz -C ../node_modules`, {
-                  stdio: "inherit"
-                });
-              }
 
               fs.mkdirSync(`./.flight/${name}/`)
 
