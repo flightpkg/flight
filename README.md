@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/flightpkg/flight/main/assets/primary.png" />
+  <img src="https://raw.githubusercontent.com/flightpkg/flight/main/assets/README-header.png" />
 </p>
 
 <h1 align="center">Flight</h1>
