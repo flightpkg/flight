@@ -14,7 +14,7 @@ jobs:
         node-version: 16.x
         cache: yarn
     - name: Install deps
-      run: yarn && yarn install-deps && npm global add @vercel/ncc
+      run: yarn && yarn install-deps && yarn global add @vercel/ncc
     - name: Build
       run: yarn compile
     - name: Commit and push if there are changes
