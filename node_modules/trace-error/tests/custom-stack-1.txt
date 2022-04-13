@@ -1,0 +1,9 @@
+Captured
+    {
+      "test": 5
+    }
+    Test error
+        Test cause
+        {
+          "error": "test"
+        }

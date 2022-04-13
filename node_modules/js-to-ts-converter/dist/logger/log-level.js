@@ -1,0 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.logLevels = void 0;
+exports.logLevels = ['debug', 'verbose', 'info', 'warn', 'error'];
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibG9nLWxldmVsLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vc3JjL2xvZ2dlci9sb2ctbGV2ZWwudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7O0FBQ2EsUUFBQSxTQUFTLEdBQUcsQ0FBRSxPQUFPLEVBQUUsU0FBUyxFQUFFLE1BQU0sRUFBRSxNQUFNLEVBQUUsT0FBTyxDQUFFLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgdHlwZSBMb2dMZXZlbCA9ICdkZWJ1ZycgfCAndmVyYm9zZScgfCAnaW5mbycgfCAnd2FybicgfCAnZXJyb3InO1xuZXhwb3J0IGNvbnN0IGxvZ0xldmVscyA9IFsgJ2RlYnVnJywgJ3ZlcmJvc2UnLCAnaW5mbycsICd3YXJuJywgJ2Vycm9yJyBdO1xuIl19

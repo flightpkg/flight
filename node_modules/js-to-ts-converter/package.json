@@ -1,0 +1,53 @@
+{
+	"name": "js-to-ts-converter",
+	"version": "0.18.2",
+	"description": "Small utility to rename .js->.ts, and convert ES6 classes to TypeScript classes by filling in property declarations. See readme for more details.",
+	"scripts": {
+		"build": "tsc",
+		"cli": "npm run build && node dist/cli.js",
+		"test": "mocha --require ts-node/register --timeout 60000 --watch-extensions ts \"**/*.spec.ts\"",
+		"prepublishOnly": "npm test && npm run build"
+	},
+	"keywords": [
+		"typescript",
+		"conversion"
+	],
+	"homepage": "https://github.com/gregjacobs/js-to-ts-converter",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/gregjacobs/js-to-ts-converter.git"
+	},
+	"bugs": {
+		"url": "https://github.com/gregjacobs/js-to-ts-converter/issues"
+	},
+	"author": "Gregory Jacobs <greg@greg-jacobs.com>",
+	"license": "MIT",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"bin": "dist/cli.js",
+	"files": [
+		"dist/"
+	],
+	"dependencies": {
+		"argparse": "^1.0.10",
+		"fast-glob": "^3.2.4",
+		"graphlib": "^2.1.5",
+		"lodash": "^4.17.20",
+		"resolve": "^1.8.1",
+		"trace-error": "^0.0.7",
+		"ts-morph": "^14.0.0",
+		"typescript": "^4.6.2",
+		"winston": "^3.0.0"
+	},
+	"devDependencies": {
+		"@types/chai": "^4.1.4",
+		"@types/graphlib": "^2.1.4",
+		"@types/lodash": "^4.14.112",
+		"@types/mocha": "^5.2.4",
+		"@types/node": "^10.5.2",
+		"@types/winston": "^2.3.9",
+		"chai": "^4.1.2",
+		"mocha": "^5.2.0",
+		"ts-node": "^7.0.0"
+	}
+}

@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.isValidIdentifier = void 0;
+/**
+ * Helper to determine if a string of text is a valid JavaScript identifier.
+ */
+function isValidIdentifier(text) {
+    return /^[\w$]+$/.test(text);
+}
+exports.isValidIdentifier = isValidIdentifier;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaXMtdmFsaWQtaWRlbnRpZmllci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy91dGlsL2lzLXZhbGlkLWlkZW50aWZpZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7O0FBQUE7O0dBRUc7QUFDSCxTQUFnQixpQkFBaUIsQ0FBRSxJQUFZO0lBQzlDLE9BQU8sVUFBVSxDQUFDLElBQUksQ0FBRSxJQUFJLENBQUUsQ0FBQztBQUNoQyxDQUFDO0FBRkQsOENBRUMiLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIEhlbHBlciB0byBkZXRlcm1pbmUgaWYgYSBzdHJpbmcgb2YgdGV4dCBpcyBhIHZhbGlkIEphdmFTY3JpcHQgaWRlbnRpZmllci5cbiAqL1xuZXhwb3J0IGZ1bmN0aW9uIGlzVmFsaWRJZGVudGlmaWVyKCB0ZXh0OiBzdHJpbmcgKSB7XG5cdHJldHVybiAvXltcXHckXSskLy50ZXN0KCB0ZXh0ICk7XG59Il19

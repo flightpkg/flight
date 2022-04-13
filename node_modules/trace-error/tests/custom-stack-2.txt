@@ -1,0 +1,9 @@
+TraceError: Captured
+    {
+      "test": 5
+    }
+    TraceError: Test error
+        Error: Test cause
+        {
+          "error": "test"
+        }

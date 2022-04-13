@@ -1,0 +1,19 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.filterOutNodeModules = void 0;
+/**
+ * Given a Project, removes all files that are under the node_modules folder.
+ *
+ * It seems the language service can pull in some .d.ts files from node_modules
+ * that we don't want to be output after we save.
+ */
+function filterOutNodeModules(tsAstProject) {
+    tsAstProject.getSourceFiles().forEach(sourceFile => {
+        if (sourceFile.getFilePath().includes('node_modules')) {
+            tsAstProject.removeSourceFile(sourceFile);
+        }
+    });
+    return tsAstProject;
+}
+exports.filterOutNodeModules = filterOutNodeModules;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZmlsdGVyLW91dC1ub2RlLW1vZHVsZXMuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi9zcmMvY29udmVydGVyL2ZpbHRlci1vdXQtbm9kZS1tb2R1bGVzLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7OztBQUVBOzs7OztHQUtHO0FBQ0gsU0FBZ0Isb0JBQW9CLENBQUUsWUFBcUI7SUFDMUQsWUFBWSxDQUFDLGNBQWMsRUFBRSxDQUFDLE9BQU8sQ0FBRSxVQUFVLENBQUMsRUFBRTtRQUNuRCxJQUFJLFVBQVUsQ0FBQyxXQUFXLEVBQUUsQ0FBQyxRQUFRLENBQUUsY0FBYyxDQUFFLEVBQUc7WUFDekQsWUFBWSxDQUFDLGdCQUFnQixDQUFFLFVBQVUsQ0FBRSxDQUFDO1NBQzVDO0lBQ0YsQ0FBQyxDQUFFLENBQUM7SUFFSixPQUFPLFlBQVksQ0FBQztBQUNyQixDQUFDO0FBUkQsb0RBUUMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBQcm9qZWN0IH0gZnJvbSBcInRzLW1vcnBoXCI7XG5cbi8qKlxuICogR2l2ZW4gYSBQcm9qZWN0LCByZW1vdmVzIGFsbCBmaWxlcyB0aGF0IGFyZSB1bmRlciB0aGUgbm9kZV9tb2R1bGVzIGZvbGRlci5cbiAqXG4gKiBJdCBzZWVtcyB0aGUgbGFuZ3VhZ2Ugc2VydmljZSBjYW4gcHVsbCBpbiBzb21lIC5kLnRzIGZpbGVzIGZyb20gbm9kZV9tb2R1bGVzXG4gKiB0aGF0IHdlIGRvbid0IHdhbnQgdG8gYmUgb3V0cHV0IGFmdGVyIHdlIHNhdmUuXG4gKi9cbmV4cG9ydCBmdW5jdGlvbiBmaWx0ZXJPdXROb2RlTW9kdWxlcyggdHNBc3RQcm9qZWN0OiBQcm9qZWN0ICk6IFByb2plY3Qge1xuXHR0c0FzdFByb2plY3QuZ2V0U291cmNlRmlsZXMoKS5mb3JFYWNoKCBzb3VyY2VGaWxlID0+IHtcblx0XHRpZiggc291cmNlRmlsZS5nZXRGaWxlUGF0aCgpLmluY2x1ZGVzKCAnbm9kZV9tb2R1bGVzJyApICkge1xuXHRcdFx0dHNBc3RQcm9qZWN0LnJlbW92ZVNvdXJjZUZpbGUoIHNvdXJjZUZpbGUgKTtcblx0XHR9XG5cdH0gKTtcblxuXHRyZXR1cm4gdHNBc3RQcm9qZWN0O1xufSJdfQ==
