@@ -16,11 +16,11 @@ jobs:
     - name: Install deps
       run: yarn && yarn install-deps
     - name: Build
-      run: yarn compile-js
+      run: yarn compile
     - name: Commit and push if there are changes
       run: |-
         git diff
         git config --global user.email "hi@devcomp.tk"
-        git config --global user.name "flightbot"
-        git diff --quiet || (git add -u && git commit -m ":📦️Update compiled script")
+        git config --global user.name "Flight CI"
+        git diff --quiet || (git add -u && git commit -m "📦️ Compiled CLI")
         git push     
