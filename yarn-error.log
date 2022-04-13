@@ -1,0 +1,51 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\Aanil.LAPTOP-4J9SHUDC.000\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js install --dev @vercel/ncc
+
+PATH: 
+  C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\ia32\compiler;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Gradle\gradle-6.6\bin;C:\Program Files\Java\jdk-14.0.2\bin;C:\Users\Aanil\Appdata\Local\Android\sdk\platform-lools;C:\Users\Aanil\Appdata\Local\Android\sdk\tools\bin;C:\Users\Aanil\Appdata\Local\Android\sdk\emulator;C:\Users\aanil\AppData\Local\Android\Sdk\build-tools\30.0.2;c:\Program Files\java\jdk-14.0.2\bin;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files (x86)\dotnet\;C:\scrcpy;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\ProgramData\chocolatey\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Users\Aanil.LAPTOP-4J9SHUDC.000\AppData\Roaming\npm;C:\Users\Aanil.LAPTOP-4J9SHUDC.000\Documents\Flutter\bin;C:\Users\Aanil.LAPTOP-4J9SHUDC.000\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\nodejs\;C:\Users\Aanil.LAPTOP-4J9SHUDC.000\AppData\Local\Programs\Python\Python310;C:\Users\Aanil.LAPTOP-4J9SHUDC.000\AppData\Local\Programs\Python\Python310\Scripts;C:\Users\Aanil.LAPTOP-4J9SHUDC.000\AppData\Local\Programs\Python\Python310\Scripts;C:\Users\Aanil.LAPTOP-4J9SHUDC.000\AppData\Local\Programs\Python\Python310;C:\Users\Aanil.LAPTOP-4J9SHUDC.000\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Aanil.LAPTOP-4J9SHUDC.000\AppData\Local\GitHubDesktop\bin
+
+Yarn version: 
+  1.22.17
+
+Node version: 
+  16.13.2
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: ENOSPC: no space left on device, write
+
+npm manifest: 
+  {
+      "name": "flight",
+      "version": "0.1.0",
+      "description": "Flight is a universal package manager for your needs, no matter what language you may want to write your code in. ",
+      "main": "cli.js",
+      "scripts": {
+          "install-deps": "cd ./src/js/resolver && yarn",
+          "compile": "ncc build cli.js -o dist"
+      },
+      "repository": "https://github.com/flightpkg/flight.git",
+      "author": "@flightpkg",
+      "license": "MIT",
+      "private": false,
+      "dependencies": {
+          "async": "^3.2.3",
+          "dotenv": "^16.0.0",
+          "fs-extra": "^10.0.1",
+          "got": "11.8.1",
+          "graphlib": "^2.1.8",
+          "kleur": "^4.1.4",
+          "npm-package-arg": "^9.0.2",
+          "superagent": "^7.1.2",
+          "tar": "^6.1.11",
+          "react": "18.0.0"
+      }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
