@@ -109,9 +109,13 @@ async function get() {
                 execSync(`mkdir node_modules ; cd .flight ; tar zxvf ${name}-${version}.tgz -C ../node_modules`, {
                   stdio: "inherit"
                 });
-              }
+              } 
 
-              fs.mkdirSync(`./node_modules/${name}/`)
+              if (!fs.existsSync(`./node_modules/${name}/`)) {
+                fs.mkdirSync(`./node_modules/${name}/`, {
+                  recursive: true
+                });
+              }
 
               fs.createReadStream(path.resolve(`./.flight/${name}-${version}.tgz`))
                 .pipe(zlib.Unzip())
