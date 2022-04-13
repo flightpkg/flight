@@ -1,28 +1,25 @@
 {
-  "name": "flight",
-  "version": "0.1.0",
-  "description": "Flight is a universal package manager for your needs, no matter what language you may want to write your code in. ",
-  "main": "cli.js",
-  "scripts": {
-    "install-deps": "cd ./src/js/resolver && yarn",
-    "compile-js": "ncc build cli-js.js -o dist/js"
-  },
-  "repository": "https://github.com/flightpkg/flight.git",
-  "author": "@flightpkg",
-  "license": "MIT",
-  "private": false,
-  "dependencies": {
-    "async": "^3.2.3",
-    "dotenv": "^16.0.0",
-    "fs-extra": "^10.0.1",
-    "got": "11.8.1",
-    "graphlib": "^2.1.8",
-    "kleur": "^4.1.4",
-    "npm-package-arg": "^9.0.2",
-    "superagent": "^7.1.2"
-  },
-  "devDependencies": {
-    "@vercel/ncc": "^0.33.4"
-  }
+    "name": "flight",
+    "version": "0.1.0",
+    "description": "Flight is a universal package manager for your needs, no matter what language you may want to write your code in. ",
+    "main": "cli.js",
+    "scripts": {
+        "install-deps": "cd ./src/js/resolver && yarn",
+        "compile": "ncc build cli.js -o dist"
+    },
+    "repository": "https://github.com/flightpkg/flight.git",
+    "author": "@flightpkg",
+    "license": "MIT",
+    "private": false,
+    "dependencies": {
+        "async": "^3.2.3",
+        "dotenv": "^16.0.0",
+        "fs-extra": "^10.0.1",
+        "got": "11.8.1",
+        "graphlib": "^2.1.8",
+        "kleur": "^4.1.4",
+        "npm-package-arg": "^9.0.2",
+        "superagent": "^7.1.2",
+        "tar": "^6.1.11"
+    }
 }
-
