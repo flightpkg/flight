@@ -33,16 +33,38 @@ Rust 1.58
 1. Clone the github repository using the Github CLI.
 
 ```bash
-git clone https://github.com/flightpkg/flight
+$ git clone https://github.com/flightpkg/flight
 ```
 
 2. CD into the `flight` directory.
 
-```powershell
-cd flight
+```bash
+$ cd flight
+```
+
+3. Install @vercel/ncc globally if it isnt already installed
+
+```bash
+$ npm i @vercel/ncc
+$ yarn add @vercel/ncc
+```
+
+4. Run the build script
+```bash
+$ npm run compile
+$ yarn compile
+```
+
+5. CD into the dist/js directory, then init.
+```bash
+$ cd dist/js
+-------------
+$ npm init 
+$ yarn ninit
 ```
 
 <br>
+
 
 ## :clap: Supporters
 
