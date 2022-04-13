@@ -6,7 +6,8 @@
     "scripts": {
         "install-deps": "cd ./src/js/resolver && yarn",
         "install-deps-frozen": "cd ./src/js/resolver && yarn --frozen-lockfile",
-        "compile": "ncc build cli.js -o dist/js"
+        "compile": "ncc build cli.js -o dist/js",
+        "ci": "concurrently \"run yarn\" \"yarn install-deps\""
     },
     "repository": "https://github.com/flightpkg/flight.git",
     "author": "@flightpkg",

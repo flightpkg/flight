@@ -21,14 +21,9 @@ We don't have an official release of Flight yet, however, if you would like to g
 <br>
 
 ## Build From Source
+Prerequisites: Git, Yarn and/or NPM, NodeJS.
 
-Prerequisites: **Git**, **NodeJS + NPM**
-
-### Minimum Supported Rust Version (MSRV)
-
-Rust 1.58
-
-### Steps
+## Steps
 
 1. Clone the github repository using the Github CLI.
 
@@ -60,7 +55,7 @@ $ yarn compile
 $ cd dist/js
 -------------
 $ npm init 
-$ yarn ninit
+$ yarn init
 ```
 
 <br>
