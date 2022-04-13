@@ -1,0 +1,28 @@
+{
+	"appDependencies": {
+		"react": {
+			"version": "18.0.0",
+			"dependencies": {
+				"loose-envify": "loose-envify@1.4.0"
+			},
+			"main": "index.js"
+		},
+		"angular": {
+			"version": "1.8.3",
+			"dependencies": {},
+			"main": "index.js"
+		}
+	},
+	"resDependencies": {
+		"loose-envify@1.4.0": {
+			"dependencies": {
+				"js-tokens": "js-tokens@4.0.0"
+			},
+			"main": "index.js"
+		},
+		"js-tokens@4.0.0": {
+			"dependencies": {}
+		}
+	},
+	"warnings": {}
+}

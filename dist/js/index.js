@@ -48950,10 +48950,10 @@ async function get() {
   }
 
   resolve(pkgs)
-    .then(results => fs.writeFile('flight.lock', `${JSON.stringify(results)}`, function (err) {
+    .then(results => fs.writeFile('flight.lock', `${JSON.stringify(results, null, "\t")}`, function (err) {
 
       if (err === null) {
-        console.log("Generated lockfile.")
+        console.log(kleur.bold().green("Lockfile successfully created."))
         const lockfile = fs.readFileSync('./flight.lock')
         const parsed = JSON.parse(lockfile)
         const json = parsed.appDependencies
@@ -48970,7 +48970,7 @@ async function get() {
           const name = x
           const version = json[x].version
           const urlformat = `https://registry.yarnpkg.com/${name}/-/${name}-${version}.tgz`
-          console.log(kleur.bold().blue("Downloading:") + " " + name + " @ " + version + "...");
+          console.log(kleur.bold().blue("Downloading:") + " " + name + " @ " + version + ".");
           const {
             default: {
               stream
@@ -49012,12 +49012,16 @@ async function get() {
                 });
               }
 
-              fs.mkdirSync(`./.flight/${name}/`)
+              if(!fs.existsSync(`./node_modules/${name}/`)){
+                fs.mkdirSync(`./node_modules/${name}/`, {
+                  recursive: true
+                })
+              }
 
               fs.createReadStream(path.resolve(`./.flight/${name}-${version}.tgz`))
                 .pipe(zlib.Unzip())
                 .pipe(tar.extract({
-                  C: `./.flight/${name}/`,
+                  C: `./node_modules/${name}/`,
                   strip: 1
                 }))
                 .on("finish", () => {
