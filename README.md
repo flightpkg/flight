@@ -26,17 +26,34 @@ Prerequisites: Git, Yarn and/or NPM, NodeJS.
 1. Clone the github repository using the Github CLI.
 
 ```bash
-$ git clone https://github.com/flightpkg/flight
+> git clone https://github.com/flightpkg/flight
 ```
 
-2. CD into the `flight` directory.
+2. cd into the `flight` directory.
 
 ```bash
-$ cd flight
+> cd flight
 ```
 
-We dont have any more steps yet.
+3. Build the project into the `dist` directory.
 
+```bash
+> go build -o dist
+```
+4. cd into the `dist` directory.
+```powershell
+cd dist
+```
+
+```powershell
+Windows:
+------------
+> flight.exe
+
+Linux/Unix
+------------
+> ./flight
+```
 <br>
 
 
