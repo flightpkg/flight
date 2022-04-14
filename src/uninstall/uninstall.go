@@ -41,5 +41,6 @@ func Uninstall(name string) {
 	}
 
 	jsonData, _ := json.Marshal(pkgJson)
+	jsonData, _ = json.MarshalIndent(pkgJson, "", "\t")
 	ioutil.WriteFile("./package.json", jsonData, os.ModePerm)
 }

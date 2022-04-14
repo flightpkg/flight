@@ -77,6 +77,10 @@ func Install() {
 
 	/* Removing the `.flight` directory. */
 	os.Remove("./.flight")
+
+	jsonData, _ := json.Marshal(pkgJson)
+	jsonData, _ = json.MarshalIndent(pkgJson, "", "\t")
+	ioutil.WriteFile("./package.json", jsonData, os.ModePerm)
 }
 
 func downloadFile(filepath string, url string) error {
