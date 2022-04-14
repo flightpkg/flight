@@ -5,6 +5,7 @@ import (
 	funcs "flight/funcs"
 	settings "flight/settings"
 	install "flight/src/install"
+	uninstall "flight/src/uninstall"
 	"fmt"
 	"os"
 
@@ -32,6 +33,8 @@ func main() {
 			funcs.Log(settings.Version)
 		} else if args[0] == "install" {
 			install.Install()
+		} else if len(args) > 1 && args[0] == "uninstall" {
+			uninstall.Uninstall(args[1])
 		} else {
 			help()
 		}

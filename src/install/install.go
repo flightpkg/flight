@@ -16,15 +16,13 @@ import (
 
 /* Creating a struct that will be used to store the data from the package.json file. */
 type Package struct {
-	Name         string
-	Version      string
 	Dependencies map[string]string
 }
 
 /* Downloading the dependencies from the package.json file and installing them. */
 func Install() {
 	/* Opening the package.json file and reading it. */
-	jsonFile, err := os.Open("package.json")
+	jsonFile, err := os.Open("./package.json")
 	bytes, _ := ioutil.ReadAll(jsonFile)
 	var pkgJson Package
 	if err != nil {
