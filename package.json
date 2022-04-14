@@ -1,33 +1,14 @@
 {
-    "name": "flight",
-    "version": "0.1.0",
-    "description": "Flight is a universal package manager for your needs, no matter what language you may want to write your code in. ",
-    "main": "cli.js",
     "scripts": {
-        "install-deps": "cd ./src/js/resolver && yarn",
-        "install-deps-frozen": "cd ./src/js/resolver && yarn --frozen-lockfile",
-        "launch": "node ./dist/js/index",
-        "compile": "ncc build cli.js -o dist/js",
-        "ci": "concurrently \"run yarn\" \"yarn install-deps\"",
-        "build": "pkg cli.js && mv cli-linux cli-macos cli-win.exe dist/js"
+        "make": "ncc build ./scripts/bin.js"
     },
-    "repository": "https://github.com/flightpkg/flight.git",
-    "author": "@flightpkg",
-    "license": "MIT",
-    "private": false,
-    "dependencies": {
-        "async": "^3.2.3",
-        "dotenv": "^16.0.0",
-        "fs-extra": "^10.0.1",
-        "got": "11.8.1",
-        "graphlib": "^2.1.8",
-        "kleur": "^4.1.4",
-        "npm-package-arg": "^9.0.2",
-        "superagent": "^7.1.2",
-        "tar": "^6.1.11"
-    },
-    "devDependencies": {
-        "ncc": "^0.3.6",
-        "pkg": "^5.6.0"
-    }
+  "dependencies": {
+    "chalk": "4.1.2",
+    "inquirer": "^8.2.2",
+    "log-update": "4.0.0",
+    "yarn": "^1.22.18"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.33.4"
+  }
 }
