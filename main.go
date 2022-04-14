@@ -32,7 +32,11 @@ func main() {
 		if args[0] == "version" {
 			funcs.Log(settings.Version)
 		} else if args[0] == "install" {
-			install.Install()
+			if len(args) > 1 {
+				install.Install(args[1:])
+			} else {
+				install.InstallAll()
+			}
 		} else if len(args) > 1 && args[0] == "uninstall" {
 			uninstall.Uninstall(args[1])
 		} else {

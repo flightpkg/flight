@@ -26,18 +26,19 @@ func Uninstall(name string) {
 	fmt.Println(color.Bold.Text(color.BgGreen.Text("Uninstaller:")))
 
 	i := 0
-	for name := range pkgJson.Dependencies {
-		for i < len(pkgJson.Dependencies) {
-			name := name
-			version := pkgJson.Dependencies[name]
-			if pkgJson.Dependencies[name] == version {
+	if _, ok := pkgJson.Dependencies[name]; ok {
+		for name := range pkgJson.Dependencies {
+			for i < len(pkgJson.Dependencies) {
+				name := name
+				version := pkgJson.Dependencies[name]
 				delete(pkgJson.Dependencies, name)
 				os.Remove("./node_modules/" + name)
 				fmt.Println(color.Bold.Text(color.Green.Text("Uninstalled")) + " " + name + "@" + version)
-			} else {
-				fmt.Println(color.Bold.Text(color.BgRed.Text("Error:")) + " " + name + "@" + version + " is not installed")
 			}
 		}
+	} else {
+		// print pacakge not found with name
+		fmt.Println(color.Bold.Text(color.Red.Text("Error:")) + " \"" + name + "\" " + color.Bold.Text(color.Red.Text("not found.")))
 	}
 
 	jsonData, _ := json.Marshal(pkgJson)
