@@ -41,7 +41,7 @@ $ cd flight
 
 ```bash
 $ npm i @vercel/ncc
-$ yarn add @vercel/ncc
+$ yarn global add @vercel/ncc
 ```
 
 4. Run the build script
