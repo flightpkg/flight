@@ -129,12 +129,12 @@ func Install(pkgs []string) {
 
 		if err != nil {
 			fmt.Println(color.Bold.Text(color.BgRed.Text("Error:")) + " " + fmt.Sprintf("Package \"%s\" already exists/could not be installed.", name))
-			os.RemoveAll("./node_modules/package")
-			os.RemoveAll("./node_modules/" + name)
 			os.RemoveAll("./.flight")
+			os.RemoveAll("./node_modules/package")
 			os.Exit(0)
 		} else {
 			fmt.Println(color.Bold.Text(color.Green.Text("Installed")) + " " + name + "@" + version)
+			os.RemoveAll("./.flight")
 		}
 	}
 
