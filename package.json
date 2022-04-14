@@ -6,6 +6,7 @@
     "scripts": {
         "install-deps": "cd ./src/js/resolver && yarn",
         "install-deps-frozen": "cd ./src/js/resolver && yarn --frozen-lockfile",
+        "launch": "node ./dist/js/index",
         "compile": "ncc build cli.js -o dist/js",
         "ci": "concurrently \"run yarn\" \"yarn install-deps\""
     },

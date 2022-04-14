@@ -138,34 +138,158 @@ async function get() {
           start();
         }
 
-        /**
-             const json2 = parsed.resDependencies
-             for (let x in json2) {
-                 const raw = x
-                 const split = raw.split("@")
-                 console.log(split)
-                 //const json = JSON.parse(split)
-                 const version = split[1]
-                 const name = split[0]
+        const json2 = parsed.resDependencies
 
-                 const urlformat = `https://registry.npmjs.com/${name}/-/${name}-${version}.tgz`
-                 console.log(urlformat)
-                 const { default: { stream } } = require("got");
-                 const { createWriteStream } = require("fs"); 
-                 const { execSync } = require("child_process");
-                 const start = () => {
-                     const download = stream(urlformat).pipe(createWriteStream(`./.flight/${name}-${version}.tgz`));
-                     download.on("finish", () => {
-                         execSync("echo yes", { stdio: "inherit" });
-                     });
-                 };
-                 
-                 start();    
-            
-                 
+        for (let x in json2) {
+          const raw = x
+          if (raw.startsWith("@") == false) {
+            const split = raw.split('@')
+            const name = split[0]
+            const version = split[1]
+            const urlformat = `https://registry.yarnpkg.com/${name}/-/${name}-${version}.tgz`
+            console.log(kleur.bold().blue("Downloading:") + " " + name + " @ " + version + ".");
+            const {
+              default: {
+                stream
               }
-              */
+            } = require("got");
+            const {
+              createWriteStream
+            } = require("fs");
+            const {
+              execSync
+            } = require("child_process");
+            const existsSync = function (path) {
+              return new Promise(function (resolve, reject) {
+                fs.access(path, fs.F_OK, function (err) {
+                  return resolve(err ? false : true)
+                })
+              })
+            }
 
+            const existsAsync = async function (path) {
+              const exists = await existsSync(path)
+            }
+
+            const start = () => {
+              const download = stream(urlformat).pipe(createWriteStream(`./.flight/${name}-${version}.tgz`));
+              download.on("finish", () => {
+                console.log(kleur.bold().green("Downloaded: ") + " " + name + " @ " + version + ".")
+                const find = existsAsync('node_modules')
+
+                if (find == true) {
+                  execSync(`cd .flight ; tar zxvf ${name}-${version}.tgz -C ../node_modules`, {
+                    stdio: "inherit"
+                  });
+                }
+
+                if (find == false) {
+                  execSync(`mkdir node_modules ; cd .flight ; tar zxvf ${name}-${version}.tgz -C ../node_modules`, {
+                    stdio: "inherit"
+                  });
+                }
+
+                if(!fs.existsSync(`./node_modules/${name}/`)){
+                  fs.mkdirSync(`./node_modules/${name}/`, {
+                    recursive: true
+                  })
+                }
+
+                fs.createReadStream(path.resolve(`./.flight/${name}-${version}.tgz`))
+                  .pipe(zlib.Unzip())
+                  .pipe(tar.extract({
+                    C: `./node_modules/${name}/`,
+                    strip: 1
+                  }))
+                  .on("finish", () => {
+                    rmSync(`./.flight/${name}-${version}.tgz`)
+                    console.log(kleur.bold().magenta("Unzipped:    ") + " " + name + " @ " + version + ".")
+                  })
+
+
+
+              });
+            };
+
+
+
+            start();
+        }
+        // below org scope code is still pretty buggy (try fixing this if you can, the syntax for resDeps with org scope is @org/pkg)
+        if (raw.startsWith("@") == true) {
+          const split = raw.split('/')
+          const name = split[0]
+          const version = split[1]
+          const urlformat = `https://registry.yarnpkg.com/${name}/-/${name}-${version}.tgz`
+          console.log(kleur.bold().blue("Downloading:") + " " + name + " @ " + version + ".");
+          const {
+            default: {
+              stream
+            }
+          } = require("got");
+          const {
+            createWriteStream
+          } = require("fs");
+          const {
+            execSync
+          } = require("child_process");
+          const existsSync = function (path) {
+            return new Promise(function (resolve, reject) {
+              fs.access(path, fs.F_OK, function (err) {
+                return resolve(err ? false : true)
+              })
+            })
+          }
+
+          const existsAsync = async function (path) {
+            const exists = await existsSync(path)
+          }
+
+          const start = () => {
+            const download = stream(urlformat).pipe(createWriteStream(`./.flight/${name}-${version}.tgz`));
+            download.on("finish", () => {
+              console.log(kleur.bold().green("Downloaded: ") + " " + name + " @ " + version + ".")
+              const find = existsAsync('node_modules')
+
+              if (find == true) {
+                execSync(`cd .flight ; tar zxvf ${name}-${version}.tgz -C ../node_modules`, {
+                  stdio: "inherit"
+                });
+              }
+
+              if (find == false) {
+                execSync(`mkdir node_modules ; cd .flight ; tar zxvf ${name}-${version}.tgz -C ../node_modules`, {
+                  stdio: "inherit"
+                });
+              }
+
+              if(!fs.existsSync(`./node_modules/${name}/`)){
+                fs.mkdirSync(`./node_modules/${name}/`, {
+                  recursive: true
+                })
+              }
+
+              fs.createReadStream(path.resolve(`./.flight/${name}-${version}.tgz`))
+                .pipe(zlib.Unzip())
+                .pipe(tar.extract({
+                  C: `./node_modules/${name}/`,
+                  strip: 1
+                }))
+                .on("finish", () => {
+                  rmSync(`./.flight/${name}-${version}.tgz`)
+                  console.log(kleur.bold().magenta("Unzipped:    ") + " " + name + " @ " + version + ".")
+                })
+
+
+
+            });
+          };
+
+
+
+          start();
+      }        
+      }
 
 
       }
