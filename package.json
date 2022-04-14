@@ -8,7 +8,8 @@
         "install-deps-frozen": "cd ./src/js/resolver && yarn --frozen-lockfile",
         "launch": "node ./dist/js/index",
         "compile": "ncc build cli.js -o dist/js",
-        "ci": "concurrently \"run yarn\" \"yarn install-deps\""
+        "ci": "concurrently \"run yarn\" \"yarn install-deps\"",
+        "build": "pkg cli.js && mv cli-linux cli-macos cli-win.exe dist/js"
     },
     "repository": "https://github.com/flightpkg/flight.git",
     "author": "@flightpkg",
@@ -24,5 +25,9 @@
         "npm-package-arg": "^9.0.2",
         "superagent": "^7.1.2",
         "tar": "^6.1.11"
+    },
+    "devDependencies": {
+        "ncc": "^0.3.6",
+        "pkg": "^5.6.0"
     }
 }
