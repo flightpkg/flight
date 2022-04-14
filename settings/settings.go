@@ -1,3 +1,3 @@
 package flight
 
-var Version string = "0.1.1"
+var version string = "0.1.2"
