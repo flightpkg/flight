@@ -218,9 +218,13 @@ async function get() {
         // below org scope code is still pretty buggy (try fixing this if you can, the syntax for resDeps with org scope is @org/pkg)
         if (raw.startsWith("@") == true) {
           const split = raw.split('/')
-          const name = split[0]
-          const version = split[1]
-          const urlformat = `https://registry.yarnpkg.com/${name}/-/${name}-${version}.tgz`
+          const scope = split[0]
+          console.log(scope)
+          const pkg = split[1]
+          const version = pkg.split('@')[1]
+          const name = pkg.split('@')[0]
+          console.log(version)
+          const urlformat = `https://registry.yarnpkg.com/${scope}/${name}/-/${name}-${version}.tgz`
           console.log(kleur.bold().blue("Downloading:") + " " + name + " @ " + version + ".");
           const {
             default: {
