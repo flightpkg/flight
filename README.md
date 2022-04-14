@@ -7,8 +7,8 @@
 <br>
 
 <p align="center">
-<img src="https://img.shields.io/github/languages/code-size/flightpkg/flight?color=6190E8">
-<img src="https://img.shields.io/github/issues/flightpkg/flight?color=6190E8">
+<img src="https://img.shields.io/github/languages/code-size/flightpkg/flight/golang?color=6190E8&style=flat-square">
+<img src="https://img.shields.io/github/commit-activity/m/flightpkg/flight/golang?label=6190E8&style=flat-square"/>
 <img src="https://img.shields.io/github/languages/top/flightpkg/flight?color=6190E8">
 <img src="https://img.shields.io/tokei/lines/github/flightpkg/flight?color=6190E8&label=lines%20of%20code">
 </p>
