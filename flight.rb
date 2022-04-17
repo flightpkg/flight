@@ -12,9 +12,7 @@ class Flight < Formula
   depends_on "node"
 
   def install
-    # ENV.deparallelize  # if your formula fails when building in parallel
     FileUtils.mkdir_p '../../../usr/local/flight'
-    # system "mkdir ~/usr/local/flight"
     origin = Dir.getwd
     destination = '../../../usr/local/flight'
     
