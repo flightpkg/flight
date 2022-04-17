@@ -1,29 +1,42 @@
-import semver from 'semver';
-import { Graph } from 'graphlib';
-import { NpmHttpRegistry } from '.';
-import { Dependencies, PackageJson, Packument, PackumentVersion } from '@npm/types';
-import { queue, QueueObject } from 'async';
-const packageJsonProps = ['main', 'browser', 'module', 'types', 'typings', 'js:next', 'unpkg'];
+import semver from "semver";
+import { Graph } from "graphlib";
+import { NpmHttpRegistry } from ".";
+import {
+  Dependencies,
+  PackageJson,
+  Packument,
+  PackumentVersion,
+} from "@npm/types";
+import { queue, QueueObject } from "async";
+const packageJsonProps = [
+  "main",
+  "browser",
+  "module",
+  "types",
+  "typings",
+  "js:next",
+  "unpkg",
+];
 
 interface ResolutionError {
-  error: string,
-  data: unknown
+  error: string;
+  data: unknown;
 }
 
 interface Task {
-  name: string,
-  version: string | semver.Range,
-  parentNode: any
+  name: string;
+  version: string | semver.Range;
+  parentNode: string;
 }
 
 interface JPack {
-  appDependencies: Record<string, PackumentVersion>,
-  resDependencies: Record<string, PackumentVersion>,
+  appDependencies: Record<string, PackumentVersion>;
+  resDependencies: Record<string, PackumentVersion>;
   warnings: {
     invalidPeers: Record<string, Dependencies>;
     missingPeers: Record<string, Dependencies>;
     requestedPeers: Record<string, Dependencies>;
-  }
+  };
 }
 
 export class Resolver {
@@ -56,8 +69,8 @@ export class Resolver {
       warnings: {
         invalidPeers: {},
         missingPeers: {},
-        requestedPeers: {}
-      }
+        requestedPeers: {},
+      },
     };
     this.packageJsonProps = {
       name: "",
@@ -84,20 +97,19 @@ export class Resolver {
       repository: undefined,
       scripts: undefined,
       types: undefined,
-    }
+    };
     this.timeout = 10000;
     this.startTime = 0;
     this.queue = queue((task, done) => {
       if (Date.now() - this.startTime > this.timeout || this.error) {
         if (!this.error) {
-          this.error = { error: 'TIMEOUT', data: null };
+          this.error = { error: "TIMEOUT", data: null };
         }
         return done();
       }
 
       this.loadRegistryPackage(task);
     }, this.concurrency);
-
 
     this.queue.pause();
   }
@@ -108,14 +120,12 @@ export class Resolver {
     try {
       const pkg = await this.registry.fetch(name);
       await this.resolveDependencies(task, pkg);
-    }
-    catch {
+    } catch {
       this.error = {
-        error: 'PACKAGE_NOT_FOUND',
-        data: name
+        error: "PACKAGE_NOT_FOUND",
+        data: name,
       };
     }
-
   }
 
   async resolveDependencies(task: Task, registryPackage: Packument) {
@@ -123,15 +133,15 @@ export class Resolver {
 
     if (!version) {
       this.error = {
-        error: 'MISSING_VERSION',
-        data: task.name
+        error: "MISSING_VERSION",
+        data: task.name,
       };
       return;
     }
 
     const fullName = `${registryPackage.name}@${version}`;
     const versionPackageJson = registryPackage.versions[version];
-    const isRootDependency = task.parentNode === 'root';
+    const isRootDependency = task.parentNode === "root";
     const subDepsResolved = this.graph.hasNode(fullName);
 
     if (isRootDependency) {
@@ -142,52 +152,71 @@ export class Resolver {
       this.graph.setEdge(task.parentNode, fullName);
     }
 
-    if (subDepsResolved) { return; }
-    // TYPO IN THE PACKAGE 
+    if (subDepsResolved) {
+      return;
+    }
+    // TYPO IN THE PACKAGE
     const dependencies = {
       ...versionPackageJson.depedencies,
-      ...versionPackageJson.peerDependencies
+      ...versionPackageJson.peerDependencies,
     };
     if (isRootDependency && versionPackageJson.peerDependencies) {
       this.requestedPeers[fullName] = versionPackageJson.peerDependencies;
-      Object.keys(versionPackageJson.peerDependencies).forEach(peerName => this.graph.setEdge(fullName, peerName));
+      Object.keys(versionPackageJson.peerDependencies).forEach(peerName =>
+        this.graph.setEdge(fullName, peerName),
+      );
     }
 
     const depNames = Object.keys(dependencies);
 
     await this.registry.batchFetch(depNames);
     //TODO fix whatever this does
-    depNames.forEach(name => this.queue.push({
-      name,
-      version: dependencies[name],
-      parentNode: fullName
-    }));
+    depNames.forEach(name =>
+      this.queue.push({
+        name,
+        version: dependencies[name],
+        parentNode: fullName,
+      }),
+    );
   }
 
-  async resolveVersion(requestedVersion: semver.Range | string, registryPackage: Packument) {
-    if (typeof requestedVersion === 'string' &&
-      registryPackage['dist-tags'] &&
-      registryPackage['dist-tags'].hasOwnProperty(requestedVersion)
+  async resolveVersion(
+    requestedVersion: semver.Range | string,
+    registryPackage: Packument,
+  ) {
+    if (
+      typeof requestedVersion === "string" &&
+      registryPackage["dist-tags"] &&
+      registryPackage["dist-tags"].hasOwnProperty(requestedVersion)
     ) {
-      return registryPackage['dist-tags'][requestedVersion];
+      return registryPackage["dist-tags"][requestedVersion];
     }
 
     const availableVersions = Object.keys(registryPackage.versions);
 
-    if (requestedVersion === '') {
-      requestedVersion = '*';
+    if (requestedVersion === "") {
+      requestedVersion = "*";
     }
 
-    let version = semver.maxSatisfying(availableVersions, requestedVersion, true);
+    let version = semver.maxSatisfying(
+      availableVersions,
+      requestedVersion,
+      true,
+    );
 
-    if (!version && requestedVersion === '*' && registryPackage['dist-tags'].latest) {
-      version = registryPackage['dist-tags'] && registryPackage['dist-tags'].latest;
+    if (
+      !version &&
+      requestedVersion === "*" &&
+      registryPackage["dist-tags"].latest
+    ) {
+      version =
+        registryPackage["dist-tags"] && registryPackage["dist-tags"].latest;
     }
 
     if (!version) {
       this.error = {
-        error: 'UNSATISFIED_RANGE',
-        data: { name: registryPackage.name, range: requestedVersion }
+        error: "UNSATISFIED_RANGE",
+        data: { name: registryPackage.name, range: requestedVersion },
       };
       return;
     }
@@ -196,7 +225,7 @@ export class Resolver {
   }
 
   validatePeerDependencies() {
-    const topDeps = this.graph.successors('root') ?? undefined;
+    const topDeps = this.graph.successors("root") ?? undefined;
 
     for (const [fullName, peers] of Object.entries(this.requestedPeers)) {
       for (const [peerName, requestedPeerVersion] of Object.entries(peers)) {
@@ -206,7 +235,12 @@ export class Resolver {
           }
 
           this.missingPeers[peerName][fullName] = requestedPeerVersion;
-        } else if (!semver.satisfies(this.graph.node(peerName).version, requestedPeerVersion)) {
+        } else if (
+          !semver.satisfies(
+            this.graph.node(peerName).version,
+            requestedPeerVersion,
+          )
+        ) {
           if (!this.invalidPeers[fullName]) {
             this.invalidPeers[fullName] = {};
           }
@@ -217,68 +251,85 @@ export class Resolver {
     }
     if (Object.keys(this.missingPeers).length) {
       this.error = {
-        error: 'MISSING_PEERS',
-        data: this.missingPeers
+        error: "MISSING_PEERS",
+        data: this.missingPeers,
       };
     }
   }
 
-
-  fillJpackDep(fullName: string, versionPkg: PackumentVersion | null, dep: PackumentVersion) {
+  fillJpackDep(
+    fullName: string,
+    versionPkg: PackumentVersion | null,
+    dep: PackumentVersion,
+  ) {
     const successors = this.graph.successors(fullName);
     if (!successors) {
       return;
     }
     successors.forEach(name => {
-      if (name.substring(1).indexOf('@') === -1) {
+      if (name.substring(1).indexOf("@") === -1) {
         const peerDep = this.graph.node(name);
-        // TYPO IN THE PACKAGE 
+        // TYPO IN THE PACKAGE
         if (peerDep && dep.depedencies) {
           dep.depedencies[name] = `${name}@${peerDep.version}`;
         }
       } else {
-        // TYPO IN THE PACKAGE 
+        // TYPO IN THE PACKAGE
         if (dep.depedencies) {
-          dep.depedencies[name.substring(0, name.lastIndexOf('@'))] = name;
+          dep.depedencies[name.substring(0, name.lastIndexOf("@"))] = name;
         }
         this.addJpackResDep(name);
       }
     });
 
     if (versionPkg) {
-      dep = { ...dep, ...versionPkg }
+      dep = { ...dep, ...versionPkg };
     }
   }
 
   addJpackResDep(fullName: string) {
     if (!this.jpack.resDependencies.hasOwnProperty(fullName)) {
-      const atIndex = fullName.lastIndexOf('@');
+      const atIndex = fullName.lastIndexOf("@");
 
       if (atIndex <= 0) {
-        this.fillJpackDep(fullName, null, this.jpack.appDependencies[fullName])
+        this.fillJpackDep(fullName, null, this.jpack.appDependencies[fullName]);
       } else {
         const depName = fullName.substring(0, atIndex);
         const version = fullName.substring(atIndex + 1);
         const versionPkg = this.registry.cache[depName].versions[version];
-        this.jpack.resDependencies[fullName] = { ...this.jpack.resDependencies[fullName], version };
+        this.jpack.resDependencies[fullName] = {
+          ...this.jpack.resDependencies[fullName],
+          version,
+        };
 
-        this.fillJpackDep(fullName, versionPkg, this.jpack.resDependencies[fullName]);
+        this.fillJpackDep(
+          fullName,
+          versionPkg,
+          this.jpack.resDependencies[fullName],
+        );
       }
     }
   }
 
   renderJpack() {
-    const root = this.graph.successors('root');
+    const root = this.graph.successors("root");
     if (!root) {
       return;
     }
     for (const depName of root) {
       const { version, fullName } = this.graph.node(depName);
       const versionPkg = this.registry.cache[depName].versions[version];
-      this.jpack.appDependencies[depName] = { ...this.jpack.appDependencies[depName], version };
+      this.jpack.appDependencies[depName] = {
+        ...this.jpack.appDependencies[depName],
+        version,
+      };
 
-      this.fillJpackDep(fullName, versionPkg, this.jpack.appDependencies[depName]);
-    };
+      this.fillJpackDep(
+        fullName,
+        versionPkg,
+        this.jpack.appDependencies[depName],
+      );
+    }
 
     if (Object.keys(this.invalidPeers).length) {
       this.jpack.warnings.invalidPeers = this.invalidPeers;
@@ -293,11 +344,13 @@ export class Resolver {
         return resolve(this.jpack);
       }
 
-      depNames.forEach(name => this.queue.push({
-        name,
-        version: dependencies[name],
-        parentNode: 'root'
-      }));
+      depNames.forEach(name =>
+        this.queue.push({
+          name,
+          version: dependencies[name],
+          parentNode: "root",
+        }),
+      );
 
       this.queue.drain(async () => {
         if (this.error) {
@@ -322,4 +375,4 @@ export class Resolver {
       this.queue.resume();
     });
   }
-};
+}

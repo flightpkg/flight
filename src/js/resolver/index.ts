@@ -1,2 +1,2 @@
-export * from './registries/npm-http';
-export * from './resolver';
+export * from "./registries/npm-http";
+export * from "./resolver";
