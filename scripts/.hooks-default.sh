@@ -39,7 +39,7 @@ function get_develop_branch_name {
 # Parameter $1 - current release version as text
 # Returns the master branch name as text
 function get_master_branch_name {
-  echo "master"
+  echo "main"
 }
 
 # Hook method to format the release branch name
