@@ -1,1 +1,2 @@
-.github/CODEOWNERS @flightpkg/flight
+*.js @CompeyDev
+*.go @monitrr
