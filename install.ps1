@@ -1,18 +1,8 @@
-$latestsha="ce70828b6084f9ef532b8842ec2741490df81837"
+$latestsha="01ccffbd0d6c8a2a1935b9cc9256567b8c66abeef6171c3f813920b831ec1e47"
 
 
 
-echo " 
-
-
-
-
-
-
-
-
-
-
+echo "
     ___  __    _         __       _    
   .' ..][  |  (_)       [  |     / |_  
  _| |_   | |  __   .--./)| |--. `| |-' 
@@ -39,5 +29,6 @@ Remove-Item -Path cli-linux -Force >$null 2>&1
 Remove-Item -Path cli-macos -Force >$null 2>&1
 set "PATH=$cd;$PATH">$null 2>&1
 echo "Successfully installed flight." 
+cd $env:HOME
 
 Read-Host -Prompt "Press enter to exit"
