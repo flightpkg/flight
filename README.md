@@ -7,9 +7,10 @@
 <br>
 
 <p align="center">
+<img src="https://github.com/flightpkg/flight/actions/workflows/compile.yml/badge.svg?branch=main">
+<img src="https://sonarcloud.io/api/project_badges/measure?project=flightpkg_flight&metric=alert_status">
 <img src="https://img.shields.io/github/languages/code-size/flightpkg/flight?color=6190E8">
 <img src="https://img.shields.io/github/issues/flightpkg/flight?color=6190E8">
-<img src="https://img.shields.io/github/languages/top/flightpkg/flight?color=6190E8">
 <img src="https://img.shields.io/github/package-json/v/flightpkg/flight?color=6190E8">
 <img src="https://img.shields.io/tokei/lines/github/flightpkg/flight?color=6190E8&label=lines%20of%20code">
 </p>
@@ -17,8 +18,25 @@
 
 # :zap: Installation
 
-We don't have an official release of Flight yet, however, if you would like to give it a try, feel free to follow the steps below to build from source.
+We don't have an official release of Flight yet, however, if you would like to give it a try, feel free to follow the steps below to install a pre-alpha release.
 <br>
+
+### Linux:
+
+#### NodeJS based installer:
+```bash
+$ curl https://raw.githubusercontent.com/flightpkg/flight/setup/dist/index.js -O | node
+```
+
+#### Homebrew:
+```bash
+$ brew install flightpkg/flight
+```
+
+### Windows:
+```bash
+> iwr -useb https://raw.githubusercontent.com/flightpkg/flight/main/install.ps1 | iex
+```
 
 ## Build From Source
 Prerequisites: Git, Yarn and/or NPM, NodeJS.
