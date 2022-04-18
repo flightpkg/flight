@@ -7,7 +7,7 @@
         "install-deps": "cd ./src/js/resolver && yarn",
         "install-deps-frozen": "cd ./src/js/resolver && yarn --frozen-lockfile",
         "launch": "node ./dist/js/index",
-        "compile": "ncc build cli.js -o dist/js",
+        "compile": "ncc build cli.ts -o dist/js",
         "ci": "concurrently \"run yarn\" \"yarn install-deps\"",
         "build": "pkg cli.js && mv cli-linux cli-macos cli-win.exe dist/js"
     },
@@ -16,7 +16,7 @@
     "license": "MIT",
     "private": false,
     "dependencies": {
-        "async": "^3.2.3",
+        "axios": "^0.26.1",
         "dotenv": "^16.0.0",
         "fs-extra": "^10.0.1",
         "got": "11.8.1",
@@ -27,7 +27,16 @@
         "tar": "^6.1.11"
     },
     "devDependencies": {
-        "ncc": "^0.3.6",
-        "pkg": "^5.6.0"
+        "@npm/types": "^1.0.1",
+        "@types/tar": "^6.1.1",
+        "@typescript-eslint/eslint-plugin": "^5.19.0",
+        "@typescript-eslint/parser": "^5.19.0",
+        "@vercel/ncc": "^0.33.4",
+        "eslint": "^8.13.0",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-plugin-prettier": "^4.0.0",
+        "pkg": "^5.6.0",
+        "prettier": "^2.6.2",
+        "typescript": "^4.6.3"
     }
 }
