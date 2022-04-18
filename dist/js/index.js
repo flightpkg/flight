@@ -18034,6 +18034,42 @@ try {
 
 /***/ }),
 
+/***/ 6374:
+/***/ ((module) => {
+
+module.exports = {
+    help_menu: `
+    Usage: flight [command] [flags]
+  
+    Displays help information.
+  
+    Options:
+      -h, --help                          output usage information
+      -js, --js                           install nodejs packages
+  
+    Commands:
+      - install
+      - uninstall
+  
+    Run flight --help COMMAND for more information on specific commands.\n`,
+
+    tagline_short: `Swift, reliable, multi-language package manager.`,
+
+    tagline_long: `Flight is a universal package manager for your needs, no matter what language you may want to write your code in.`,
+
+    authors: `CompeyDev; monitrr`,
+
+    Sha256_Checksum: `01ccffbd0d6c8a2a1935b9cc9256567b8c66abeef6171c3f813920b831ec1e47`,
+
+    version: `v0.0.1`,
+
+    license: `Apache-2.0`,
+
+    download_url: `https://github.com/flightpkg/flight/archive/refs/tags/v0.0.1`
+}
+
+/***/ }),
+
 /***/ 2962:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
@@ -43745,6 +43781,7 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
 const args = process.argv.slice(2);
+const { help_menu } = __nccwpck_require__(6374);
 const lib = __nccwpck_require__(2962)
 
 if (args[0] == "-js" || args[0] == "--js") {
@@ -43755,20 +43792,7 @@ if (args[0] == "-js" || args[0] == "--js") {
   } 
 } else if (args[0] == undefined  || args[0] == "--help" || args[0] == "-h") {
 
-  process.stdout.write(`
-  Usage: flight [command] [flags]
-
-  Displays help information.
-
-  Options:
-    -h, --help                          output usage information
-    -js, --js                           install nodejs packages
-
-  Commands:
-    - install
-    - uninstall
-
-  Run flight --help COMMAND for more information on specific commands.\n`, )
+  process.stdout.write(help_menu)
 }
 
 })();
