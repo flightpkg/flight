@@ -43,7 +43,7 @@ Prerequisites: Git, Yarn and/or NPM, NodeJS.
 
 ## Steps
 
-1. Clone the github repository using the Github CLI.
+1. Clone the repository using git.
 
 ```bash
 $ git clone https://github.com/flightpkg/flight
@@ -64,8 +64,8 @@ $ yarn global add @vercel/ncc
 
 4. Run the build script
 ```bash
-$ npm run compile
-$ yarn compile
+$ npm run compile && npm run build
+$ yarn compile && yarn build
 ```
 
 5. CD into the dist/js directory, then init.
