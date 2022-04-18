@@ -1,16 +1,21 @@
 {
-    "name": "@flightpkg/resolver",
-    "version": "0.1.0",
-    "main": "index.js",
-    "repository": {
-      "type": "git",
-      "url": "https://github.com/flightpkg/flight.git"
-    },
-    "dependencies": {
-      "async": "^2.6.0",
-      "graphlib": "^2.1.5",
-      "npm-package-arg": "^6.0.0",
-      "semver": "^5.5.0",
-      "superagent": "^3.8.2"
-    }
+  "name": "@flightpkg/resolver",
+  "version": "0.1.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/flightpkg/flight.git"
+  },
+  "dependencies": {
+    "async": "^3.2.3",
+    "graphlib": "^2.1.5",
+    "npm-package-arg": "^6.1.1",
+    "semver": "^5.5.0"
+  },
+  "devDependencies": {
+    "@types/async": "^3.2.12",
+    "@types/graphlib": "^2.1.8",
+    "@types/npm-package-arg": "^6.1.1",
+    "@types/semver": "^7.3.9"
   }
+}
