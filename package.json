@@ -24,7 +24,8 @@
         "kleur": "^4.1.4",
         "npm-package-arg": "^9.0.2",
         "superagent": "^7.1.2",
-        "tar": "^6.1.11"
+        "tar": "^6.1.11",
+        "toml": "^3.0.0"
     },
     "devDependencies": {
         "ncc": "^0.3.6",
