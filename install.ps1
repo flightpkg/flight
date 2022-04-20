@@ -27,7 +27,7 @@ cd dist/js
 Rename-Item -Path "cli-win.exe" -NewName "flight.exe" >$null 2>&1
 Remove-Item -Path cli-linux -Force >$null 2>&1
 Remove-Item -Path cli-macos -Force >$null 2>&1
-set "PATH=$cd;$PATH">$null 2>&1
+setx "PATH=$cd;$PATH">$null 2>&1
 echo "Successfully installed flight." 
 cd $env:HOME
 
