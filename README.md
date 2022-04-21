@@ -25,7 +25,7 @@ We don't have an official release of Flight yet, however, if you would like to g
 
 #### Shell script (Recommended):
 ```bash
-$ curl https://raw.githubusercontent.com/flightpkg/flight/main/install.sh -O | sh
+$ curl https://raw.githubusercontent.com/flightpkg/flight/main/install.sh -O && bash -f install.sh
 ```
 
 #### Homebrew:
