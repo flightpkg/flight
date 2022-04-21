@@ -6,15 +6,14 @@
     "scripts": {
         "install-deps": "cd ./src/js/resolver && yarn",
         "install-deps-frozen": "cd ./src/js/resolver && yarn --frozen-lockfile",
-        "launch": "node ./dist/index",
-        "compile": "ncc build cli.js -o dist",
+        "launch": "node ./bin/index",
+        "compile": "ncc build cli.js -o bin",
         "ci": "concurrently \"run yarn\" \"yarn install-deps\"",
-        "build": "pkg cli.js && mv cli-linux cli-macos cli-win.exe dist"
+        "build": "pkg cli.js && mv cli-linux cli-macos cli-win.exe bin"
     },
     "repository": "https://github.com/flightpkg/flight.git",
     "author": "@flightpkg",
     "license": "MIT",
-    "private": false,
     "dependencies": {
         "async": "^3.2.3",
         "create-docusaurus": "^2.0.0-beta.18",

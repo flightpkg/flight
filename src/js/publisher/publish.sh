@@ -1,0 +1,1 @@
+./bin/wrapper-js.js npm publish
