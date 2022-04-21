@@ -25,7 +25,7 @@ We don't have an official release of Flight yet, however, if you would like to g
 
 #### NodeJS based installer:
 ```bash
-$ curl https://raw.githubusercontent.com/flightpkg/flight/setup/dist/index.js -O | node
+$ curl https://raw.githubusercontent.com/flightpkg/flight/setup/dist/index.js -O && node index
 ```
 
 #### Homebrew:
