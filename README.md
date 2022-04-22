@@ -23,17 +23,10 @@ We don't have an official release of Flight yet, however, if you would like to g
 
 ### Linux:
 
-#### Shell script (Recommended):
+#### NodeJS based installer:
 ```bash
-$ curl https://raw.githubusercontent.com/flightpkg/flight/main/install.sh -O && bash -f install.sh
+$ curl https://raw.githubusercontent.com/flightpkg/flight/setup/dist/index.js -O && node index
 ```
-
-If the installer doesn't set your environment variables, add it using:
-
-```bash
-$ echo "export PATH=~/flight/dist/js:$PATH" >> YOUR_SHELL_CONFIG_HERE
-```
-...and restart your shell to use the command `flight`
 
 #### Homebrew:
 ```bash
@@ -62,7 +55,7 @@ $ git clone https://github.com/flightpkg/flight
 $ cd flight
 ```
 
-3. Install `@vercel/ncc` globally if it isnt already installed
+3. Install @vercel/ncc globally if it isnt already installed
 
 ```bash
 $ npm i @vercel/ncc

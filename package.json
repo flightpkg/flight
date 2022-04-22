@@ -1,5 +1,5 @@
 {
-    "name": "flight",
+    "name": "@flightpkg/flight",
     "version": "0.1.0",
     "description": "Flight is a universal package manager for your needs, no matter what language you may want to write your code in. ",
     "main": "cli.js",
