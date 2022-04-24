@@ -40,7 +40,6 @@ flight_get_tarball() {
     mv "$temp"/*/* flight
     rm -rf "$temp"
     rm $tarball_tmp*
-    echo "export PATH=~/flight/dist/js:$PATH" >> $DETECTED_PROFILE
     cd flight/dist/js
     mv cli-linux flight
     rm -rf cli-win.exe cli-macos
@@ -110,19 +109,24 @@ flight_detect_profile() {
   if [ -z "$DETECTED_PROFILE" ]; then
     if [ -f "$HOME/.profile" ]; then
       DETECTED_PROFILE="$HOME/.profile"
+      # echo "export PATH=~/flight/dist/js:$PATH" >> $DETECTED_PROFILE
     elif [ -f "$HOME/.bashrc" ]; then
       DETECTED_PROFILE="$HOME/.bashrc"
+      # echo "export PATH=~/flight/dist/js:$PATH" >> $DETECTED_PROFILE
     elif [ -f "$HOME/.bash_profile" ]; then
       DETECTED_PROFILE="$HOME/.bash_profile"
+      # echo "export PATH=~/flight/dist/js:$PATH" >> $DETECTED_PROFILE
     elif [ -f "$HOME/.zshrc" ]; then
       DETECTED_PROFILE="$HOME/.zshrc"
+      # echo "export PATH=~/flight/dist/js:$PATH" >> $DETECTED_PROFILE
     elif [ -f "$HOME/.config/fish/config.fish" ]; then
       DETECTED_PROFILE="$HOME/.config/fish/config.fish"
+      # echo "export PATH=~/flight/dist/js:$PATH" >> $DETECTED_PROFILE
     fi
   fi
 
   if [ ! -z "$DETECTED_PROFILE" ]; then
-    echo "$DETECTED_PROFILE"
+    echo "export PATH=~/flight/dist/js:$PATH" >> $DETECTED_PROFILE
   fi
 }
 
@@ -165,13 +169,16 @@ flight_install() {
         rm -rf "$HOME/flight"
       fi
     else
+      rm -rf $HOME/flight
       printf "$red> $HOME/flight already exists, possibly from a past flight install.$reset\n"
       printf "$red> Remove it (rm -rf $HOME/flight) and run this script again.$reset\n"
       exit 0
     fi
   fi
 
-  echo "$DETECTED_PROFILE"
+  flight_detect_profile
+  
+ 
   
   
 
