@@ -25,7 +25,7 @@ We don't have an official release of Flight yet, however, if you would like to g
 
 #### Shell script (Recommended):
 ```bash
-$ curl -qL https://raw.githubusercontent.com/flightpkg/flight/main/install.sh | sh
+$ curl -qL https://raw.githubusercontent.com/flightpkg/flight/main/install.sh | bash
 ```
 
 If the installer doesn't set your environment variables, add it using:
