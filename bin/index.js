@@ -43358,6 +43358,27 @@ module.exports = class Resolver {
 
 /***/ }),
 
+/***/ 101:
+/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
+
+function run(command) {
+    const cp = __nccwpck_require__(2081);
+    const child = cp.exec(`./rust-install ${command}`, {stdio: "inherit"})
+    child.stdout.on('data', (data) => {
+    console.log(`${data}`);
+  });
+
+  child.stderr.on('data', (data) => {
+    console.error(`${data}`);
+  });
+}
+
+module.exports = {
+    run
+}
+
+/***/ }),
+
 /***/ 6183:
 /***/ ((module) => {
 
@@ -43858,15 +43879,16 @@ var __webpack_exports__ = {};
 
 const args = process.argv.slice(2);
 const { help_menu } = __nccwpck_require__(4438);
-const lib = __nccwpck_require__(9562)
+const lib_js = __nccwpck_require__(9562)
+const lib_rs = __nccwpck_require__(101)
 const { exec } = __nccwpck_require__(2081);
 const cp = __nccwpck_require__(2081);
 
 if (args[0] == "-js" || args[0] == "--js") {
   if (args[1] == "install" || args[1] == "i") {
-    lib.get()
+    lib_js.get()
   } else if (args[1] == "uninstall") {
-    lib.uninstall(args[1])
+    lib_js.uninstall(args[1])
   } else if (args[1] == "publish") {
     const child = cp.exec('./src/js/publisher/publish.sh', {stdio: "inherit"})
     child.stdout.on('data', (data) => {
@@ -43876,12 +43898,17 @@ if (args[0] == "-js" || args[0] == "--js") {
   child.stderr.on('data', (data) => {
     console.error(`ERROR:\n${data}`);
   });
-  } 
 } else if (args[0] == undefined  || args[0] == "--help" || args[0] == "-h") {
 
   process.stdout.write(help_menu)
 }
+  } else if (args[0] == "-rs" || args[0] == "--rs") {
+    if (args[1] == undefined) {
+      process.stdout.write(help_menu)
+    } else if (args[1] !== undefined) {
+      lib_rs.run(args[1])
 
+}}
 
 })();
 
