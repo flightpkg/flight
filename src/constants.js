@@ -7,10 +7,18 @@ module.exports = {
     Options:
       -h, --help                          output usage information
       -js, --js                           install nodejs packages
+      -luau --luau                        install luau packages
   
     Commands:
       - install
       - uninstall
+      - init
+      - build
+      - run
+      - publish
+      - update
+      - login
+      - logout
   
     Run flight --help COMMAND for more information on specific commands.\n`,
 
