@@ -43436,6 +43436,14 @@ module.exports = {
 
 /***/ }),
 
+/***/ 5164:
+/***/ ((module) => {
+
+module.exports = eval("require")("./src/lib");
+
+
+/***/ }),
+
 /***/ 6183:
 /***/ ((module) => {
 
@@ -43935,11 +43943,44 @@ var __webpack_exports__ = {};
 (() => {
 
 const args = process.argv.slice(2);
-const { help_menu } = __nccwpck_require__(4438);
+const { help_menu, version } = __nccwpck_require__(4438);
+const { check_for_updates_stable, check_for_updates_beta, check_for_updates_nightly } = __nccwpck_require__(5164)
 const lib_js = __nccwpck_require__(9562)
 const lib_rs = __nccwpck_require__(101)
 const lib_luau = __nccwpck_require__(4559)
 const cp = __nccwpck_require__(2081);
+
+async function install_updates() {
+  check_for_updates_stable()
+  .then((fetched_version) => {
+    
+
+    if (fetched_version !== version) {
+      console.log('Newer version of flight available, automatically updating...')
+
+      if (process.platform == "linux") {
+        const child = cp.exec(`curl -qL https://github.com/flightpkg/flight/releases/download/${fetched_version}/install.sh | bash`, {stdio: "inherit"})
+        child.stdout.on('data', (data) => {
+        console.log(`${data}`);
+      });
+    
+      child.stderr.on('data', (data) => {
+        console.error(`${data}`);
+      });
+  } else if (process.platform == "win32") {
+      const child = cp.exec(`curl https://github.com/flightpkg/flight/releases/download/${fetched_version}/install.ps1 -O install.ps1 && powershell install.ps1`, {stdio: "inherit"})
+      child.stdout.on('data', (data) => {
+      console.log(`${data}`);
+    });
+
+    child.stderr.on('data', (data) => {
+      console.error(`${data}`);
+  });
+  }    
+}
+})}
+
+install_updates()
 
 if (args[0] == "-js" || args[0] == "--js") {
   if (args[1] == "install" || args[1] == "i") {
