@@ -1,5 +1,5 @@
 const axios = require('axios')
-const versions = 'https://updates-server-two.vercel.app/api'
+const versions = 'https://updates-server-two.vercel.app/api/fetch'
 const beta = 'https://updates-server-two.vercel.app/api/beta'
 const nightly = 'https://updates-server-two.vercel.app/api/nightly'
 const stable = 'https://updates-server-two.vercel.app/api/stable'    
