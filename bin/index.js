@@ -49293,7 +49293,7 @@ module.exports = class Resolver {
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 const axios = __nccwpck_require__(96545)
-const versions = 'https://updates-server-two.vercel.app/api'
+const versions = 'https://updates-server-two.vercel.app/api/fetch'
 const beta = 'https://updates-server-two.vercel.app/api/beta'
 const nightly = 'https://updates-server-two.vercel.app/api/nightly'
 const stable = 'https://updates-server-two.vercel.app/api/stable'    
