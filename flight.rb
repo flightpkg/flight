@@ -2,11 +2,11 @@ require "language/node"
 require 'fileutils'
 
 class Flight < Formula
-  desc "thing"
-  homepage "example.com"
-  url "https://github.com/flightpkg/flight/archive/refs/tags/v0.0.1.zip"
-  version "v0.0.1"
-  sha256 "01ccffbd0d6c8a2a1935b9cc9256567b8c66abeef6171c3f813920b831ec1e47"
+  desc "Flight homebrew formula."
+  homepage "https://flightpkg.js.org"
+  url "https://github.com/flightpkg/flight/archive/refs/tags/v0.0.5.zip"
+  version "v0.0.5"
+  sha256 "c56d37a87a33b921b9feb29c15980dfc549606a2afb11578ba8aa52c67bb1c23"
   license "Apache-2.0"
 
   depends_on "node"
