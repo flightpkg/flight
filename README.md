@@ -31,7 +31,7 @@ $ curl -qL https://raw.githubusercontent.com/flightpkg/flight/main/install.sh | 
 If the installer doesn't set your environment variables, add it using:
 
 ```bash
-$ echo "export PATH=~/flight/dist/js:$PATH" >> YOUR_SHELL_CONFIG_HERE
+$ echo "export PATH=~/flight/bin:$PATH" >> YOUR_SHELL_CONFIG_HERE
 ```
 ...and restart your shell to use the command `flight`
 
