@@ -161,7 +161,7 @@ flight_install() {
       flight_version=`v0.0.5`
       flight_alt_version=`v0.0.5`
 
-      if [ "$specified_version" = "$flight_version" -o "$specified_version" = "$flight_alt_version" ]; then
+      if [ "$specified_version" = "$flight_version" = "$specified_version" = "$flight_alt_version" ]; then
         printf "$green> flight is already at the $specified_version version.$reset\n"
         exit 0
       else
