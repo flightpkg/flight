@@ -1,8 +1,8 @@
 const axios = require('axios')
-const versions = 'https://updates-server-two.vercel.app/api/fetch'
-const beta = 'https://updates-server-two.vercel.app/api/beta'
-const nightly = 'https://updates-server-two.vercel.app/api/nightly'
-const stable = 'https://updates-server-two.vercel.app/api/stable'    
+const versions = 'https://updates.flightpkg.js.org/api/fetch'
+const beta = 'https://updates.flightpkg.js.org/api/beta'
+const nightly = 'https://updates.flightpkg.js.org/api/nightly'
+const stable = 'https://updates.flightpkg.js.org/api/stable'    
 
 async function check_for_updates_stable(){
     const fetch = await axios.get(stable)
