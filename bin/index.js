@@ -23851,12 +23851,13 @@ module.exports = {
 
     Sha256_Checksum: `01ccffbd0d6c8a2a1935b9cc9256567b8c66abeef6171c3f813920b831ec1e47`,
 
-    version: `v0.0.1`,
+    version: `v0.0.5`,
 
     license: `Apache-2.0`,
 
-    download_url: `https://github.com/flightpkg/flight/archive/refs/tags/v0.0.1`
+    download_url: `https://github.com/flightpkg/flight/releases/download/v0.0.5/v0.0.5.tar.gz`
 }
+
 
 /***/ }),
 
@@ -25172,6 +25173,9 @@ function createObjectIterator(obj) {
     var len = okeys.length;
     return function next() {
         var key = okeys[++i];
+        if (key === '__proto__') {
+            return next();
+        }
         return i < len ? {value: obj[key], key: key} : null;
     };
 }
@@ -49293,10 +49297,10 @@ module.exports = class Resolver {
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 const axios = __nccwpck_require__(96545)
-const versions = 'https://updates-server-two.vercel.app/api/fetch'
-const beta = 'https://updates-server-two.vercel.app/api/beta'
-const nightly = 'https://updates-server-two.vercel.app/api/nightly'
-const stable = 'https://updates-server-two.vercel.app/api/stable'    
+const versions = 'https://updates.flightpkg.js.org/api/fetch'
+const beta = 'https://updates.flightpkg.js.org/api/beta'
+const nightly = 'https://updates.flightpkg.js.org/api/nightly'
+const stable = 'https://updates.flightpkg.js.org/api/stable'    
 
 async function check_for_updates_stable(){
     const fetch = await axios.get(stable)
