@@ -23816,6 +23816,21 @@ try {
 
 /***/ }),
 
+/***/ 26072:
+/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
+
+const { version, Sha256_Checksum } = __nccwpck_require__(4438)
+
+function getVer() {
+    const buildid = Sha256_Checksum.slice(0, 5);
+    const res = `Version: ${version}, Build ID: ${buildid}-${process.platform}`
+    return res    
+}
+
+module.exports = { getVer }
+
+/***/ }),
+
 /***/ 4438:
 /***/ ((module) => {
 
@@ -49927,6 +49942,7 @@ const lib_js = __nccwpck_require__(39562)
 const lib_rs = __nccwpck_require__(80101)
 const lib_luau = __nccwpck_require__(94559)
 const cp = __nccwpck_require__(32081);
+const { getVer } = __nccwpck_require__(26072);
 
 async function install_updates() {
   check_for_updates_stable()
@@ -49959,7 +49975,9 @@ async function install_updates() {
 })}
 
 install_updates()
-
+if (args[0] == "-v" || args[0] == "--version") {
+  console.log(getVer())
+}
 if (args[0] == "-js" || args[0] == "--js") {
   if (args[1] == "install" || args[1] == "i") {
     lib_js.get()
@@ -49976,23 +49994,23 @@ if (args[0] == "-js" || args[0] == "--js") {
   });
 } else if (args[0] == undefined  || args[0] == "--help" || args[0] == "-h") {
 
-  process.stdout.write(help_menu)
+  console.log(help_menu)
 }
   } else if (args[0] == "-rs" || args[0] == "--rs") {
     if (args[1] == undefined) {
-      process.stdout.write(help_menu)
+      console.log(help_menu)
     } else if (args[1] !== undefined) {
       lib_rs.run(args[1])
 
 }} else if (args[0] == "-lua" || args[0] == "--lua"|| args[0] == "--luau" || args[0] == "-luau") {
   if (args[1] == undefined) {
-    process.stdout.write(help_menu)
+    console.log(help_menu)
   } else if (args[1] !== undefined) {
     lib_luau.run(args[1])
 
 }} else if (args[0] == undefined  || args[0] == "--help" || args[0] == "-h") {
 
-  process.stdout.write(help_menu)
+  console.log(help_menu)
 }
 
 })();
