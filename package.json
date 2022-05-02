@@ -15,7 +15,7 @@
     "author": "@flightpkg",
     "license": "MIT",
     "dependencies": {
-        "async": "^3.2.3",
+        "async": "^2.6.4",
         "axios": "^0.27.2",
         "create-docusaurus": "^2.0.0-beta.18",
         "dotenv": "^16.0.0",
