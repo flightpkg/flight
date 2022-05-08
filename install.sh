@@ -40,7 +40,7 @@ flight_get_tarball() {
     mv "$temp"/*/* flight
     rm -rf "$temp"
     rm $tarball_tmp*
-    cd flight/bin
+    cd flight/dist/js
     mv cli-linux flight
     rm -rf cli-win.exe cli-macos
   else
@@ -126,7 +126,7 @@ flight_detect_profile() {
   fi
 
   if [ ! -z "$DETECTED_PROFILE" ]; then
-    echo "export PATH=~/flight/bin:$PATH" >> $DETECTED_PROFILE
+    echo "export PATH=~/flight/dist/js:$PATH" >> $DETECTED_PROFILE
   fi
 }
 

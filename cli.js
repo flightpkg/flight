@@ -6,6 +6,7 @@ const { check_for_updates_stable, check_for_updates_beta, check_for_updates_nigh
 const lib_js = require('./src/js/lib')
 const lib_rs = require('./src/rs/lib')
 const lib_luau = require('./src/luau/lib')
+const lib_py = require('./src/py/lib')
 const cp = require("child_process");
 const { getVer } = require('./src/cmds/version');
 
@@ -40,6 +41,8 @@ async function install_updates() {
 })}
 
 install_updates()
+
+
 if (args[0] == "-v" || args[0] == "--version") {
   console.log(getVer())
 }
@@ -76,4 +79,11 @@ if (args[0] == "-js" || args[0] == "--js") {
 }} else if (args[0] == undefined  || args[0] == "--help" || args[0] == "-h") {
 
   console.log(help_menu)
+}
+
+
+if (args[0] == "-py" || args[0] == "--py") {
+  if (args[1] == "install" || args[1] == "i") {
+    lib_py.install()
+  }
 }
