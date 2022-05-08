@@ -1,35 +1,3 @@
-{
-    "name": "@flightpkg/cli",
-    "version": "0.5.0",
-    "description": "Flight is a universal package manager for your needs, no matter what language you may want to write your code in. ",
-    "main": "cli.js",
-    "scripts": {
-        "install-deps": "cd ./src/js/resolver && yarn",
-        "install-deps-frozen": "cd ./src/js/resolver && yarn --frozen-lockfile",
-        "launch": "node ./bin/index",
-        "compile": "ncc build cli.js -o bin",
-        "ci": "concurrently \"run yarn\" \"yarn install-deps\"",
-        "build": "pkg cli.js && mv cli-linux cli-macos cli-win.exe bin"
-    },
-    "repository": "https://github.com/flightpkg/flight.git",
-    "author": "@flightpkg",
-    "license": "MIT",
-    "dependencies": {
-        "async": "^2.6.4",
-        "axios": "^0.27.2",
-        "create-docusaurus": "^2.0.0-beta.18",
-        "dotenv": "^16.0.0",
-        "fs-extra": "^10.0.1",
-        "got": "11.8.1",
-        "graphlib": "^2.1.8",
-        "kleur": "^4.1.4",
-        "npm-package-arg": "^9.0.2",
-        "superagent": "^7.1.2",
-        "tar": "^6.1.11",
-        "toml": "^3.0.0"
-    },
-    "devDependencies": {
-        "@vercel/ncc": "^0.33.4",
-        "pkg": "^5.6.0"
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:03bb10567f8184858544380e2f154aa539ded6f74460cabd3d77d78831788eb9
+size 1192
