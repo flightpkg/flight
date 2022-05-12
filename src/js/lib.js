@@ -10,6 +10,11 @@ const kleur = require('kleur');
 const zlib = require('zlib');
 const path = require('path');
 const tar = require('tar');
+const logger = require('../shared/logger')
+
+logger.warn("This script's entry point is very buggy, meaning it may not output any data.")
+logger.status("Contributions to fix appreciated.")
+
 
 const deleteFolderRecursive = function(path) {
   if( fs.existsSync(path) ) {
@@ -48,8 +53,8 @@ async function get() {
   }
 
   resolve(pkgs)
+    .then(console.log())
     .then(results => fs.writeFile('flight.lock', `${JSON.stringify(results, null, "\t")}`, function (err) {
-
       if (err === null) {
         console.log(kleur.bold().green("Lockfile successfully created."))
         const lockfile = fs.readFileSync('./flight.lock')
@@ -68,7 +73,7 @@ async function get() {
           const name = x
           const version = json[x].version
           const urlformat = `https://registry.yarnpkg.com/${name}/-/${name}-${version}.tgz`
-          console.log(kleur.bold().blue("Downloading:") + " " + name + " @ " + version + ".");
+          logger.download(name, version)
           const {
             default: {
               stream
@@ -295,6 +300,8 @@ async function get() {
       }
 
 
+      } else {
+        console.log(err)
       }
     }))
 }
