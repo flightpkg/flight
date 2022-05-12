@@ -62,4 +62,4 @@ module.exports = {
   command,
   updateStatus,
   download
-}
+} 

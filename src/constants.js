@@ -6,8 +6,11 @@ module.exports = {
   
     Options:
       -h, --help                          output usage information
-      -js, --js                           install nodejs packages
-      -luau --luau                        install luau packages
+	-v, --version 				display installed version
+      -js, --js                           manage nodejs packages
+      -luau --luau                        manage luau packages
+      -rs --rs                            manage rust packages
+      -py --py                            manage python packages
   
     Commands:
       - install

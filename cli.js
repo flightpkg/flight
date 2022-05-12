@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const args = process.argv.slice(2);
+const logger = require('./src/shared/logger');
 const { help_menu, version } = require('./src/constants');
 const { check_for_updates_stable, check_for_updates_beta, check_for_updates_nightly } = require('./src/lib')
 const lib_js = require('./src/js/lib')
@@ -9,6 +10,7 @@ const lib_luau = require('./src/luau/lib')
 const lib_py = require('./src/py/lib')
 const cp = require("child_process");
 const { getVer } = require('./src/cmds/version');
+
 
 async function install_updates() {
   check_for_updates_stable()
@@ -40,7 +42,11 @@ async function install_updates() {
 }
 })}
 
-install_updates()
+try {
+  install_updates()
+} catch(e) {
+  logger.error(err)
+}
 
 
 if (args[0] == "-v" || args[0] == "--version") {
