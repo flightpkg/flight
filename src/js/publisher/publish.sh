@@ -1,1 +1,0 @@
-./bin/wrapper-js.js install && ./bin/wrapper-js.js npm publish
