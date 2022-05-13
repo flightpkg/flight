@@ -1,0 +1,7 @@
+./src/js/resolver/node_modules
+./src/js/resolver/node_modules/*
+node_modules
+node_modules/*
+.flight/*
+.flight
+package_lock.json
