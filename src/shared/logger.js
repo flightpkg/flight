@@ -60,6 +60,5 @@ module.exports = {
   error,
   warn,
   command,
-  updateStatus,
   download
 } 
