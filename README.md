@@ -16,6 +16,10 @@
 </p>
 <br>
 
+
+
+
+
 # :zap: Installation
 
 We don't have an official release of Flight yet, however, if you would like to give it a try, feel free to follow the steps below to install a pre-alpha release.
@@ -92,6 +96,12 @@ $ yarn init
 
 <br>
 
+## 🕵️‍♂️ VirusTotal Scans
+| **Platform** | **VirusTotal Scan**    |
+| -------  | ------------------ |
+| Windows  | <a href="https://www.virustotal.com/gui/file/f7748343325785c81476bc802441010b624b3bbd989770a8b3ee5b694a7d5ed7/detection"> <img src="https://img.shields.io/badge/dynamic/json?label=Detections&query=%24.positives&url=https%3A%2F%2Fupdates.flightpkg.js.org%2Fapi%2Fvirustotal-win"> </a> |
+
+<br>
 
 ## :clap: Supporters
 
