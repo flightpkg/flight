@@ -3,9 +3,8 @@
   <img src="https://media.discordapp.net/attachments/963759772455292961/975778403955404840/Banner.png?width=1440&height=388" />
 </a>
 </p>
-<h1 align="center">Flight</h1>
-<h4 align="center">Swift, reliable, multi-language package manager.</h4>
-<br>
+<!-- <h1 align="center">Flight</h1> -->
+<h2 align="center">Swift, reliable, multi-language package manager.</h2>
 
 <p align="center">
 <img src="https://github.com/flightpkg/flight/actions/workflows/compile.yml/badge.svg?branch=main">
