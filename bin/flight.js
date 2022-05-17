@@ -53832,7 +53832,7 @@ module.exports = {
 /***/ }),
 
 /***/ 96475:
-/***/ ((__unused_webpack_module, __unused_webpack_exports, __nccwpck_require__) => {
+/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 const { Resolver, NpmHttpRegistry } = __nccwpck_require__(86146)
 const fs = __nccwpck_require__(5630)
@@ -53841,6 +53841,7 @@ const logger = __nccwpck_require__(45823)
 const zlib = __nccwpck_require__(59796);
 const path = __nccwpck_require__(71017);
 const tar = __nccwpck_require__(74674);
+const args = process.argv.slice(3);
 
 const deleteFolderRecursive = function(path) {
   if( fs.existsSync(path) ) {
@@ -53924,10 +53925,9 @@ async function install() {
 
 
 resolve(pkgs)
-.then(console.log())
 .then(results => fs.writeFile('flight.lock', `${JSON.stringify(results, null, "\t")}`, function (err) {
   if (err === null) {
-    console.log(kleur.bold().green("Lockfile successfully created."))
+    logger.status('Lockfile successfully created.')
     const lockfile = fs.readFileSync('./flight.lock')
     const parsed = JSON.parse(lockfile)
     const json = parsed.appDependencies
@@ -53971,7 +53971,7 @@ resolve(pkgs)
       const start = () => {
         const download = stream(urlformat).pipe(createWriteStream(`./.flight/${name}-${version}.tgz`));
         download.on("finish", () => {
-          console.log(kleur.bold().green("Downloaded: ") + " " + name + " @ " + version + ".")
+          logger.download(name, version)
           const find = existsAsync('node_modules')
 
           if (find == true) {
@@ -53981,9 +53981,12 @@ resolve(pkgs)
           }
 
           if (find == false) {
-            execSync(`mkdir node_modules ; cd .flight ; tar zxvf ${name}-${version}.tgz -C ../node_modules`, {
-              stdio: "inherit"
-            });
+            
+            fs.mkdirSync('node_modules')
+          
+         //   execSync(`cd .flight ; tar zxvf ${name}-${version}.tgz -C ../node_modules`, {
+         //     stdio: "inherit"
+         //   });
           }
 
           if(!fs.existsSync(`./node_modules/${name}/`)){
@@ -54000,7 +54003,7 @@ resolve(pkgs)
             }))
             .on("finish", () => {
               fs.rmSync(`./.flight/${name}-${version}.tgz`)
-              console.log(kleur.bold().magenta("Unzipped:    ") + " " + name + " @ " + version + ".")
+              logger.unzipped(name, version)
             })
 
 
@@ -54022,7 +54025,7 @@ resolve(pkgs)
         const name = split[0]
         const version = split[1]
         const urlformat = `https://registry.yarnpkg.com/${name}/-/${name}-${version}.tgz`
-        console.log(kleur.bold().blue("Downloading:") + " " + name + " @ " + version + ".");
+        logger.download(name, version)
         const {
           default: {
             stream
@@ -54049,7 +54052,7 @@ resolve(pkgs)
         const start = () => {
           const download = stream(urlformat).pipe(createWriteStream(`./.flight/${name}-${version}.tgz`));
           download.on("finish", () => {
-            console.log(kleur.bold().green("Downloaded: ") + " " + name + " @ " + version + ".")
+            logger.downloaded(name, version)
             const find = existsAsync('node_modules')
 
             if (find == true) {
@@ -54078,7 +54081,7 @@ resolve(pkgs)
               }))
               .on("finish", () => {
                 fs.rmSync(`./.flight/${name}-${version}.tgz`)
-                console.log(kleur.bold().magenta("Unzipped:    ") + " " + name + " @ " + version + ".")
+                logger.unzipped(name, version)
               })
 
 
@@ -54094,13 +54097,11 @@ resolve(pkgs)
     if (raw.startsWith("@") == true) {
       const split = raw.split('/')
       const scope = split[0]
-      console.log(scope)
       const pkg = split[1]
       const version = pkg.split('@')[1]
       const name = pkg.split('@')[0]
-      console.log(version)
       const urlformat = `https://registry.yarnpkg.com/${scope}/${name}/-/${name}-${version}.tgz`
-      console.log(kleur.bold().blue("Downloading:") + " " + name + " @ " + version + ".");
+      logger.download(name, version)
       const {
         default: {
           stream
@@ -54127,7 +54128,7 @@ resolve(pkgs)
       const start = () => {
         const download = stream(urlformat).pipe(createWriteStream(`./.flight/${name}-${version}.tgz`));
         download.on("finish", () => {
-          console.log(kleur.bold().green("Downloaded: ") + " " + name + " @ " + version + ".")
+          logger.downloaded(name, version)
           const find = existsAsync('node_modules')
 
           if (find == true) {
@@ -54156,7 +54157,7 @@ resolve(pkgs)
             }))
             .on("finish", () => {
               fs.rmSync(`./.flight/${name}-${version}.tgz`)
-              console.log(kleur.bold().magenta("Unzipped:    ") + " " + name + " @ " + version + ".")
+              logger.unzipped(name, version)
             })
 
 
@@ -54172,7 +54173,7 @@ resolve(pkgs)
 
 
   } else {
-    console.log(err)
+    logger.error(err)
   }
 }))
 }
@@ -54188,11 +54189,11 @@ for (x in pkgjson["dependencies"]) {
 
 if (typeof pkgs[pkgname] !== 'undefined') {
   try {
-    deleteFolderRecursive(__nccwpck_require__.ab + ".flight/" + pkgname)
+    deleteFolderRecursive(path.resolve(`./.flight/${pkgname}/`))
     deleteFolderRecursive(path.resolve(`./node_modules/${pkgname}/`))
-    console.log(kleur.bold().red("Uninstalled ") + pkgname + " from the packages directory.")
+    logger.uninstalled(pkgname)
   } catch (e) {
-    console.log(kleur.bold().red("Error: ") + pkgname + kleur.bold().red(" is not present in the  packages directory."))
+    logger.error(pkgname + kleur.bold().red(" is not present in the  packages directory."))
   }
 
   delete pkgs[pkgname]
@@ -54201,12 +54202,12 @@ if (typeof pkgs[pkgname] !== 'undefined') {
     spaces: 4,
     encoding: 'utf8',
   })
-  console.log(kleur.bold().red("Removed ") + pkgname + " from packages.json.")
+  logger.pkgjsonremove(pkgname)
  } else {
-  console.log(kleur.bold().red('Package ') + pkgname + kleur.bold().red(' not found in package.json.'))
+  logger.pkgjsonerr(pkgname)
 }
 }else{
-console.log(kleur.bold().red("Please specify a package to uninstall."))
+logger.error('Please specify a package to uninstall.')
 }
 //    .then(results => fs.writeFile('flight.lock', `${JSON.stringify(results, null, "\t")}`))
 
@@ -54218,7 +54219,11 @@ console.log(kleur.bold().red("Please specify a package to uninstall."))
 //    }).then(results => console.log(results))
 }
 
-install()
+module.exports = {
+  resolve,
+  install,
+  uninstall
+}
 
 /***/ }),
 
@@ -54797,6 +54802,9 @@ const errorStyle = kleur.black().bold().bgRed
 const statusStyle = kleur.green().italic
 const warningStyle = kleur.black().bold().bgYellow
 const downloadStyle = kleur.blue().bold
+const downloadedStyle = kleur.bold().green
+const unzippedStyle = kleur.bold().magenta
+const uninstalledStyle = kleur.bold().red
 
 const cmdDirStyle = kleur.blue
 const cmdCmdStyle = kleur.green
@@ -54822,6 +54830,26 @@ function download (name, version) {
   console.log(downloadStyle("Downloading:") + ' ' + name + '@' + version + '.')
 }
 
+function downloaded (name, version) {
+  console.log(downloadedStyle("Downloaded:") + ' ' + name + '@' + version + '.')
+}
+
+function unzipped (name, version) {
+  console.log(unzippedStyle("Unzipped:") + ' ' + name + '@' + version + '.')
+}
+
+function uninstalled (pkgname) {
+  console.log(uninstalledStyle("Uninstalled ") + pkgname + " from the packages directory.")
+}
+
+function pkgjsonremove (pkgname) {
+  console.log(uninstalledStyle("Removed ") + pkgname + " from packages.json.")
+}
+
+function pkgjsonerr (pkgname) {
+  console.log(uninstalledStyle('Package ') + pkgname + uninstalledStyle(' not found in package.json.'))
+}
+
 
 // function updateStatus (projectUpdateStatus) {
 //  const statusLines = Object.values(projectUpdateStatus).map(entry =>
@@ -54843,7 +54871,12 @@ module.exports = {
   error,
   warn,
   command,
-  download
+  download,
+  downloaded,
+  unzipped,
+  uninstalled,
+  pkgjsonremove,
+  pkgjsonerr
 } 
 
 /***/ }),
@@ -55160,10 +55193,19 @@ if (args[0] == "-js" || args[0] == "--js") {
   } else if (args[1] == "uninstall") {
     lib_js.uninstall(args[1])
   } else if (args[1] == "publish") {
-    const child = cp.exec('./src/js/publisher/publish.sh', {stdio: "inherit"})
-    child.stdout.on('data', (data) => {
-    console.log(`${data}`);
-  });
+  if (process.platform == 'linux') {
+      const child = cp.exec('./src/js/publisher/publish.sh', {stdio: "inherit"})
+      child.stdout.on('data', (data) => {
+      console.log(`${data}`);
+    });
+}
+
+  if (process.platform == 'linux') {
+      const child = cp.exec('./src/js/publisher/publish.bat', {stdio: "inherit"})
+      child.stdout.on('data', (data) => {
+      console.log(`${data}`);
+    });
+}
 
   child.stderr.on('data', (data) => {
     console.error(`ERROR:\n${data}`);

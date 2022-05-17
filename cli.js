@@ -58,10 +58,19 @@ if (args[0] == "-js" || args[0] == "--js") {
   } else if (args[1] == "uninstall") {
     lib_js.uninstall(args[1])
   } else if (args[1] == "publish") {
-    const child = cp.exec('./src/js/publisher/publish.sh', {stdio: "inherit"})
-    child.stdout.on('data', (data) => {
-    console.log(`${data}`);
-  });
+  if (process.platform == 'linux') {
+      const child = cp.exec('./src/js/publisher/publish.sh', {stdio: "inherit"})
+      child.stdout.on('data', (data) => {
+      console.log(`${data}`);
+    });
+}
+
+  if (process.platform == 'linux') {
+      const child = cp.exec('./src/js/publisher/publish.bat', {stdio: "inherit"})
+      child.stdout.on('data', (data) => {
+      console.log(`${data}`);
+    });
+}
 
   child.stderr.on('data', (data) => {
     console.error(`ERROR:\n${data}`);

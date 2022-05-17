@@ -14,6 +14,9 @@ const errorStyle = kleur.black().bold().bgRed
 const statusStyle = kleur.green().italic
 const warningStyle = kleur.black().bold().bgYellow
 const downloadStyle = kleur.blue().bold
+const downloadedStyle = kleur.bold().green
+const unzippedStyle = kleur.bold().magenta
+const uninstalledStyle = kleur.bold().red
 
 const cmdDirStyle = kleur.blue
 const cmdCmdStyle = kleur.green
@@ -39,6 +42,26 @@ function download (name, version) {
   console.log(downloadStyle("Downloading:") + ' ' + name + '@' + version + '.')
 }
 
+function downloaded (name, version) {
+  console.log(downloadedStyle("Downloaded:") + ' ' + name + '@' + version + '.')
+}
+
+function unzipped (name, version) {
+  console.log(unzippedStyle("Unzipped:") + ' ' + name + '@' + version + '.')
+}
+
+function uninstalled (pkgname) {
+  console.log(uninstalledStyle("Uninstalled ") + pkgname + " from the packages directory.")
+}
+
+function pkgjsonremove (pkgname) {
+  console.log(uninstalledStyle("Removed ") + pkgname + " from packages.json.")
+}
+
+function pkgjsonerr (pkgname) {
+  console.log(uninstalledStyle('Package ') + pkgname + uninstalledStyle(' not found in package.json.'))
+}
+
 
 // function updateStatus (projectUpdateStatus) {
 //  const statusLines = Object.values(projectUpdateStatus).map(entry =>
@@ -60,5 +83,10 @@ module.exports = {
   error,
   warn,
   command,
-  download
+  download,
+  downloaded,
+  unzipped,
+  uninstalled,
+  pkgjsonremove,
+  pkgjsonerr
 } 

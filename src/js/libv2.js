@@ -5,6 +5,7 @@ const logger = require('../shared/logger')
 const zlib = require('zlib');
 const path = require('path');
 const tar = require('tar');
+const args = process.argv.slice(3);
 
 const deleteFolderRecursive = function(path) {
   if( fs.existsSync(path) ) {
@@ -88,10 +89,9 @@ async function install() {
 
 
 resolve(pkgs)
-.then(console.log())
 .then(results => fs.writeFile('flight.lock', `${JSON.stringify(results, null, "\t")}`, function (err) {
   if (err === null) {
-    console.log(kleur.bold().green("Lockfile successfully created."))
+    logger.status('Lockfile successfully created.')
     const lockfile = fs.readFileSync('./flight.lock')
     const parsed = JSON.parse(lockfile)
     const json = parsed.appDependencies
@@ -135,7 +135,7 @@ resolve(pkgs)
       const start = () => {
         const download = stream(urlformat).pipe(createWriteStream(`./.flight/${name}-${version}.tgz`));
         download.on("finish", () => {
-          console.log(kleur.bold().green("Downloaded: ") + " " + name + " @ " + version + ".")
+          logger.download(name, version)
           const find = existsAsync('node_modules')
 
           if (find == true) {
@@ -145,9 +145,12 @@ resolve(pkgs)
           }
 
           if (find == false) {
-            execSync(`mkdir node_modules ; cd .flight ; tar zxvf ${name}-${version}.tgz -C ../node_modules`, {
-              stdio: "inherit"
-            });
+            
+            fs.mkdirSync('node_modules')
+          
+         //   execSync(`cd .flight ; tar zxvf ${name}-${version}.tgz -C ../node_modules`, {
+         //     stdio: "inherit"
+         //   });
           }
 
           if(!fs.existsSync(`./node_modules/${name}/`)){
@@ -164,7 +167,7 @@ resolve(pkgs)
             }))
             .on("finish", () => {
               fs.rmSync(`./.flight/${name}-${version}.tgz`)
-              console.log(kleur.bold().magenta("Unzipped:    ") + " " + name + " @ " + version + ".")
+              logger.unzipped(name, version)
             })
 
 
@@ -186,7 +189,7 @@ resolve(pkgs)
         const name = split[0]
         const version = split[1]
         const urlformat = `https://registry.yarnpkg.com/${name}/-/${name}-${version}.tgz`
-        console.log(kleur.bold().blue("Downloading:") + " " + name + " @ " + version + ".");
+        logger.download(name, version)
         const {
           default: {
             stream
@@ -213,7 +216,7 @@ resolve(pkgs)
         const start = () => {
           const download = stream(urlformat).pipe(createWriteStream(`./.flight/${name}-${version}.tgz`));
           download.on("finish", () => {
-            console.log(kleur.bold().green("Downloaded: ") + " " + name + " @ " + version + ".")
+            logger.downloaded(name, version)
             const find = existsAsync('node_modules')
 
             if (find == true) {
@@ -242,7 +245,7 @@ resolve(pkgs)
               }))
               .on("finish", () => {
                 fs.rmSync(`./.flight/${name}-${version}.tgz`)
-                console.log(kleur.bold().magenta("Unzipped:    ") + " " + name + " @ " + version + ".")
+                logger.unzipped(name, version)
               })
 
 
@@ -258,13 +261,11 @@ resolve(pkgs)
     if (raw.startsWith("@") == true) {
       const split = raw.split('/')
       const scope = split[0]
-      console.log(scope)
       const pkg = split[1]
       const version = pkg.split('@')[1]
       const name = pkg.split('@')[0]
-      console.log(version)
       const urlformat = `https://registry.yarnpkg.com/${scope}/${name}/-/${name}-${version}.tgz`
-      console.log(kleur.bold().blue("Downloading:") + " " + name + " @ " + version + ".");
+      logger.download(name, version)
       const {
         default: {
           stream
@@ -291,7 +292,7 @@ resolve(pkgs)
       const start = () => {
         const download = stream(urlformat).pipe(createWriteStream(`./.flight/${name}-${version}.tgz`));
         download.on("finish", () => {
-          console.log(kleur.bold().green("Downloaded: ") + " " + name + " @ " + version + ".")
+          logger.downloaded(name, version)
           const find = existsAsync('node_modules')
 
           if (find == true) {
@@ -320,7 +321,7 @@ resolve(pkgs)
             }))
             .on("finish", () => {
               fs.rmSync(`./.flight/${name}-${version}.tgz`)
-              console.log(kleur.bold().magenta("Unzipped:    ") + " " + name + " @ " + version + ".")
+              logger.unzipped(name, version)
             })
 
 
@@ -336,7 +337,7 @@ resolve(pkgs)
 
 
   } else {
-    console.log(err)
+    logger.error(err)
   }
 }))
 }
@@ -354,9 +355,9 @@ if (typeof pkgs[pkgname] !== 'undefined') {
   try {
     deleteFolderRecursive(path.resolve(`./.flight/${pkgname}/`))
     deleteFolderRecursive(path.resolve(`./node_modules/${pkgname}/`))
-    console.log(kleur.bold().red("Uninstalled ") + pkgname + " from the packages directory.")
+    logger.uninstalled(pkgname)
   } catch (e) {
-    console.log(kleur.bold().red("Error: ") + pkgname + kleur.bold().red(" is not present in the  packages directory."))
+    logger.error(pkgname + kleur.bold().red(" is not present in the  packages directory."))
   }
 
   delete pkgs[pkgname]
@@ -365,12 +366,12 @@ if (typeof pkgs[pkgname] !== 'undefined') {
     spaces: 4,
     encoding: 'utf8',
   })
-  console.log(kleur.bold().red("Removed ") + pkgname + " from packages.json.")
+  logger.pkgjsonremove(pkgname)
  } else {
-  console.log(kleur.bold().red('Package ') + pkgname + kleur.bold().red(' not found in package.json.'))
+  logger.pkgjsonerr(pkgname)
 }
 }else{
-console.log(kleur.bold().red("Please specify a package to uninstall."))
+logger.error('Please specify a package to uninstall.')
 }
 //    .then(results => fs.writeFile('flight.lock', `${JSON.stringify(results, null, "\t")}`))
 
@@ -382,4 +383,8 @@ console.log(kleur.bold().red("Please specify a package to uninstall."))
 //    }).then(results => console.log(results))
 }
 
-install()
+module.exports = {
+  resolve,
+  install,
+  uninstall
+}
