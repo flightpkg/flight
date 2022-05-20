@@ -6,4 +6,4 @@ async function update() {
 })}
 
 
-await update()
+update()
