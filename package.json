@@ -16,6 +16,8 @@
     "author": "@flightpkg",
     "license": "MIT",
     "dependencies": {
+        "@sentry/node": "^6.19.7",
+        "@sentry/tracing": "^6.19.7",
         "async": "^2.6.4",
         "axios": "^0.27.2",
         "create-docusaurus": "^2.0.0-beta.18",
@@ -34,6 +36,6 @@
         "@vercel/ncc": "^0.33.4",
         "nodemon": "^2.0.16",
         "pkg": "^5.6.0",
-         "rcedit": "^3.0.1"
+        "rcedit": "^3.0.1"
     }
 }
