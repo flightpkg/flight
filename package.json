@@ -9,7 +9,8 @@
         "launch": "node ./bin/index",
         "compile": "ncc build cli.js -o bin",
         "ci": "concurrently \"run yarn\" \"yarn install-deps\"",
-        "build": "pkg cli.js && mv cli-linux cli-macos cli-win.exe bin"
+        "build": "pkg cli.js && mv cli-linux cli-macos cli-win.exe bin",
+        "icon": "node ./scripts/update-icon.js"
     },
     "repository": "https://github.com/flightpkg/flight.git",
     "author": "@flightpkg",
