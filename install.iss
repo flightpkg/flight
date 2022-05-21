@@ -22,14 +22,12 @@ AppUpdatesURL={#MyAppURL}
 DefaultDirName={autopf}\flight
 ChangesAssociations=yes
 DisableProgramGroupPage=yes
-LicenseFile=C:\Users\Adity\Downloads\v0.0.5\flight-0.0.5\LICENSE.txt
-; InfoBeforeFile=C:\Users\Adity\Downloads\v0.0.5\flight-0.0.5\pre.rtf
-; InfoAfterFile=C:\Users\Adity\Downloads\v0.0.5\flight-0.0.5\end.rtf
+LicenseFile={SrcDir}\LICENSE.txt
 ; Remove the following line to run in administrative install mode (install for all users.)
 PrivilegesRequired=lowest
 PrivilegesRequiredOverridesAllowed=dialog
 OutputBaseFilename=mysetup
-SetupIconFile=C:\Users\Adity\Downloads\Installer-logo.ico
+SetupIconFile={SrcDir}\Installer-logo.ico
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
