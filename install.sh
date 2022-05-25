@@ -40,7 +40,7 @@ flight_get_tarball() {
     mv "$temp"/*/* flight
     rm -rf "$temp"
     rm $tarball_tmp*
-    cd flight/dist/js
+    cd flight/bin
     mv cli-linux flight
     rm -rf cli-win.exe cli-macos
   else
