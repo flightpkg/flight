@@ -109,24 +109,24 @@ flight_detect_profile() {
   if [ -z "$DETECTED_PROFILE" ]; then
     if [ -f "$HOME/.profile" ]; then
       DETECTED_PROFILE="$HOME/.profile"
-      # echo "export PATH=~/flight/dist/js:$PATH" >> $DETECTED_PROFILE
+      # echo "export PATH=~/flight/bin:$PATH" >> $DETECTED_PROFILE
     elif [ -f "$HOME/.bashrc" ]; then
       DETECTED_PROFILE="$HOME/.bashrc"
-      # echo "export PATH=~/flight/dist/js:$PATH" >> $DETECTED_PROFILE
+      # echo "export PATH=~/flight/bin:$PATH" >> $DETECTED_PROFILE
     elif [ -f "$HOME/.bash_profile" ]; then
       DETECTED_PROFILE="$HOME/.bash_profile"
-      # echo "export PATH=~/flight/dist/js:$PATH" >> $DETECTED_PROFILE
+      # echo "export PATH=~/flight/bin:$PATH" >> $DETECTED_PROFILE
     elif [ -f "$HOME/.zshrc" ]; then
       DETECTED_PROFILE="$HOME/.zshrc"
-      # echo "export PATH=~/flight/dist/js:$PATH" >> $DETECTED_PROFILE
+      # echo "export PATH=~/flight/bin:$PATH" >> $DETECTED_PROFILE
     elif [ -f "$HOME/.config/fish/config.fish" ]; then
       DETECTED_PROFILE="$HOME/.config/fish/config.fish"
-      # echo "export PATH=~/flight/dist/js:$PATH" >> $DETECTED_PROFILE
+      # echo "export PATH=~/flight/bin:$PATH" >> $DETECTED_PROFILE
     fi
   fi
 
   if [ ! -z "$DETECTED_PROFILE" ]; then
-    echo "export PATH=~/flight/dist/js:$PATH" >> $DETECTED_PROFILE
+    echo "export PATH=~/flight/bin:$PATH" >> $DETECTED_PROFILE
   fi
 }
 
