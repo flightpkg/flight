@@ -16,8 +16,8 @@
     "author": "@flightpkg",
     "license": "MIT",
     "dependencies": {
-        "@sentry/node": "^6.19.7",
-        "@sentry/tracing": "^6.19.7",
+        "@sentry/node": "^7.0.0",
+        "@sentry/tracing": "^7.0.0",
         "async": "^2.6.4",
         "axios": "^0.27.2",
         "create-docusaurus": "^2.0.0-beta.18",
@@ -29,8 +29,7 @@
         "log-update": "4.0.0",
         "npm-package-arg": "^9.0.2",
         "superagent": "^7.1.2",
-        "tar": "^6.1.11",
-        "toml": "^3.0.0"
+        "tar": "^6.1.11"
     },
     "devDependencies": {
         "@vercel/ncc": "^0.33.4",

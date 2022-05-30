@@ -2,6 +2,7 @@
 
 const args = process.argv.slice(2);
 const logger = require('./src/shared/logger');
+const checks = require('./src/shared/checks')
 const { help_menu, version } = require('./src/constants');
 const { check_for_updates_stable, check_for_updates_beta, check_for_updates_nightly } = require('./src/lib')
 const lib_js = require('./src/js/libv2')
@@ -28,6 +29,11 @@ const commandfail = Sentry.startTransaction({
   name: "An error occured while a user ran a flight command.",
 });
 
+
+const checkserror = Sentry.startTransaction({
+  op: "Checks Error",
+  name: "An error occured during the initialization checks.",
+});
 
 
 
@@ -67,9 +73,21 @@ setTimeout(() => {
     install_updates()
   } catch (e) {
     Sentry.captureException(e);
-    logger.error(err)
+    logger.error(e)
   } finally {
     update.finish();
+  }
+}, 99);
+
+
+setTimeout(() => {
+  try {
+    checks.init()
+  } catch (e) {
+    Sentry.captureException(e);
+    logger.error(e)
+  } finally {
+    checkserror.finish();
   }
 }, 99);
 
@@ -79,7 +97,7 @@ try {
   }
   if (args[0] == "-js" || args[0] == "--js") {
     if (args[1] == "install" || args[1] == "i") {
-      lib_js.get()
+      lib_js.install()
     } else if (args[1] == "uninstall") {
       lib_js.uninstall(args[1])
     } else if (args[1] == "publish") {
