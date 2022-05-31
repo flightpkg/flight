@@ -36,41 +36,10 @@ const checkserror = Sentry.startTransaction({
 });
 
 
-
-async function install_updates() {
-  check_for_updates_stable()
-  .then((fetched_version) => {
-    
-
-    if (fetched_version !== version) {
-      console.log('Newer version of flight available, automatically updating...')
-
-      if (process.platform == "linux") {
-        const child = cp.exec(`curl -qL https://github.com/flightpkg/flight/releases/download/${fetched_version}/install.sh | bash`, {stdio: "inherit"})
-        child.stdout.on('data', (data) => {
-        console.log(`${data}`);
-      });
-    
-      child.stderr.on('data', (data) => {
-        console.error(`${data}`);
-      });
-  } else if (process.platform == "win32") {
-      const child = cp.exec(`curl https://github.com/flightpkg/flight/releases/download/${fetched_version}/install.ps1 -O install.ps1 && powershell install.ps1`, {stdio: "inherit"})
-      child.stdout.on('data', (data) => {
-      console.log(`${data}`);
-    });
-
-    child.stderr.on('data', (data) => {
-      console.error(`${data}`);
-  });
-  }    
-}
-})}
-
 // Catch errors during update process
 setTimeout(() => {
   try {
-    install_updates()
+    checks.install_updates()
   } catch (e) {
     Sentry.captureException(e);
     logger.error(e)
@@ -149,5 +118,6 @@ try {
   logger.error('An error occurred when running the command requested.')
   Sentry.captureException(e);
 } finally {
+  checks.init(e)
   commandfail.finish();
 }

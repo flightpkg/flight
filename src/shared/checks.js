@@ -4,7 +4,7 @@ const { version, Sha256_Checksum } = require('../constants')
 
 
 
-function init() {
+function init(e) {
     try {
     const fileContent = `
     {
@@ -32,19 +32,15 @@ function init() {
             const configs = JSON.parse(`${fs.readFileSync(process.env.HOME + '/.config/flight.json', { encoding:'utf8', flag:'r' })}`)
             if (configs.debug == true) {
                 logger.status('Debug mode enabled.')
-                const errorformat = `
-                Arguments: 
-                /usr/local/bin/node /usr/local/Cellar/yarn/1.3.2/libexec/bin/yarn.js
-            
+                const errorformat = `            
             PATH: 
-                /Users/luke/go/src/github.com/meta-network/go-meta/bin:/Users/luke/go/bin/geth:/Users/luke/go/bin/swarm:/Users/luke/go/bin/geth:/Users/luke/go/bin/swarm:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/luke/go/bin:/usr/local/go/bin
+                ${configs.installation}
             
             Flight version: 
                 ${configs.version}
             
             Platform: 
                 ${process.platform}            
-            
             
             Lockfile:
                 ${fs.readFileSync('flight.lock')} 
@@ -63,6 +59,38 @@ function init() {
     }
 }
 
+
+async function install_updates() {
+    check_for_updates_stable()
+    .then((fetched_version) => {
+      
+  
+      if (fetched_version !== version) {
+        console.log('Newer version of flight available, automatically updating...')
+  
+        if (process.platform == "linux") {
+          const child = cp.exec(`curl -qL https://github.com/flightpkg/flight/releases/download/${fetched_version}/install.sh | bash`, {stdio: "inherit"})
+          child.stdout.on('data', (data) => {
+          console.log(`${data}`);
+        });
+      
+        child.stderr.on('data', (data) => {
+          console.error(`${data}`);
+        });
+    } else if (process.platform == "win32") {
+        const child = cp.exec(`curl https://github.com/flightpkg/flight/releases/download/${fetched_version}/install.ps1 -O install.ps1 && powershell install.ps1`, {stdio: "inherit"})
+        child.stdout.on('data', (data) => {
+        console.log(`${data}`);
+      });
+  
+      child.stderr.on('data', (data) => {
+        console.error(`${data}`);
+    });
+    }    
+  }
+  })}
+
 module.exports = {
-    init
+    init,
+    install_updates
 }

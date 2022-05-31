@@ -6,7 +6,7 @@ module.exports = {
   
     Options:
       -h, --help                          output usage information
-	-v, --version 				display installed version
+	    -v, --version 				              display installed version
       -js, --js                           manage nodejs packages
       -luau --luau                        manage luau packages
       -rs --rs                            manage rust packages
