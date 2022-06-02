@@ -66,6 +66,7 @@ async function install() {
             }
 
         }  
+        rmdirSync('.flight')
 
 }
 

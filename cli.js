@@ -117,7 +117,7 @@ try {
 } catch(e) {
   logger.error('An error occurred when running the command requested.')
   Sentry.captureException(e);
-} finally {
+
   checks.init(e)
   commandfail.finish();
 }
