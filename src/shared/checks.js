@@ -1,7 +1,7 @@
 const fs = require('fs')
 const logger = require('./logger')
 const { version, Sha256_Checksum } = require('../constants')
-
+const { check_for_updates_stable, check_for_updates_beta, check_for_updates_nightly } = require('../lib')
 
 
 function init(e) {
@@ -16,7 +16,7 @@ function init(e) {
     `
 
         if(!fs.existsSync(process.env.HOME + '/.config/flight.json')) {
-
+            logger.status('Creating config file...')
             try {
                 fs.writeFile(process.env.HOME + '/.config/flight.json', fileContent, (err) => {
                 if (err) console.log();
@@ -34,8 +34,11 @@ function init(e) {
                 logger.status('Debug mode enabled.')
                 const errorformat = `            
             PATH: 
-                ${configs.installation}
+                ${process.execPath}
             
+            Installation: 
+                ${configs.installation}     
+
             Flight version: 
                 ${configs.version}
             
@@ -49,7 +52,7 @@ function init(e) {
             Trace: 
                 ${e}
                 `
-                fs.writeFile(process.cwd() + 'flight-error.log', errorformat, (err) => {
+                fs.writeFile(`${process.cwd()}/flight-error.log`, errorformat, (err) => {
                     if (err) logger.error('Failed to save debug log.');
                 }); 
             }

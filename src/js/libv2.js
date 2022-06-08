@@ -26,7 +26,7 @@ function resolve(dependencies) {
     const res = dependencies
     const resolver = new Resolver({
       registry: new NpmHttpRegistry({
-        registryUrl: 'https://registry.yarnpkg.com/'
+        registryUrl: 'https://registry.yarnpkg.com'
       })
     });
   

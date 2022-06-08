@@ -4,7 +4,6 @@ const args = process.argv.slice(2);
 const logger = require('./src/shared/logger');
 const checks = require('./src/shared/checks')
 const { help_menu, version } = require('./src/constants');
-const { check_for_updates_stable, check_for_updates_beta, check_for_updates_nightly } = require('./src/lib')
 const lib_js = require('./src/js/libv2')
 const lib_rs = require('./src/rs/lib')
 const lib_luau = require('./src/luau/lib')
@@ -116,8 +115,8 @@ try {
   }
 } catch(e) {
   logger.error('An error occurred when running the command requested.')
+  checks.init(e)
   Sentry.captureException(e);
 } finally {
-  checks.init(e)
   commandfail.finish();
 }

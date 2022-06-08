@@ -1,1 +1,3204 @@
-undefined
+{
+	"appDependencies": {
+		"@sentry/node": {
+			"version": "7.1.1",
+			"dependencies": {
+				"@sentry/core": "@sentry/core@7.1.1",
+				"@sentry/hub": "@sentry/hub@7.1.1",
+				"@sentry/types": "@sentry/types@7.1.1",
+				"@sentry/utils": "@sentry/utils@7.1.1",
+				"cookie": "cookie@0.4.2",
+				"https-proxy-agent": "https-proxy-agent@5.0.1",
+				"lru_map": "lru_map@0.3.3",
+				"tslib": "tslib@1.14.1"
+			},
+			"main": "cjs/index.js",
+			"module": "esm/index.js",
+			"types": "types/index.d.ts"
+		},
+		"@sentry/tracing": {
+			"version": "7.1.1",
+			"dependencies": {
+				"@sentry/hub": "@sentry/hub@7.1.1",
+				"@sentry/types": "@sentry/types@7.1.1",
+				"@sentry/utils": "@sentry/utils@7.1.1",
+				"tslib": "tslib@1.14.1"
+			},
+			"main": "cjs/index.js",
+			"module": "esm/index.js",
+			"types": "types/index.d.ts"
+		},
+		"async": {
+			"version": "2.6.4",
+			"dependencies": {
+				"lodash": "lodash@4.17.21"
+			},
+			"main": "dist/async.js"
+		},
+		"axios": {
+			"version": "0.27.2",
+			"dependencies": {
+				"follow-redirects": "follow-redirects@1.15.1",
+				"form-data": "form-data@4.0.0"
+			},
+			"main": "index.js",
+			"browser": {
+				"./lib/adapters/http.js": "./lib/adapters/xhr.js",
+				"./lib/defaults/env/FormData.js": "./lib/helpers/null.js"
+			},
+			"types": "index.d.ts",
+			"typings": "./index.d.ts",
+			"unpkg": "dist/axios.min.js"
+		},
+		"create-docusaurus": {
+			"version": "2.0.0-beta.21",
+			"dependencies": {
+				"@docusaurus/logger": "@docusaurus/logger@2.0.0-beta.21",
+				"@docusaurus/utils": "@docusaurus/utils@2.0.0-beta.21",
+				"commander": "commander@5.1.0",
+				"fs-extra": "fs-extra@10.1.0",
+				"lodash": "lodash@4.17.21",
+				"prompts": "prompts@2.4.2",
+				"semver": "semver@7.3.7",
+				"shelljs": "shelljs@0.8.5",
+				"supports-color": "supports-color@9.2.2",
+				"tslib": "tslib@2.4.0"
+			}
+		},
+		"dotenv": {
+			"version": "16.0.1",
+			"dependencies": {},
+			"main": "lib/main.js",
+			"types": "lib/main.d.ts"
+		},
+		"fs-extra": {
+			"version": "10.1.0",
+			"dependencies": {
+				"graceful-fs": "graceful-fs@4.2.10",
+				"jsonfile": "jsonfile@6.1.0",
+				"universalify": "universalify@2.0.0"
+			},
+			"main": "./lib/index.js"
+		},
+		"got": {
+			"version": "11.8.1",
+			"dependencies": {
+				"@sindresorhus/is": "@sindresorhus/is@4.6.0",
+				"@szmarczak/http-timer": "@szmarczak/http-timer@4.0.6",
+				"@types/cacheable-request": "@types/cacheable-request@6.0.2",
+				"@types/responselike": "@types/responselike@1.0.0",
+				"cacheable-lookup": "cacheable-lookup@5.0.4",
+				"cacheable-request": "cacheable-request@7.0.2",
+				"decompress-response": "decompress-response@6.0.0",
+				"http2-wrapper": "http2-wrapper@1.0.3",
+				"lowercase-keys": "lowercase-keys@2.0.0",
+				"p-cancelable": "p-cancelable@2.1.1",
+				"responselike": "responselike@2.0.0"
+			},
+			"main": "dist/source",
+			"types": "dist/source"
+		},
+		"graphlib": {
+			"version": "2.1.8",
+			"dependencies": {
+				"lodash": "lodash@4.17.21"
+			},
+			"main": "index.js"
+		},
+		"kleur": {
+			"version": "4.1.4",
+			"dependencies": {},
+			"main": "index.js",
+			"module": "index.mjs",
+			"types": "index.d.ts"
+		},
+		"log-update": {
+			"version": "4.0.0",
+			"dependencies": {
+				"ansi-escapes": "ansi-escapes@4.3.2",
+				"cli-cursor": "cli-cursor@3.1.0",
+				"slice-ansi": "slice-ansi@4.0.0",
+				"wrap-ansi": "wrap-ansi@6.2.0"
+			}
+		},
+		"npm-package-arg": {
+			"version": "9.0.2",
+			"dependencies": {
+				"hosted-git-info": "hosted-git-info@5.0.0",
+				"semver": "semver@7.3.7",
+				"validate-npm-package-name": "validate-npm-package-name@4.0.0"
+			},
+			"main": "./lib/npa.js"
+		},
+		"superagent": {
+			"version": "7.1.6",
+			"dependencies": {
+				"component-emitter": "component-emitter@1.3.0",
+				"cookiejar": "cookiejar@2.1.3",
+				"debug": "debug@4.3.4",
+				"fast-safe-stringify": "fast-safe-stringify@2.1.1",
+				"form-data": "form-data@4.0.0",
+				"formidable": "formidable@2.0.1",
+				"methods": "methods@1.1.2",
+				"mime": "mime@2.6.0",
+				"qs": "qs@6.10.5",
+				"readable-stream": "readable-stream@3.6.0",
+				"semver": "semver@7.3.7"
+			},
+			"main": "lib/node/index.js",
+			"browser": {
+				"./src/node/index.js": "./src/client.js",
+				"./lib/node/index.js": "./lib/client.js",
+				"./test/support/server.js": "./test/support/blank.js",
+				"semver": false
+			},
+			"unpkg": "dist/superagent.min.js"
+		},
+		"tar": {
+			"version": "6.1.11",
+			"dependencies": {
+				"chownr": "chownr@2.0.0",
+				"fs-minipass": "fs-minipass@2.1.0",
+				"minipass": "minipass@3.1.6",
+				"minizlib": "minizlib@2.1.2",
+				"mkdirp": "mkdirp@1.0.4",
+				"yallist": "yallist@4.0.0"
+			}
+		}
+	},
+	"resDependencies": {
+		"@sentry/core@7.1.1": {
+			"dependencies": {
+				"@sentry/hub": "@sentry/hub@7.1.1",
+				"@sentry/types": "@sentry/types@7.1.1",
+				"@sentry/utils": "@sentry/utils@7.1.1",
+				"tslib": "tslib@1.14.1"
+			},
+			"main": "cjs/index.js",
+			"module": "esm/index.js",
+			"types": "types/index.d.ts"
+		},
+		"@sentry/hub@7.1.1": {
+			"dependencies": {
+				"@sentry/types": "@sentry/types@7.1.1",
+				"@sentry/utils": "@sentry/utils@7.1.1",
+				"tslib": "tslib@1.14.1"
+			},
+			"main": "cjs/index.js",
+			"module": "esm/index.js",
+			"types": "types/index.d.ts"
+		},
+		"@sentry/types@7.1.1": {
+			"dependencies": {},
+			"main": "cjs/index.js",
+			"module": "esm/index.js",
+			"types": "types/index.d.ts"
+		},
+		"@sentry/utils@7.1.1": {
+			"dependencies": {
+				"@sentry/types": "@sentry/types@7.1.1",
+				"tslib": "tslib@1.14.1"
+			},
+			"main": "cjs/index.js",
+			"module": "esm/index.js",
+			"types": "types/index.d.ts"
+		},
+		"tslib@1.14.1": {
+			"dependencies": {},
+			"main": "tslib.js",
+			"module": "tslib.es6.js",
+			"typings": "tslib.d.ts"
+		},
+		"cookie@0.4.2": {
+			"dependencies": {}
+		},
+		"https-proxy-agent@5.0.1": {
+			"dependencies": {
+				"agent-base": "agent-base@6.0.2",
+				"debug": "debug@4.3.4"
+			},
+			"main": "dist/index",
+			"types": "dist/index"
+		},
+		"agent-base@6.0.2": {
+			"dependencies": {
+				"debug": "debug@4.3.4"
+			},
+			"main": "dist/src/index",
+			"typings": "dist/src/index"
+		},
+		"debug@4.3.4": {
+			"dependencies": {
+				"ms": "ms@2.1.2"
+			},
+			"main": "./src/index.js",
+			"browser": "./src/browser.js"
+		},
+		"ms@2.1.2": {
+			"dependencies": {},
+			"main": "./index"
+		},
+		"lru_map@0.3.3": {
+			"dependencies": {},
+			"main": "lru.js",
+			"typings": "lru.d.ts"
+		},
+		"lodash@4.17.21": {
+			"dependencies": {},
+			"main": "lodash.js"
+		},
+		"follow-redirects@1.15.1": {
+			"dependencies": {},
+			"main": "index.js"
+		},
+		"form-data@4.0.0": {
+			"dependencies": {
+				"asynckit": "asynckit@0.4.0",
+				"combined-stream": "combined-stream@1.0.8",
+				"mime-types": "mime-types@2.1.35"
+			},
+			"main": "./lib/form_data",
+			"browser": "./lib/browser",
+			"typings": "./index.d.ts"
+		},
+		"asynckit@0.4.0": {
+			"dependencies": {},
+			"main": "index.js"
+		},
+		"combined-stream@1.0.8": {
+			"dependencies": {
+				"delayed-stream": "delayed-stream@1.0.0"
+			},
+			"main": "./lib/combined_stream"
+		},
+		"delayed-stream@1.0.0": {
+			"dependencies": {},
+			"main": "./lib/delayed_stream"
+		},
+		"mime-types@2.1.35": {
+			"dependencies": {
+				"mime-db": "mime-db@1.52.0"
+			}
+		},
+		"mime-db@1.52.0": {
+			"dependencies": {}
+		},
+		"@docusaurus/logger@2.0.0-beta.21": {
+			"dependencies": {
+				"chalk": "chalk@4.1.2",
+				"tslib": "tslib@2.4.0"
+			},
+			"main": "./lib/index.js"
+		},
+		"chalk@4.1.2": {
+			"dependencies": {
+				"ansi-styles": "ansi-styles@4.3.0",
+				"supports-color": "supports-color@7.2.0"
+			},
+			"main": "source"
+		},
+		"ansi-styles@4.3.0": {
+			"dependencies": {
+				"color-convert": "color-convert@2.0.1"
+			}
+		},
+		"color-convert@2.0.1": {
+			"dependencies": {
+				"color-name": "color-name@1.1.4"
+			}
+		},
+		"color-name@1.1.4": {
+			"dependencies": {},
+			"main": "index.js"
+		},
+		"supports-color@7.2.0": {
+			"dependencies": {
+				"has-flag": "has-flag@4.0.0"
+			},
+			"browser": "browser.js"
+		},
+		"has-flag@4.0.0": {
+			"dependencies": {}
+		},
+		"tslib@2.4.0": {
+			"dependencies": {},
+			"main": "tslib.js",
+			"module": "tslib.es6.js",
+			"typings": "tslib.d.ts"
+		},
+		"@docusaurus/utils@2.0.0-beta.21": {
+			"dependencies": {
+				"@docusaurus/logger": "@docusaurus/logger@2.0.0-beta.21",
+				"@svgr/webpack": "@svgr/webpack@6.2.1",
+				"file-loader": "file-loader@6.2.0",
+				"fs-extra": "fs-extra@10.1.0",
+				"github-slugger": "github-slugger@1.4.0",
+				"globby": "globby@11.1.0",
+				"gray-matter": "gray-matter@4.0.3",
+				"js-yaml": "js-yaml@4.1.0",
+				"lodash": "lodash@4.17.21",
+				"micromatch": "micromatch@4.0.5",
+				"resolve-pathname": "resolve-pathname@3.0.0",
+				"shelljs": "shelljs@0.8.5",
+				"tslib": "tslib@2.4.0",
+				"url-loader": "url-loader@4.1.1",
+				"webpack": "webpack@5.73.0"
+			},
+			"main": "./lib/index.js",
+			"types": "./lib/index.d.ts"
+		},
+		"@svgr/webpack@6.2.1": {
+			"dependencies": {
+				"@babel/core": "@babel/core@7.18.2",
+				"@babel/plugin-transform-react-constant-elements": "@babel/plugin-transform-react-constant-elements@7.17.12",
+				"@babel/preset-env": "@babel/preset-env@7.18.2",
+				"@babel/preset-react": "@babel/preset-react@7.17.12",
+				"@babel/preset-typescript": "@babel/preset-typescript@7.17.12",
+				"@svgr/core": "@svgr/core@6.2.1",
+				"@svgr/plugin-jsx": "@svgr/plugin-jsx@6.2.1",
+				"@svgr/plugin-svgo": "@svgr/plugin-svgo@6.2.0"
+			},
+			"main": "./dist/index.js",
+			"typings": "./dist/index.d.ts"
+		},
+		"@babel/core@7.18.2": {
+			"dependencies": {
+				"@ampproject/remapping": "@ampproject/remapping@2.2.0",
+				"@babel/code-frame": "@babel/code-frame@7.16.7",
+				"@babel/generator": "@babel/generator@7.18.2",
+				"@babel/helper-compilation-targets": "@babel/helper-compilation-targets@7.18.2",
+				"@babel/helper-module-transforms": "@babel/helper-module-transforms@7.18.0",
+				"@babel/helpers": "@babel/helpers@7.18.2",
+				"@babel/parser": "@babel/parser@7.18.4",
+				"@babel/template": "@babel/template@7.16.7",
+				"@babel/traverse": "@babel/traverse@7.18.2",
+				"@babel/types": "@babel/types@7.18.4",
+				"convert-source-map": "convert-source-map@1.8.0",
+				"debug": "debug@4.3.4",
+				"gensync": "gensync@1.0.0-beta.2",
+				"json5": "json5@2.2.1",
+				"semver": "semver@6.3.0"
+			},
+			"main": "./lib/index.js",
+			"browser": {
+				"./lib/config/files/index.js": "./lib/config/files/index-browser.js",
+				"./lib/config/resolve-targets.js": "./lib/config/resolve-targets-browser.js",
+				"./lib/transform-file.js": "./lib/transform-file-browser.js",
+				"./lib/transformation/util/clone-deep.js": "./lib/transformation/util/clone-deep-browser.js",
+				"./src/config/files/index.ts": "./src/config/files/index-browser.ts",
+				"./src/config/resolve-targets.ts": "./src/config/resolve-targets-browser.ts",
+				"./src/transform-file.ts": "./src/transform-file-browser.ts",
+				"./src/transformation/util/clone-deep.ts": "./src/transformation/util/clone-deep-browser.ts"
+			}
+		},
+		"@ampproject/remapping@2.2.0": {
+			"dependencies": {
+				"@jridgewell/gen-mapping": "@jridgewell/gen-mapping@0.1.1",
+				"@jridgewell/trace-mapping": "@jridgewell/trace-mapping@0.3.13"
+			},
+			"main": "dist/remapping.umd.js",
+			"module": "dist/remapping.mjs",
+			"typings": "dist/types/remapping.d.ts"
+		},
+		"@jridgewell/gen-mapping@0.1.1": {
+			"dependencies": {
+				"@jridgewell/set-array": "@jridgewell/set-array@1.1.1",
+				"@jridgewell/sourcemap-codec": "@jridgewell/sourcemap-codec@1.4.13"
+			},
+			"main": "dist/gen-mapping.umd.js",
+			"module": "dist/gen-mapping.mjs",
+			"typings": "dist/types/gen-mapping.d.ts"
+		},
+		"@jridgewell/set-array@1.1.1": {
+			"dependencies": {},
+			"main": "dist/set-array.umd.js",
+			"module": "dist/set-array.mjs",
+			"typings": "dist/types/set-array.d.ts"
+		},
+		"@jridgewell/sourcemap-codec@1.4.13": {
+			"dependencies": {},
+			"main": "dist/sourcemap-codec.umd.js",
+			"module": "dist/sourcemap-codec.mjs",
+			"typings": "dist/types/sourcemap-codec.d.ts"
+		},
+		"@jridgewell/trace-mapping@0.3.13": {
+			"dependencies": {
+				"@jridgewell/resolve-uri": "@jridgewell/resolve-uri@3.0.7",
+				"@jridgewell/sourcemap-codec": "@jridgewell/sourcemap-codec@1.4.13"
+			},
+			"main": "dist/trace-mapping.umd.js",
+			"module": "dist/trace-mapping.mjs",
+			"typings": "dist/types/trace-mapping.d.ts"
+		},
+		"@jridgewell/resolve-uri@3.0.7": {
+			"dependencies": {},
+			"main": "dist/resolve-uri.umd.js",
+			"module": "dist/resolve-uri.mjs",
+			"typings": "dist/types/resolve-uri.d.ts"
+		},
+		"@babel/code-frame@7.16.7": {
+			"dependencies": {
+				"@babel/highlight": "@babel/highlight@7.17.12"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/highlight@7.17.12": {
+			"dependencies": {
+				"@babel/helper-validator-identifier": "@babel/helper-validator-identifier@7.16.7",
+				"chalk": "chalk@2.4.2",
+				"js-tokens": "js-tokens@4.0.0"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/helper-validator-identifier@7.16.7": {
+			"dependencies": {},
+			"main": "./lib/index.js"
+		},
+		"chalk@2.4.2": {
+			"dependencies": {
+				"ansi-styles": "ansi-styles@3.2.1",
+				"escape-string-regexp": "escape-string-regexp@1.0.5",
+				"supports-color": "supports-color@5.5.0"
+			},
+			"types": "types/index.d.ts"
+		},
+		"ansi-styles@3.2.1": {
+			"dependencies": {
+				"color-convert": "color-convert@1.9.3"
+			}
+		},
+		"color-convert@1.9.3": {
+			"dependencies": {
+				"color-name": "color-name@1.1.3"
+			}
+		},
+		"color-name@1.1.3": {
+			"dependencies": {},
+			"main": "index.js"
+		},
+		"escape-string-regexp@1.0.5": {
+			"dependencies": {}
+		},
+		"supports-color@5.5.0": {
+			"dependencies": {
+				"has-flag": "has-flag@3.0.0"
+			},
+			"browser": "browser.js"
+		},
+		"has-flag@3.0.0": {
+			"dependencies": {}
+		},
+		"js-tokens@4.0.0": {
+			"dependencies": {}
+		},
+		"@babel/generator@7.18.2": {
+			"dependencies": {
+				"@babel/types": "@babel/types@7.18.4",
+				"@jridgewell/gen-mapping": "@jridgewell/gen-mapping@0.3.1",
+				"jsesc": "jsesc@2.5.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/types@7.18.4": {
+			"dependencies": {
+				"@babel/helper-validator-identifier": "@babel/helper-validator-identifier@7.16.7",
+				"to-fast-properties": "to-fast-properties@2.0.0"
+			},
+			"main": "./lib/index.js",
+			"types": "./lib/index-legacy.d.ts"
+		},
+		"to-fast-properties@2.0.0": {
+			"dependencies": {}
+		},
+		"@jridgewell/gen-mapping@0.3.1": {
+			"dependencies": {
+				"@jridgewell/set-array": "@jridgewell/set-array@1.1.1",
+				"@jridgewell/sourcemap-codec": "@jridgewell/sourcemap-codec@1.4.13",
+				"@jridgewell/trace-mapping": "@jridgewell/trace-mapping@0.3.13"
+			},
+			"main": "dist/gen-mapping.umd.js",
+			"module": "dist/gen-mapping.mjs",
+			"typings": "dist/types/gen-mapping.d.ts"
+		},
+		"jsesc@2.5.2": {
+			"dependencies": {},
+			"main": "jsesc.js"
+		},
+		"@babel/helper-compilation-targets@7.18.2": {
+			"dependencies": {
+				"@babel/compat-data": "@babel/compat-data@7.17.10",
+				"@babel/helper-validator-option": "@babel/helper-validator-option@7.16.7",
+				"browserslist": "browserslist@4.20.4",
+				"semver": "semver@6.3.0",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/compat-data@7.17.10": {
+			"dependencies": {}
+		},
+		"@babel/helper-validator-option@7.16.7": {
+			"dependencies": {},
+			"main": "./lib/index.js"
+		},
+		"browserslist@4.20.4": {
+			"dependencies": {
+				"caniuse-lite": "caniuse-lite@1.0.30001349",
+				"electron-to-chromium": "electron-to-chromium@1.4.148",
+				"escalade": "escalade@3.1.1",
+				"node-releases": "node-releases@2.0.5",
+				"picocolors": "picocolors@1.0.0"
+			},
+			"browser": {
+				"./node.js": "./browser.js",
+				"path": false
+			},
+			"types": "./index.d.ts"
+		},
+		"caniuse-lite@1.0.30001349": {
+			"dependencies": {},
+			"main": "dist/unpacker/index.js"
+		},
+		"electron-to-chromium@1.4.148": {
+			"dependencies": {},
+			"main": "index.js"
+		},
+		"escalade@3.1.1": {
+			"dependencies": {},
+			"main": "dist/index.js",
+			"module": "dist/index.mjs",
+			"types": "index.d.ts"
+		},
+		"node-releases@2.0.5": {
+			"dependencies": {}
+		},
+		"picocolors@1.0.0": {
+			"dependencies": {},
+			"main": "./picocolors.js",
+			"browser": {
+				"./picocolors.js": "./picocolors.browser.js"
+			},
+			"types": "./picocolors.d.ts"
+		},
+		"semver@6.3.0": {
+			"dependencies": {},
+			"main": "semver.js"
+		},
+		"@babel/helper-module-transforms@7.18.0": {
+			"dependencies": {
+				"@babel/helper-environment-visitor": "@babel/helper-environment-visitor@7.18.2",
+				"@babel/helper-module-imports": "@babel/helper-module-imports@7.16.7",
+				"@babel/helper-simple-access": "@babel/helper-simple-access@7.18.2",
+				"@babel/helper-split-export-declaration": "@babel/helper-split-export-declaration@7.16.7",
+				"@babel/helper-validator-identifier": "@babel/helper-validator-identifier@7.16.7",
+				"@babel/template": "@babel/template@7.16.7",
+				"@babel/traverse": "@babel/traverse@7.18.2",
+				"@babel/types": "@babel/types@7.18.4"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/helper-environment-visitor@7.18.2": {
+			"dependencies": {},
+			"main": "./lib/index.js"
+		},
+		"@babel/helper-module-imports@7.16.7": {
+			"dependencies": {
+				"@babel/types": "@babel/types@7.18.4"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/helper-simple-access@7.18.2": {
+			"dependencies": {
+				"@babel/types": "@babel/types@7.18.4"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/helper-split-export-declaration@7.16.7": {
+			"dependencies": {
+				"@babel/types": "@babel/types@7.18.4"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/template@7.16.7": {
+			"dependencies": {
+				"@babel/code-frame": "@babel/code-frame@7.16.7",
+				"@babel/parser": "@babel/parser@7.18.4",
+				"@babel/types": "@babel/types@7.18.4"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/parser@7.18.4": {
+			"dependencies": {},
+			"main": "./lib/index.js",
+			"types": "./typings/babel-parser.d.ts"
+		},
+		"@babel/traverse@7.18.2": {
+			"dependencies": {
+				"@babel/code-frame": "@babel/code-frame@7.16.7",
+				"@babel/generator": "@babel/generator@7.18.2",
+				"@babel/helper-environment-visitor": "@babel/helper-environment-visitor@7.18.2",
+				"@babel/helper-function-name": "@babel/helper-function-name@7.17.9",
+				"@babel/helper-hoist-variables": "@babel/helper-hoist-variables@7.16.7",
+				"@babel/helper-split-export-declaration": "@babel/helper-split-export-declaration@7.16.7",
+				"@babel/parser": "@babel/parser@7.18.4",
+				"@babel/types": "@babel/types@7.18.4",
+				"debug": "debug@4.3.4",
+				"globals": "globals@11.12.0"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/helper-function-name@7.17.9": {
+			"dependencies": {
+				"@babel/template": "@babel/template@7.16.7",
+				"@babel/types": "@babel/types@7.18.4"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/helper-hoist-variables@7.16.7": {
+			"dependencies": {
+				"@babel/types": "@babel/types@7.18.4"
+			},
+			"main": "./lib/index.js"
+		},
+		"globals@11.12.0": {
+			"dependencies": {}
+		},
+		"@babel/helpers@7.18.2": {
+			"dependencies": {
+				"@babel/template": "@babel/template@7.16.7",
+				"@babel/traverse": "@babel/traverse@7.18.2",
+				"@babel/types": "@babel/types@7.18.4"
+			},
+			"main": "./lib/index.js"
+		},
+		"convert-source-map@1.8.0": {
+			"dependencies": {
+				"safe-buffer": "safe-buffer@5.1.2"
+			},
+			"main": "index.js",
+			"browser": {
+				"fs": false
+			}
+		},
+		"safe-buffer@5.1.2": {
+			"dependencies": {},
+			"main": "index.js",
+			"types": "index.d.ts"
+		},
+		"gensync@1.0.0-beta.2": {
+			"dependencies": {},
+			"main": "index.js"
+		},
+		"json5@2.2.1": {
+			"dependencies": {},
+			"main": "lib/index.js",
+			"browser": "dist/index.js",
+			"module": "dist/index.mjs",
+			"types": "lib/index.d.ts"
+		},
+		"@babel/plugin-transform-react-constant-elements@7.17.12": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/helper-plugin-utils@7.17.12": {
+			"dependencies": {},
+			"main": "./lib/index.js"
+		},
+		"@babel/preset-env@7.18.2": {
+			"dependencies": {
+				"@babel/compat-data": "@babel/compat-data@7.17.10",
+				"@babel/helper-compilation-targets": "@babel/helper-compilation-targets@7.18.2",
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/helper-validator-option": "@babel/helper-validator-option@7.16.7",
+				"@babel/plugin-bugfix-safari-id-destructuring-collision-in-function-expression": "@babel/plugin-bugfix-safari-id-destructuring-collision-in-function-expression@7.17.12",
+				"@babel/plugin-bugfix-v8-spread-parameters-in-optional-chaining": "@babel/plugin-bugfix-v8-spread-parameters-in-optional-chaining@7.17.12",
+				"@babel/plugin-proposal-async-generator-functions": "@babel/plugin-proposal-async-generator-functions@7.17.12",
+				"@babel/plugin-proposal-class-properties": "@babel/plugin-proposal-class-properties@7.17.12",
+				"@babel/plugin-proposal-class-static-block": "@babel/plugin-proposal-class-static-block@7.18.0",
+				"@babel/plugin-proposal-dynamic-import": "@babel/plugin-proposal-dynamic-import@7.16.7",
+				"@babel/plugin-proposal-export-namespace-from": "@babel/plugin-proposal-export-namespace-from@7.17.12",
+				"@babel/plugin-proposal-json-strings": "@babel/plugin-proposal-json-strings@7.17.12",
+				"@babel/plugin-proposal-logical-assignment-operators": "@babel/plugin-proposal-logical-assignment-operators@7.17.12",
+				"@babel/plugin-proposal-nullish-coalescing-operator": "@babel/plugin-proposal-nullish-coalescing-operator@7.17.12",
+				"@babel/plugin-proposal-numeric-separator": "@babel/plugin-proposal-numeric-separator@7.16.7",
+				"@babel/plugin-proposal-object-rest-spread": "@babel/plugin-proposal-object-rest-spread@7.18.0",
+				"@babel/plugin-proposal-optional-catch-binding": "@babel/plugin-proposal-optional-catch-binding@7.16.7",
+				"@babel/plugin-proposal-optional-chaining": "@babel/plugin-proposal-optional-chaining@7.17.12",
+				"@babel/plugin-proposal-private-methods": "@babel/plugin-proposal-private-methods@7.17.12",
+				"@babel/plugin-proposal-private-property-in-object": "@babel/plugin-proposal-private-property-in-object@7.17.12",
+				"@babel/plugin-proposal-unicode-property-regex": "@babel/plugin-proposal-unicode-property-regex@7.17.12",
+				"@babel/plugin-syntax-async-generators": "@babel/plugin-syntax-async-generators@7.8.4",
+				"@babel/plugin-syntax-class-properties": "@babel/plugin-syntax-class-properties@7.12.13",
+				"@babel/plugin-syntax-class-static-block": "@babel/plugin-syntax-class-static-block@7.14.5",
+				"@babel/plugin-syntax-dynamic-import": "@babel/plugin-syntax-dynamic-import@7.8.3",
+				"@babel/plugin-syntax-export-namespace-from": "@babel/plugin-syntax-export-namespace-from@7.8.3",
+				"@babel/plugin-syntax-import-assertions": "@babel/plugin-syntax-import-assertions@7.17.12",
+				"@babel/plugin-syntax-json-strings": "@babel/plugin-syntax-json-strings@7.8.3",
+				"@babel/plugin-syntax-logical-assignment-operators": "@babel/plugin-syntax-logical-assignment-operators@7.10.4",
+				"@babel/plugin-syntax-nullish-coalescing-operator": "@babel/plugin-syntax-nullish-coalescing-operator@7.8.3",
+				"@babel/plugin-syntax-numeric-separator": "@babel/plugin-syntax-numeric-separator@7.10.4",
+				"@babel/plugin-syntax-object-rest-spread": "@babel/plugin-syntax-object-rest-spread@7.8.3",
+				"@babel/plugin-syntax-optional-catch-binding": "@babel/plugin-syntax-optional-catch-binding@7.8.3",
+				"@babel/plugin-syntax-optional-chaining": "@babel/plugin-syntax-optional-chaining@7.8.3",
+				"@babel/plugin-syntax-private-property-in-object": "@babel/plugin-syntax-private-property-in-object@7.14.5",
+				"@babel/plugin-syntax-top-level-await": "@babel/plugin-syntax-top-level-await@7.14.5",
+				"@babel/plugin-transform-arrow-functions": "@babel/plugin-transform-arrow-functions@7.17.12",
+				"@babel/plugin-transform-async-to-generator": "@babel/plugin-transform-async-to-generator@7.17.12",
+				"@babel/plugin-transform-block-scoped-functions": "@babel/plugin-transform-block-scoped-functions@7.16.7",
+				"@babel/plugin-transform-block-scoping": "@babel/plugin-transform-block-scoping@7.18.4",
+				"@babel/plugin-transform-classes": "@babel/plugin-transform-classes@7.18.4",
+				"@babel/plugin-transform-computed-properties": "@babel/plugin-transform-computed-properties@7.17.12",
+				"@babel/plugin-transform-destructuring": "@babel/plugin-transform-destructuring@7.18.0",
+				"@babel/plugin-transform-dotall-regex": "@babel/plugin-transform-dotall-regex@7.16.7",
+				"@babel/plugin-transform-duplicate-keys": "@babel/plugin-transform-duplicate-keys@7.17.12",
+				"@babel/plugin-transform-exponentiation-operator": "@babel/plugin-transform-exponentiation-operator@7.16.7",
+				"@babel/plugin-transform-for-of": "@babel/plugin-transform-for-of@7.18.1",
+				"@babel/plugin-transform-function-name": "@babel/plugin-transform-function-name@7.16.7",
+				"@babel/plugin-transform-literals": "@babel/plugin-transform-literals@7.17.12",
+				"@babel/plugin-transform-member-expression-literals": "@babel/plugin-transform-member-expression-literals@7.16.7",
+				"@babel/plugin-transform-modules-amd": "@babel/plugin-transform-modules-amd@7.18.0",
+				"@babel/plugin-transform-modules-commonjs": "@babel/plugin-transform-modules-commonjs@7.18.2",
+				"@babel/plugin-transform-modules-systemjs": "@babel/plugin-transform-modules-systemjs@7.18.4",
+				"@babel/plugin-transform-modules-umd": "@babel/plugin-transform-modules-umd@7.18.0",
+				"@babel/plugin-transform-named-capturing-groups-regex": "@babel/plugin-transform-named-capturing-groups-regex@7.17.12",
+				"@babel/plugin-transform-new-target": "@babel/plugin-transform-new-target@7.17.12",
+				"@babel/plugin-transform-object-super": "@babel/plugin-transform-object-super@7.16.7",
+				"@babel/plugin-transform-parameters": "@babel/plugin-transform-parameters@7.17.12",
+				"@babel/plugin-transform-property-literals": "@babel/plugin-transform-property-literals@7.16.7",
+				"@babel/plugin-transform-regenerator": "@babel/plugin-transform-regenerator@7.18.0",
+				"@babel/plugin-transform-reserved-words": "@babel/plugin-transform-reserved-words@7.17.12",
+				"@babel/plugin-transform-shorthand-properties": "@babel/plugin-transform-shorthand-properties@7.16.7",
+				"@babel/plugin-transform-spread": "@babel/plugin-transform-spread@7.17.12",
+				"@babel/plugin-transform-sticky-regex": "@babel/plugin-transform-sticky-regex@7.16.7",
+				"@babel/plugin-transform-template-literals": "@babel/plugin-transform-template-literals@7.18.2",
+				"@babel/plugin-transform-typeof-symbol": "@babel/plugin-transform-typeof-symbol@7.17.12",
+				"@babel/plugin-transform-unicode-escapes": "@babel/plugin-transform-unicode-escapes@7.16.7",
+				"@babel/plugin-transform-unicode-regex": "@babel/plugin-transform-unicode-regex@7.16.7",
+				"@babel/preset-modules": "@babel/preset-modules@0.1.5",
+				"@babel/types": "@babel/types@7.18.4",
+				"babel-plugin-polyfill-corejs2": "babel-plugin-polyfill-corejs2@0.3.1",
+				"babel-plugin-polyfill-corejs3": "babel-plugin-polyfill-corejs3@0.5.2",
+				"babel-plugin-polyfill-regenerator": "babel-plugin-polyfill-regenerator@0.3.1",
+				"core-js-compat": "core-js-compat@3.22.8",
+				"semver": "semver@6.3.0",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-bugfix-safari-id-destructuring-collision-in-function-expression@7.17.12": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-bugfix-v8-spread-parameters-in-optional-chaining@7.17.12": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/helper-skip-transparent-expression-wrappers": "@babel/helper-skip-transparent-expression-wrappers@7.16.0",
+				"@babel/plugin-proposal-optional-chaining": "@babel/plugin-proposal-optional-chaining@7.17.12",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/helper-skip-transparent-expression-wrappers@7.16.0": {
+			"dependencies": {
+				"@babel/types": "@babel/types@7.18.4"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-proposal-optional-chaining@7.17.12": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/helper-skip-transparent-expression-wrappers": "@babel/helper-skip-transparent-expression-wrappers@7.16.0",
+				"@babel/plugin-syntax-optional-chaining": "@babel/plugin-syntax-optional-chaining@7.8.3",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-syntax-optional-chaining@7.8.3": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "lib/index.js"
+		},
+		"@babel/plugin-proposal-async-generator-functions@7.17.12": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/helper-remap-async-to-generator": "@babel/helper-remap-async-to-generator@7.16.8",
+				"@babel/plugin-syntax-async-generators": "@babel/plugin-syntax-async-generators@7.8.4",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/helper-remap-async-to-generator@7.16.8": {
+			"dependencies": {
+				"@babel/helper-annotate-as-pure": "@babel/helper-annotate-as-pure@7.16.7",
+				"@babel/helper-wrap-function": "@babel/helper-wrap-function@7.16.8",
+				"@babel/types": "@babel/types@7.18.4"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/helper-annotate-as-pure@7.16.7": {
+			"dependencies": {
+				"@babel/types": "@babel/types@7.18.4"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/helper-wrap-function@7.16.8": {
+			"dependencies": {
+				"@babel/helper-function-name": "@babel/helper-function-name@7.17.9",
+				"@babel/template": "@babel/template@7.16.7",
+				"@babel/traverse": "@babel/traverse@7.18.2",
+				"@babel/types": "@babel/types@7.18.4"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-syntax-async-generators@7.8.4": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "lib/index.js"
+		},
+		"@babel/plugin-proposal-class-properties@7.17.12": {
+			"dependencies": {
+				"@babel/helper-create-class-features-plugin": "@babel/helper-create-class-features-plugin@7.18.0",
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/helper-create-class-features-plugin@7.18.0": {
+			"dependencies": {
+				"@babel/helper-annotate-as-pure": "@babel/helper-annotate-as-pure@7.16.7",
+				"@babel/helper-environment-visitor": "@babel/helper-environment-visitor@7.18.2",
+				"@babel/helper-function-name": "@babel/helper-function-name@7.17.9",
+				"@babel/helper-member-expression-to-functions": "@babel/helper-member-expression-to-functions@7.17.7",
+				"@babel/helper-optimise-call-expression": "@babel/helper-optimise-call-expression@7.16.7",
+				"@babel/helper-replace-supers": "@babel/helper-replace-supers@7.18.2",
+				"@babel/helper-split-export-declaration": "@babel/helper-split-export-declaration@7.16.7",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/helper-member-expression-to-functions@7.17.7": {
+			"dependencies": {
+				"@babel/types": "@babel/types@7.18.4"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/helper-optimise-call-expression@7.16.7": {
+			"dependencies": {
+				"@babel/types": "@babel/types@7.18.4"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/helper-replace-supers@7.18.2": {
+			"dependencies": {
+				"@babel/helper-environment-visitor": "@babel/helper-environment-visitor@7.18.2",
+				"@babel/helper-member-expression-to-functions": "@babel/helper-member-expression-to-functions@7.17.7",
+				"@babel/helper-optimise-call-expression": "@babel/helper-optimise-call-expression@7.16.7",
+				"@babel/traverse": "@babel/traverse@7.18.2",
+				"@babel/types": "@babel/types@7.18.4"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-proposal-class-static-block@7.18.0": {
+			"dependencies": {
+				"@babel/helper-create-class-features-plugin": "@babel/helper-create-class-features-plugin@7.18.0",
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/plugin-syntax-class-static-block": "@babel/plugin-syntax-class-static-block@7.14.5",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-syntax-class-static-block@7.14.5": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-proposal-dynamic-import@7.16.7": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/plugin-syntax-dynamic-import": "@babel/plugin-syntax-dynamic-import@7.8.3",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-syntax-dynamic-import@7.8.3": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "lib/index.js"
+		},
+		"@babel/plugin-proposal-export-namespace-from@7.17.12": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/plugin-syntax-export-namespace-from": "@babel/plugin-syntax-export-namespace-from@7.8.3",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-syntax-export-namespace-from@7.8.3": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "lib/index.js"
+		},
+		"@babel/plugin-proposal-json-strings@7.17.12": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/plugin-syntax-json-strings": "@babel/plugin-syntax-json-strings@7.8.3",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-syntax-json-strings@7.8.3": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "lib/index.js"
+		},
+		"@babel/plugin-proposal-logical-assignment-operators@7.17.12": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/plugin-syntax-logical-assignment-operators": "@babel/plugin-syntax-logical-assignment-operators@7.10.4",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-syntax-logical-assignment-operators@7.10.4": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "lib/index.js"
+		},
+		"@babel/plugin-proposal-nullish-coalescing-operator@7.17.12": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/plugin-syntax-nullish-coalescing-operator": "@babel/plugin-syntax-nullish-coalescing-operator@7.8.3",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-syntax-nullish-coalescing-operator@7.8.3": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "lib/index.js"
+		},
+		"@babel/plugin-proposal-numeric-separator@7.16.7": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/plugin-syntax-numeric-separator": "@babel/plugin-syntax-numeric-separator@7.10.4",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-syntax-numeric-separator@7.10.4": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "lib/index.js"
+		},
+		"@babel/plugin-proposal-object-rest-spread@7.18.0": {
+			"dependencies": {
+				"@babel/compat-data": "@babel/compat-data@7.17.10",
+				"@babel/helper-compilation-targets": "@babel/helper-compilation-targets@7.18.2",
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/plugin-syntax-object-rest-spread": "@babel/plugin-syntax-object-rest-spread@7.8.3",
+				"@babel/plugin-transform-parameters": "@babel/plugin-transform-parameters@7.17.12",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-syntax-object-rest-spread@7.8.3": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "lib/index.js"
+		},
+		"@babel/plugin-transform-parameters@7.17.12": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-proposal-optional-catch-binding@7.16.7": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/plugin-syntax-optional-catch-binding": "@babel/plugin-syntax-optional-catch-binding@7.8.3",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-syntax-optional-catch-binding@7.8.3": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "lib/index.js"
+		},
+		"@babel/plugin-proposal-private-methods@7.17.12": {
+			"dependencies": {
+				"@babel/helper-create-class-features-plugin": "@babel/helper-create-class-features-plugin@7.18.0",
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-proposal-private-property-in-object@7.17.12": {
+			"dependencies": {
+				"@babel/helper-annotate-as-pure": "@babel/helper-annotate-as-pure@7.16.7",
+				"@babel/helper-create-class-features-plugin": "@babel/helper-create-class-features-plugin@7.18.0",
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/plugin-syntax-private-property-in-object": "@babel/plugin-syntax-private-property-in-object@7.14.5",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-syntax-private-property-in-object@7.14.5": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-proposal-unicode-property-regex@7.17.12": {
+			"dependencies": {
+				"@babel/helper-create-regexp-features-plugin": "@babel/helper-create-regexp-features-plugin@7.17.12",
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/helper-create-regexp-features-plugin@7.17.12": {
+			"dependencies": {
+				"@babel/helper-annotate-as-pure": "@babel/helper-annotate-as-pure@7.16.7",
+				"regexpu-core": "regexpu-core@5.0.1",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"regexpu-core@5.0.1": {
+			"dependencies": {
+				"regenerate": "regenerate@1.4.2",
+				"regenerate-unicode-properties": "regenerate-unicode-properties@10.0.1",
+				"regjsgen": "regjsgen@0.6.0",
+				"regjsparser": "regjsparser@0.8.4",
+				"unicode-match-property-ecmascript": "unicode-match-property-ecmascript@2.0.0",
+				"unicode-match-property-value-ecmascript": "unicode-match-property-value-ecmascript@2.0.0"
+			},
+			"main": "rewrite-pattern.js"
+		},
+		"regenerate@1.4.2": {
+			"dependencies": {},
+			"main": "regenerate.js"
+		},
+		"regenerate-unicode-properties@10.0.1": {
+			"dependencies": {
+				"regenerate": "regenerate@1.4.2"
+			},
+			"main": "index.js"
+		},
+		"regjsgen@0.6.0": {
+			"dependencies": {},
+			"main": "regjsgen.js"
+		},
+		"regjsparser@0.8.4": {
+			"dependencies": {
+				"jsesc": "jsesc@0.5.0"
+			},
+			"main": "./parser",
+			"types": "./parser.d.ts"
+		},
+		"jsesc@0.5.0": {
+			"dependencies": {},
+			"main": "jsesc.js"
+		},
+		"unicode-match-property-ecmascript@2.0.0": {
+			"dependencies": {
+				"unicode-canonical-property-names-ecmascript": "unicode-canonical-property-names-ecmascript@2.0.0",
+				"unicode-property-aliases-ecmascript": "unicode-property-aliases-ecmascript@2.0.0"
+			},
+			"main": "index.js"
+		},
+		"unicode-canonical-property-names-ecmascript@2.0.0": {
+			"dependencies": {},
+			"main": "index.js"
+		},
+		"unicode-property-aliases-ecmascript@2.0.0": {
+			"dependencies": {},
+			"main": "index.js"
+		},
+		"unicode-match-property-value-ecmascript@2.0.0": {
+			"dependencies": {},
+			"main": "index.js"
+		},
+		"@babel/plugin-syntax-class-properties@7.12.13": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "lib/index.js"
+		},
+		"@babel/plugin-syntax-import-assertions@7.17.12": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-syntax-top-level-await@7.14.5": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-transform-arrow-functions@7.17.12": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-transform-async-to-generator@7.17.12": {
+			"dependencies": {
+				"@babel/helper-module-imports": "@babel/helper-module-imports@7.16.7",
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/helper-remap-async-to-generator": "@babel/helper-remap-async-to-generator@7.16.8",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-transform-block-scoped-functions@7.16.7": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-transform-block-scoping@7.18.4": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-transform-classes@7.18.4": {
+			"dependencies": {
+				"@babel/helper-annotate-as-pure": "@babel/helper-annotate-as-pure@7.16.7",
+				"@babel/helper-environment-visitor": "@babel/helper-environment-visitor@7.18.2",
+				"@babel/helper-function-name": "@babel/helper-function-name@7.17.9",
+				"@babel/helper-optimise-call-expression": "@babel/helper-optimise-call-expression@7.16.7",
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/helper-replace-supers": "@babel/helper-replace-supers@7.18.2",
+				"@babel/helper-split-export-declaration": "@babel/helper-split-export-declaration@7.16.7",
+				"globals": "globals@11.12.0",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-transform-computed-properties@7.17.12": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-transform-destructuring@7.18.0": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-transform-dotall-regex@7.16.7": {
+			"dependencies": {
+				"@babel/helper-create-regexp-features-plugin": "@babel/helper-create-regexp-features-plugin@7.17.12",
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-transform-duplicate-keys@7.17.12": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-transform-exponentiation-operator@7.16.7": {
+			"dependencies": {
+				"@babel/helper-builder-binary-assignment-operator-visitor": "@babel/helper-builder-binary-assignment-operator-visitor@7.16.7",
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/helper-builder-binary-assignment-operator-visitor@7.16.7": {
+			"dependencies": {
+				"@babel/helper-explode-assignable-expression": "@babel/helper-explode-assignable-expression@7.16.7",
+				"@babel/types": "@babel/types@7.18.4"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/helper-explode-assignable-expression@7.16.7": {
+			"dependencies": {
+				"@babel/types": "@babel/types@7.18.4"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-transform-for-of@7.18.1": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-transform-function-name@7.16.7": {
+			"dependencies": {
+				"@babel/helper-compilation-targets": "@babel/helper-compilation-targets@7.18.2",
+				"@babel/helper-function-name": "@babel/helper-function-name@7.17.9",
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-transform-literals@7.17.12": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-transform-member-expression-literals@7.16.7": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-transform-modules-amd@7.18.0": {
+			"dependencies": {
+				"@babel/helper-module-transforms": "@babel/helper-module-transforms@7.18.0",
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"babel-plugin-dynamic-import-node": "babel-plugin-dynamic-import-node@2.3.3",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"babel-plugin-dynamic-import-node@2.3.3": {
+			"dependencies": {
+				"object.assign": "object.assign@4.1.2"
+			},
+			"main": "lib/index.js"
+		},
+		"object.assign@4.1.2": {
+			"dependencies": {
+				"call-bind": "call-bind@1.0.2",
+				"define-properties": "define-properties@1.1.4",
+				"has-symbols": "has-symbols@1.0.3",
+				"object-keys": "object-keys@1.1.1"
+			},
+			"main": "index.js"
+		},
+		"call-bind@1.0.2": {
+			"dependencies": {
+				"function-bind": "function-bind@1.1.1",
+				"get-intrinsic": "get-intrinsic@1.1.1"
+			},
+			"main": "index.js"
+		},
+		"function-bind@1.1.1": {
+			"dependencies": {},
+			"main": "index"
+		},
+		"get-intrinsic@1.1.1": {
+			"dependencies": {
+				"function-bind": "function-bind@1.1.1",
+				"has": "has@1.0.3",
+				"has-symbols": "has-symbols@1.0.3"
+			},
+			"main": "index.js"
+		},
+		"has@1.0.3": {
+			"dependencies": {
+				"function-bind": "function-bind@1.1.1"
+			},
+			"main": "./src"
+		},
+		"has-symbols@1.0.3": {
+			"dependencies": {},
+			"main": "index.js"
+		},
+		"define-properties@1.1.4": {
+			"dependencies": {
+				"has-property-descriptors": "has-property-descriptors@1.0.0",
+				"object-keys": "object-keys@1.1.1"
+			},
+			"main": "index.js"
+		},
+		"has-property-descriptors@1.0.0": {
+			"dependencies": {
+				"get-intrinsic": "get-intrinsic@1.1.1"
+			},
+			"main": "index.js"
+		},
+		"object-keys@1.1.1": {
+			"dependencies": {},
+			"main": "index.js"
+		},
+		"@babel/plugin-transform-modules-commonjs@7.18.2": {
+			"dependencies": {
+				"@babel/helper-module-transforms": "@babel/helper-module-transforms@7.18.0",
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/helper-simple-access": "@babel/helper-simple-access@7.18.2",
+				"babel-plugin-dynamic-import-node": "babel-plugin-dynamic-import-node@2.3.3",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-transform-modules-systemjs@7.18.4": {
+			"dependencies": {
+				"@babel/helper-hoist-variables": "@babel/helper-hoist-variables@7.16.7",
+				"@babel/helper-module-transforms": "@babel/helper-module-transforms@7.18.0",
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/helper-validator-identifier": "@babel/helper-validator-identifier@7.16.7",
+				"babel-plugin-dynamic-import-node": "babel-plugin-dynamic-import-node@2.3.3",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-transform-modules-umd@7.18.0": {
+			"dependencies": {
+				"@babel/helper-module-transforms": "@babel/helper-module-transforms@7.18.0",
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-transform-named-capturing-groups-regex@7.17.12": {
+			"dependencies": {
+				"@babel/helper-create-regexp-features-plugin": "@babel/helper-create-regexp-features-plugin@7.17.12",
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-transform-new-target@7.17.12": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-transform-object-super@7.16.7": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/helper-replace-supers": "@babel/helper-replace-supers@7.18.2",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-transform-property-literals@7.16.7": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-transform-regenerator@7.18.0": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"regenerator-transform": "regenerator-transform@0.15.0",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"regenerator-transform@0.15.0": {
+			"dependencies": {
+				"@babel/runtime": "@babel/runtime@7.18.3"
+			},
+			"main": "lib/index.js"
+		},
+		"@babel/runtime@7.18.3": {
+			"dependencies": {
+				"regenerator-runtime": "regenerator-runtime@0.13.9"
+			}
+		},
+		"regenerator-runtime@0.13.9": {
+			"dependencies": {},
+			"main": "runtime.js"
+		},
+		"@babel/plugin-transform-reserved-words@7.17.12": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-transform-shorthand-properties@7.16.7": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-transform-spread@7.17.12": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/helper-skip-transparent-expression-wrappers": "@babel/helper-skip-transparent-expression-wrappers@7.16.0",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-transform-sticky-regex@7.16.7": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-transform-template-literals@7.18.2": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-transform-typeof-symbol@7.17.12": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-transform-unicode-escapes@7.16.7": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-transform-unicode-regex@7.16.7": {
+			"dependencies": {
+				"@babel/helper-create-regexp-features-plugin": "@babel/helper-create-regexp-features-plugin@7.17.12",
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/preset-modules@0.1.5": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/plugin-proposal-unicode-property-regex": "@babel/plugin-proposal-unicode-property-regex@7.17.12",
+				"@babel/plugin-transform-dotall-regex": "@babel/plugin-transform-dotall-regex@7.16.7",
+				"@babel/types": "@babel/types@7.18.4",
+				"esutils": "esutils@2.0.3",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "lib/index.js"
+		},
+		"esutils@2.0.3": {
+			"dependencies": {},
+			"main": "lib/utils.js"
+		},
+		"babel-plugin-polyfill-corejs2@0.3.1": {
+			"dependencies": {
+				"@babel/compat-data": "@babel/compat-data@7.17.10",
+				"@babel/helper-define-polyfill-provider": "@babel/helper-define-polyfill-provider@0.3.1",
+				"semver": "semver@6.3.0",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "lib/index.js"
+		},
+		"@babel/helper-define-polyfill-provider@0.3.1": {
+			"dependencies": {
+				"@babel/helper-compilation-targets": "@babel/helper-compilation-targets@7.18.2",
+				"@babel/helper-module-imports": "@babel/helper-module-imports@7.16.7",
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/traverse": "@babel/traverse@7.18.2",
+				"debug": "debug@4.3.4",
+				"lodash.debounce": "lodash.debounce@4.0.8",
+				"resolve": "resolve@1.22.0",
+				"semver": "semver@6.3.0",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "lib/index.js",
+			"browser": {
+				"./lib/node/dependencies.js": "./lib/browser/dependencies.js",
+				"./src/node/dependencies.js": "./src/browser/dependencies.js"
+			}
+		},
+		"lodash.debounce@4.0.8": {
+			"dependencies": {}
+		},
+		"resolve@1.22.0": {
+			"dependencies": {
+				"is-core-module": "is-core-module@2.9.0",
+				"path-parse": "path-parse@1.0.7",
+				"supports-preserve-symlinks-flag": "supports-preserve-symlinks-flag@1.0.0"
+			},
+			"main": "index.js"
+		},
+		"is-core-module@2.9.0": {
+			"dependencies": {
+				"has": "has@1.0.3"
+			},
+			"main": "index.js"
+		},
+		"path-parse@1.0.7": {
+			"dependencies": {},
+			"main": "index.js"
+		},
+		"supports-preserve-symlinks-flag@1.0.0": {
+			"dependencies": {},
+			"main": "./index.js",
+			"browser": "./browser.js"
+		},
+		"babel-plugin-polyfill-corejs3@0.5.2": {
+			"dependencies": {
+				"@babel/helper-define-polyfill-provider": "@babel/helper-define-polyfill-provider@0.3.1",
+				"core-js-compat": "core-js-compat@3.22.8",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "lib/index.js"
+		},
+		"core-js-compat@3.22.8": {
+			"dependencies": {
+				"browserslist": "browserslist@4.20.4",
+				"semver": "semver@7.0.0"
+			},
+			"main": "index.js"
+		},
+		"semver@7.0.0": {
+			"dependencies": {},
+			"main": "index.js"
+		},
+		"babel-plugin-polyfill-regenerator@0.3.1": {
+			"dependencies": {
+				"@babel/helper-define-polyfill-provider": "@babel/helper-define-polyfill-provider@0.3.1",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "lib/index.js"
+		},
+		"@babel/preset-react@7.17.12": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/helper-validator-option": "@babel/helper-validator-option@7.16.7",
+				"@babel/plugin-transform-react-display-name": "@babel/plugin-transform-react-display-name@7.16.7",
+				"@babel/plugin-transform-react-jsx": "@babel/plugin-transform-react-jsx@7.17.12",
+				"@babel/plugin-transform-react-jsx-development": "@babel/plugin-transform-react-jsx-development@7.16.7",
+				"@babel/plugin-transform-react-pure-annotations": "@babel/plugin-transform-react-pure-annotations@7.18.0",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-transform-react-display-name@7.16.7": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-transform-react-jsx@7.17.12": {
+			"dependencies": {
+				"@babel/helper-annotate-as-pure": "@babel/helper-annotate-as-pure@7.16.7",
+				"@babel/helper-module-imports": "@babel/helper-module-imports@7.16.7",
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/plugin-syntax-jsx": "@babel/plugin-syntax-jsx@7.17.12",
+				"@babel/types": "@babel/types@7.18.4",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-syntax-jsx@7.17.12": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-transform-react-jsx-development@7.16.7": {
+			"dependencies": {
+				"@babel/plugin-transform-react-jsx": "@babel/plugin-transform-react-jsx@7.17.12",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-transform-react-pure-annotations@7.18.0": {
+			"dependencies": {
+				"@babel/helper-annotate-as-pure": "@babel/helper-annotate-as-pure@7.16.7",
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/preset-typescript@7.17.12": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/helper-validator-option": "@babel/helper-validator-option@7.16.7",
+				"@babel/plugin-transform-typescript": "@babel/plugin-transform-typescript@7.18.4",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-transform-typescript@7.18.4": {
+			"dependencies": {
+				"@babel/helper-create-class-features-plugin": "@babel/helper-create-class-features-plugin@7.18.0",
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/plugin-syntax-typescript": "@babel/plugin-syntax-typescript@7.17.12",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@babel/plugin-syntax-typescript@7.17.12": {
+			"dependencies": {
+				"@babel/helper-plugin-utils": "@babel/helper-plugin-utils@7.17.12",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./lib/index.js"
+		},
+		"@svgr/core@6.2.1": {
+			"dependencies": {
+				"@svgr/plugin-jsx": "@svgr/plugin-jsx@6.2.1",
+				"camelcase": "camelcase@6.3.0",
+				"cosmiconfig": "cosmiconfig@7.0.1"
+			},
+			"main": "./dist/index.js",
+			"types": "lib/index.d.ts",
+			"typings": "./dist/index.d.ts"
+		},
+		"@svgr/plugin-jsx@6.2.1": {
+			"dependencies": {
+				"@babel/core": "@babel/core@7.18.2",
+				"@svgr/babel-preset": "@svgr/babel-preset@6.2.0",
+				"@svgr/hast-util-to-babel-ast": "@svgr/hast-util-to-babel-ast@6.2.1",
+				"svg-parser": "svg-parser@2.0.4",
+				"@svgr/core": "@svgr/core@6.2.1"
+			},
+			"main": "./dist/index.js",
+			"typings": "./dist/index.d.ts"
+		},
+		"@svgr/babel-preset@6.2.0": {
+			"dependencies": {
+				"@svgr/babel-plugin-add-jsx-attribute": "@svgr/babel-plugin-add-jsx-attribute@6.0.0",
+				"@svgr/babel-plugin-remove-jsx-attribute": "@svgr/babel-plugin-remove-jsx-attribute@6.0.0",
+				"@svgr/babel-plugin-remove-jsx-empty-expression": "@svgr/babel-plugin-remove-jsx-empty-expression@6.0.0",
+				"@svgr/babel-plugin-replace-jsx-attribute-value": "@svgr/babel-plugin-replace-jsx-attribute-value@6.0.0",
+				"@svgr/babel-plugin-svg-dynamic-title": "@svgr/babel-plugin-svg-dynamic-title@6.0.0",
+				"@svgr/babel-plugin-svg-em-dimensions": "@svgr/babel-plugin-svg-em-dimensions@6.0.0",
+				"@svgr/babel-plugin-transform-react-native-svg": "@svgr/babel-plugin-transform-react-native-svg@6.0.0",
+				"@svgr/babel-plugin-transform-svg-component": "@svgr/babel-plugin-transform-svg-component@6.2.0",
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./dist/index.js",
+			"typings": "./dist/index.d.ts"
+		},
+		"@svgr/babel-plugin-add-jsx-attribute@6.0.0": {
+			"dependencies": {
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./dist/index.js",
+			"typings": "./dist/index.d.ts"
+		},
+		"@svgr/babel-plugin-remove-jsx-attribute@6.0.0": {
+			"dependencies": {
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./dist/index.js",
+			"typings": "./dist/index.d.ts"
+		},
+		"@svgr/babel-plugin-remove-jsx-empty-expression@6.0.0": {
+			"dependencies": {
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./dist/index.js",
+			"typings": "./dist/index.d.ts"
+		},
+		"@svgr/babel-plugin-replace-jsx-attribute-value@6.0.0": {
+			"dependencies": {
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./dist/index.js",
+			"typings": "./dist/index.d.ts"
+		},
+		"@svgr/babel-plugin-svg-dynamic-title@6.0.0": {
+			"dependencies": {
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./dist/index.js",
+			"typings": "./dist/index.d.ts"
+		},
+		"@svgr/babel-plugin-svg-em-dimensions@6.0.0": {
+			"dependencies": {
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./dist/index.js",
+			"typings": "./dist/index.d.ts"
+		},
+		"@svgr/babel-plugin-transform-react-native-svg@6.0.0": {
+			"dependencies": {
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./dist/index.js",
+			"typings": "./dist/index.d.ts"
+		},
+		"@svgr/babel-plugin-transform-svg-component@6.2.0": {
+			"dependencies": {
+				"@babel/core": "@babel/core@7.18.2"
+			},
+			"main": "./dist/index.js",
+			"typings": "./dist/index.d.ts"
+		},
+		"@svgr/hast-util-to-babel-ast@6.2.1": {
+			"dependencies": {
+				"@babel/types": "@babel/types@7.18.4",
+				"entities": "entities@3.0.1"
+			},
+			"main": "./dist/index.js",
+			"typings": "./dist/index.d.ts"
+		},
+		"entities@3.0.1": {
+			"dependencies": {},
+			"main": "lib/index.js",
+			"types": "lib/index.d.ts"
+		},
+		"svg-parser@2.0.4": {
+			"dependencies": {},
+			"main": "dist/svg-parser.umd.js",
+			"module": "dist/svg-parser.esm.js"
+		},
+		"camelcase@6.3.0": {
+			"dependencies": {},
+			"types": "./index.d.ts"
+		},
+		"cosmiconfig@7.0.1": {
+			"dependencies": {
+				"@types/parse-json": "@types/parse-json@4.0.0",
+				"import-fresh": "import-fresh@3.3.0",
+				"parse-json": "parse-json@5.2.0",
+				"path-type": "path-type@4.0.0",
+				"yaml": "yaml@1.10.2"
+			},
+			"main": "dist/index.js",
+			"types": "dist/index.d.ts"
+		},
+		"@types/parse-json@4.0.0": {
+			"dependencies": {},
+			"main": ""
+		},
+		"import-fresh@3.3.0": {
+			"dependencies": {
+				"parent-module": "parent-module@1.0.1",
+				"resolve-from": "resolve-from@4.0.0"
+			}
+		},
+		"parent-module@1.0.1": {
+			"dependencies": {
+				"callsites": "callsites@3.1.0"
+			}
+		},
+		"callsites@3.1.0": {
+			"dependencies": {}
+		},
+		"resolve-from@4.0.0": {
+			"dependencies": {}
+		},
+		"parse-json@5.2.0": {
+			"dependencies": {
+				"@babel/code-frame": "@babel/code-frame@7.16.7",
+				"error-ex": "error-ex@1.3.2",
+				"json-parse-even-better-errors": "json-parse-even-better-errors@2.3.1",
+				"lines-and-columns": "lines-and-columns@1.2.4"
+			}
+		},
+		"error-ex@1.3.2": {
+			"dependencies": {
+				"is-arrayish": "is-arrayish@0.2.1"
+			}
+		},
+		"is-arrayish@0.2.1": {
+			"dependencies": {}
+		},
+		"json-parse-even-better-errors@2.3.1": {
+			"dependencies": {},
+			"main": "index.js"
+		},
+		"lines-and-columns@1.2.4": {
+			"dependencies": {},
+			"main": "./build/index.js",
+			"types": "./build/index.d.ts"
+		},
+		"path-type@4.0.0": {
+			"dependencies": {}
+		},
+		"yaml@1.10.2": {
+			"dependencies": {},
+			"main": "./index.js",
+			"browser": {
+				"./index.js": "./browser/index.js",
+				"./map.js": "./browser/map.js",
+				"./pair.js": "./browser/pair.js",
+				"./parse-cst.js": "./browser/parse-cst.js",
+				"./scalar.js": "./browser/scalar.js",
+				"./schema.js": "./browser/schema.js",
+				"./seq.js": "./browser/seq.js",
+				"./types.js": "./browser/types.js",
+				"./types.mjs": "./browser/types.js",
+				"./types/binary.js": "./browser/types/binary.js",
+				"./types/omap.js": "./browser/types/omap.js",
+				"./types/pairs.js": "./browser/types/pairs.js",
+				"./types/set.js": "./browser/types/set.js",
+				"./types/timestamp.js": "./browser/types/timestamp.js",
+				"./util.js": "./browser/util.js",
+				"./util.mjs": "./browser/util.js"
+			}
+		},
+		"@svgr/plugin-svgo@6.2.0": {
+			"dependencies": {
+				"cosmiconfig": "cosmiconfig@7.0.1",
+				"deepmerge": "deepmerge@4.2.2",
+				"svgo": "svgo@2.8.0",
+				"@svgr/core": "@svgr/core@6.2.1"
+			},
+			"main": "./dist/index.js",
+			"typings": "./dist/index.d.ts"
+		},
+		"deepmerge@4.2.2": {
+			"dependencies": {},
+			"main": "dist/cjs.js"
+		},
+		"svgo@2.8.0": {
+			"dependencies": {
+				"@trysound/sax": "@trysound/sax@0.2.0",
+				"commander": "commander@7.2.0",
+				"css-select": "css-select@4.3.0",
+				"css-tree": "css-tree@1.1.3",
+				"csso": "csso@4.2.0",
+				"picocolors": "picocolors@1.0.0",
+				"stable": "stable@0.1.8"
+			},
+			"main": "./lib/svgo-node.js"
+		},
+		"@trysound/sax@0.2.0": {
+			"dependencies": {},
+			"main": "lib/sax.js"
+		},
+		"commander@7.2.0": {
+			"dependencies": {},
+			"main": "./index.js",
+			"types": "typings/index.d.ts"
+		},
+		"css-select@4.3.0": {
+			"dependencies": {
+				"boolbase": "boolbase@1.0.0",
+				"css-what": "css-what@6.1.0",
+				"domhandler": "domhandler@4.3.1",
+				"domutils": "domutils@2.8.0",
+				"nth-check": "nth-check@2.1.1"
+			},
+			"main": "lib/index.js",
+			"types": "lib/index.d.ts"
+		},
+		"boolbase@1.0.0": {
+			"dependencies": {},
+			"main": "index.js"
+		},
+		"css-what@6.1.0": {
+			"dependencies": {},
+			"main": "lib/commonjs/index.js",
+			"module": "lib/es/index.js",
+			"types": "lib/es/index.d.ts"
+		},
+		"domhandler@4.3.1": {
+			"dependencies": {
+				"domelementtype": "domelementtype@2.3.0"
+			},
+			"main": "lib/index.js",
+			"types": "lib/index.d.ts"
+		},
+		"domelementtype@2.3.0": {
+			"dependencies": {},
+			"main": "lib/index.js",
+			"module": "lib/esm/index.js",
+			"types": "lib/index.d.ts"
+		},
+		"domutils@2.8.0": {
+			"dependencies": {
+				"dom-serializer": "dom-serializer@1.4.1",
+				"domelementtype": "domelementtype@2.3.0",
+				"domhandler": "domhandler@4.3.1"
+			},
+			"main": "lib/index.js",
+			"types": "lib/index.d.ts"
+		},
+		"dom-serializer@1.4.1": {
+			"dependencies": {
+				"domelementtype": "domelementtype@2.3.0",
+				"domhandler": "domhandler@4.3.1",
+				"entities": "entities@2.2.0"
+			},
+			"main": "lib/index.js",
+			"types": "lib/index.d.ts"
+		},
+		"entities@2.2.0": {
+			"dependencies": {},
+			"main": "lib/index.js",
+			"types": "lib/index.d.ts"
+		},
+		"nth-check@2.1.1": {
+			"dependencies": {
+				"boolbase": "boolbase@1.0.0"
+			},
+			"main": "lib/index.js",
+			"module": "lib/esm/index.js",
+			"types": "lib/index.d.ts"
+		},
+		"css-tree@1.1.3": {
+			"dependencies": {
+				"mdn-data": "mdn-data@2.0.14",
+				"source-map": "source-map@0.6.1"
+			},
+			"main": "lib/index.js",
+			"unpkg": "dist/csstree.min.js"
+		},
+		"mdn-data@2.0.14": {
+			"dependencies": {},
+			"main": "index.js"
+		},
+		"source-map@0.6.1": {
+			"dependencies": {},
+			"main": "./source-map.js",
+			"typings": "source-map"
+		},
+		"csso@4.2.0": {
+			"dependencies": {
+				"css-tree": "css-tree@1.1.3"
+			},
+			"main": "./lib/index",
+			"browser": {
+				"css-tree": "css-tree/dist/csstree.min.js"
+			}
+		},
+		"stable@0.1.8": {
+			"dependencies": {},
+			"main": "./stable.js",
+			"types": "./index.d.ts"
+		},
+		"file-loader@6.2.0": {
+			"dependencies": {
+				"loader-utils": "loader-utils@2.0.2",
+				"schema-utils": "schema-utils@3.1.1",
+				"webpack": "webpack@5.73.0"
+			},
+			"main": "dist/cjs.js"
+		},
+		"loader-utils@2.0.2": {
+			"dependencies": {
+				"big.js": "big.js@5.2.2",
+				"emojis-list": "emojis-list@3.0.0",
+				"json5": "json5@2.2.1"
+			},
+			"main": "lib/index.js"
+		},
+		"big.js@5.2.2": {
+			"dependencies": {},
+			"main": "big",
+			"browser": "big.js",
+			"module": "big.mjs"
+		},
+		"emojis-list@3.0.0": {
+			"dependencies": {},
+			"main": "./index.js"
+		},
+		"schema-utils@3.1.1": {
+			"dependencies": {
+				"@types/json-schema": "@types/json-schema@7.0.11",
+				"ajv": "ajv@6.12.6",
+				"ajv-keywords": "ajv-keywords@3.5.2"
+			},
+			"main": "dist/index.js",
+			"types": "declarations/index.d.ts"
+		},
+		"@types/json-schema@7.0.11": {
+			"dependencies": {},
+			"main": "",
+			"types": "index.d.ts"
+		},
+		"ajv@6.12.6": {
+			"dependencies": {
+				"fast-deep-equal": "fast-deep-equal@3.1.3",
+				"fast-json-stable-stringify": "fast-json-stable-stringify@2.1.0",
+				"json-schema-traverse": "json-schema-traverse@0.4.1",
+				"uri-js": "uri-js@4.4.1"
+			},
+			"main": "lib/ajv.js",
+			"typings": "lib/ajv.d.ts"
+		},
+		"fast-deep-equal@3.1.3": {
+			"dependencies": {},
+			"main": "index.js",
+			"types": "index.d.ts"
+		},
+		"fast-json-stable-stringify@2.1.0": {
+			"dependencies": {},
+			"main": "index.js",
+			"types": "index.d.ts"
+		},
+		"json-schema-traverse@0.4.1": {
+			"dependencies": {},
+			"main": "index.js"
+		},
+		"uri-js@4.4.1": {
+			"dependencies": {
+				"punycode": "punycode@2.1.1"
+			},
+			"main": "dist/es5/uri.all.js",
+			"types": "dist/es5/uri.all.d.ts"
+		},
+		"punycode@2.1.1": {
+			"dependencies": {},
+			"main": "punycode.js",
+			"module": "punycode.es6.js"
+		},
+		"ajv-keywords@3.5.2": {
+			"dependencies": {
+				"ajv": "ajv@6.12.6"
+			},
+			"main": "index.js",
+			"typings": "ajv-keywords.d.ts"
+		},
+		"webpack@5.73.0": {
+			"dependencies": {
+				"@types/eslint-scope": "@types/eslint-scope@3.7.3",
+				"@types/estree": "@types/estree@0.0.51",
+				"@webassemblyjs/ast": "@webassemblyjs/ast@1.11.1",
+				"@webassemblyjs/wasm-edit": "@webassemblyjs/wasm-edit@1.11.1",
+				"@webassemblyjs/wasm-parser": "@webassemblyjs/wasm-parser@1.11.1",
+				"acorn": "acorn@8.7.1",
+				"acorn-import-assertions": "acorn-import-assertions@1.8.0",
+				"browserslist": "browserslist@4.20.4",
+				"chrome-trace-event": "chrome-trace-event@1.0.3",
+				"enhanced-resolve": "enhanced-resolve@5.9.3",
+				"es-module-lexer": "es-module-lexer@0.9.3",
+				"eslint-scope": "eslint-scope@5.1.1",
+				"events": "events@3.3.0",
+				"glob-to-regexp": "glob-to-regexp@0.4.1",
+				"graceful-fs": "graceful-fs@4.2.10",
+				"json-parse-even-better-errors": "json-parse-even-better-errors@2.3.1",
+				"loader-runner": "loader-runner@4.3.0",
+				"mime-types": "mime-types@2.1.35",
+				"neo-async": "neo-async@2.6.2",
+				"schema-utils": "schema-utils@3.1.1",
+				"tapable": "tapable@2.2.1",
+				"terser-webpack-plugin": "terser-webpack-plugin@5.3.3",
+				"watchpack": "watchpack@2.4.0",
+				"webpack-sources": "webpack-sources@3.2.3"
+			},
+			"main": "lib/index.js",
+			"types": "types.d.ts"
+		},
+		"@types/eslint-scope@3.7.3": {
+			"dependencies": {
+				"@types/eslint": "@types/eslint@8.4.2",
+				"@types/estree": "@types/estree@0.0.51"
+			},
+			"main": "",
+			"types": "index.d.ts"
+		},
+		"@types/eslint@8.4.2": {
+			"dependencies": {
+				"@types/estree": "@types/estree@0.0.51",
+				"@types/json-schema": "@types/json-schema@7.0.11"
+			},
+			"main": "",
+			"types": "index.d.ts"
+		},
+		"@types/estree@0.0.51": {
+			"dependencies": {},
+			"main": "",
+			"types": "index.d.ts"
+		},
+		"@webassemblyjs/ast@1.11.1": {
+			"dependencies": {
+				"@webassemblyjs/helper-numbers": "@webassemblyjs/helper-numbers@1.11.1",
+				"@webassemblyjs/helper-wasm-bytecode": "@webassemblyjs/helper-wasm-bytecode@1.11.1"
+			},
+			"main": "lib/index.js",
+			"module": "esm/index.js"
+		},
+		"@webassemblyjs/helper-numbers@1.11.1": {
+			"dependencies": {
+				"@webassemblyjs/floating-point-hex-parser": "@webassemblyjs/floating-point-hex-parser@1.11.1",
+				"@webassemblyjs/helper-api-error": "@webassemblyjs/helper-api-error@1.11.1",
+				"@xtuc/long": "@xtuc/long@4.2.2"
+			},
+			"main": "lib/index.js",
+			"module": "esm/index.js"
+		},
+		"@webassemblyjs/floating-point-hex-parser@1.11.1": {
+			"dependencies": {},
+			"main": "lib/index.js",
+			"module": "esm/index.js"
+		},
+		"@webassemblyjs/helper-api-error@1.11.1": {
+			"dependencies": {},
+			"main": "lib/index.js",
+			"module": "esm/index.js"
+		},
+		"@xtuc/long@4.2.2": {
+			"dependencies": {},
+			"main": "src/long.js",
+			"types": "index.d.ts"
+		},
+		"@webassemblyjs/helper-wasm-bytecode@1.11.1": {
+			"dependencies": {},
+			"main": "lib/index.js",
+			"module": "esm/index.js"
+		},
+		"@webassemblyjs/wasm-edit@1.11.1": {
+			"dependencies": {
+				"@webassemblyjs/ast": "@webassemblyjs/ast@1.11.1",
+				"@webassemblyjs/helper-buffer": "@webassemblyjs/helper-buffer@1.11.1",
+				"@webassemblyjs/helper-wasm-bytecode": "@webassemblyjs/helper-wasm-bytecode@1.11.1",
+				"@webassemblyjs/helper-wasm-section": "@webassemblyjs/helper-wasm-section@1.11.1",
+				"@webassemblyjs/wasm-gen": "@webassemblyjs/wasm-gen@1.11.1",
+				"@webassemblyjs/wasm-opt": "@webassemblyjs/wasm-opt@1.11.1",
+				"@webassemblyjs/wasm-parser": "@webassemblyjs/wasm-parser@1.11.1",
+				"@webassemblyjs/wast-printer": "@webassemblyjs/wast-printer@1.11.1"
+			},
+			"main": "lib/index.js",
+			"module": "esm/index.js"
+		},
+		"@webassemblyjs/helper-buffer@1.11.1": {
+			"dependencies": {},
+			"main": "lib/index.js",
+			"module": "esm/index.js"
+		},
+		"@webassemblyjs/helper-wasm-section@1.11.1": {
+			"dependencies": {
+				"@webassemblyjs/ast": "@webassemblyjs/ast@1.11.1",
+				"@webassemblyjs/helper-buffer": "@webassemblyjs/helper-buffer@1.11.1",
+				"@webassemblyjs/helper-wasm-bytecode": "@webassemblyjs/helper-wasm-bytecode@1.11.1",
+				"@webassemblyjs/wasm-gen": "@webassemblyjs/wasm-gen@1.11.1"
+			},
+			"main": "lib/index.js",
+			"module": "esm/index.js"
+		},
+		"@webassemblyjs/wasm-gen@1.11.1": {
+			"dependencies": {
+				"@webassemblyjs/ast": "@webassemblyjs/ast@1.11.1",
+				"@webassemblyjs/helper-wasm-bytecode": "@webassemblyjs/helper-wasm-bytecode@1.11.1",
+				"@webassemblyjs/ieee754": "@webassemblyjs/ieee754@1.11.1",
+				"@webassemblyjs/leb128": "@webassemblyjs/leb128@1.11.1",
+				"@webassemblyjs/utf8": "@webassemblyjs/utf8@1.11.1"
+			},
+			"main": "lib/index.js",
+			"module": "esm/index.js"
+		},
+		"@webassemblyjs/ieee754@1.11.1": {
+			"dependencies": {
+				"@xtuc/ieee754": "@xtuc/ieee754@1.2.0"
+			},
+			"main": "lib/index.js",
+			"module": "esm/index.js"
+		},
+		"@xtuc/ieee754@1.2.0": {
+			"dependencies": {},
+			"main": "dist/index.cjs.js",
+			"module": "index.js"
+		},
+		"@webassemblyjs/leb128@1.11.1": {
+			"dependencies": {
+				"@xtuc/long": "@xtuc/long@4.2.2"
+			},
+			"main": "lib/index.js",
+			"module": "esm/index.js"
+		},
+		"@webassemblyjs/utf8@1.11.1": {
+			"dependencies": {},
+			"main": "lib/index.js",
+			"module": "esm/index.js"
+		},
+		"@webassemblyjs/wasm-opt@1.11.1": {
+			"dependencies": {
+				"@webassemblyjs/ast": "@webassemblyjs/ast@1.11.1",
+				"@webassemblyjs/helper-buffer": "@webassemblyjs/helper-buffer@1.11.1",
+				"@webassemblyjs/wasm-gen": "@webassemblyjs/wasm-gen@1.11.1",
+				"@webassemblyjs/wasm-parser": "@webassemblyjs/wasm-parser@1.11.1"
+			},
+			"main": "lib/index.js",
+			"module": "esm/index.js"
+		},
+		"@webassemblyjs/wasm-parser@1.11.1": {
+			"dependencies": {
+				"@webassemblyjs/ast": "@webassemblyjs/ast@1.11.1",
+				"@webassemblyjs/helper-api-error": "@webassemblyjs/helper-api-error@1.11.1",
+				"@webassemblyjs/helper-wasm-bytecode": "@webassemblyjs/helper-wasm-bytecode@1.11.1",
+				"@webassemblyjs/ieee754": "@webassemblyjs/ieee754@1.11.1",
+				"@webassemblyjs/leb128": "@webassemblyjs/leb128@1.11.1",
+				"@webassemblyjs/utf8": "@webassemblyjs/utf8@1.11.1"
+			},
+			"main": "lib/index.js",
+			"module": "esm/index.js"
+		},
+		"@webassemblyjs/wast-printer@1.11.1": {
+			"dependencies": {
+				"@webassemblyjs/ast": "@webassemblyjs/ast@1.11.1",
+				"@xtuc/long": "@xtuc/long@4.2.2"
+			},
+			"main": "lib/index.js",
+			"module": "esm/index.js"
+		},
+		"acorn@8.7.1": {
+			"dependencies": {},
+			"main": "dist/acorn.js",
+			"module": "dist/acorn.mjs",
+			"types": "dist/acorn.d.ts"
+		},
+		"acorn-import-assertions@1.8.0": {
+			"dependencies": {
+				"acorn": "acorn@8.7.1"
+			},
+			"main": "lib/index.js",
+			"module": "src/index.js"
+		},
+		"chrome-trace-event@1.0.3": {
+			"dependencies": {},
+			"main": "./dist/trace-event.js",
+			"typings": "./dist/trace-event.d.ts"
+		},
+		"enhanced-resolve@5.9.3": {
+			"dependencies": {
+				"graceful-fs": "graceful-fs@4.2.10",
+				"tapable": "tapable@2.2.1"
+			},
+			"main": "lib/index.js",
+			"browser": {
+				"pnpapi": false,
+				"process": "./lib/util/process-browser.js"
+			},
+			"types": "types.d.ts"
+		},
+		"graceful-fs@4.2.10": {
+			"dependencies": {},
+			"main": "graceful-fs.js"
+		},
+		"tapable@2.2.1": {
+			"dependencies": {},
+			"main": "lib/index.js",
+			"browser": {
+				"util": "./lib/util-browser.js"
+			},
+			"types": "./tapable.d.ts"
+		},
+		"es-module-lexer@0.9.3": {
+			"dependencies": {},
+			"main": "dist/lexer.cjs",
+			"module": "dist/lexer.js",
+			"types": "types/lexer.d.ts"
+		},
+		"eslint-scope@5.1.1": {
+			"dependencies": {
+				"esrecurse": "esrecurse@4.3.0",
+				"estraverse": "estraverse@4.3.0"
+			},
+			"main": "lib/index.js"
+		},
+		"esrecurse@4.3.0": {
+			"dependencies": {
+				"estraverse": "estraverse@5.3.0"
+			},
+			"main": "esrecurse.js"
+		},
+		"estraverse@5.3.0": {
+			"dependencies": {},
+			"main": "estraverse.js"
+		},
+		"estraverse@4.3.0": {
+			"dependencies": {},
+			"main": "estraverse.js"
+		},
+		"events@3.3.0": {
+			"dependencies": {},
+			"main": "./events.js"
+		},
+		"glob-to-regexp@0.4.1": {
+			"dependencies": {},
+			"main": "index.js"
+		},
+		"loader-runner@4.3.0": {
+			"dependencies": {},
+			"main": "lib/LoaderRunner.js"
+		},
+		"neo-async@2.6.2": {
+			"dependencies": {},
+			"main": "async.js",
+			"browser": "async.min.js"
+		},
+		"terser-webpack-plugin@5.3.3": {
+			"dependencies": {
+				"@jridgewell/trace-mapping": "@jridgewell/trace-mapping@0.3.13",
+				"jest-worker": "jest-worker@27.5.1",
+				"schema-utils": "schema-utils@3.1.1",
+				"serialize-javascript": "serialize-javascript@6.0.0",
+				"terser": "terser@5.14.0",
+				"webpack": "webpack@5.73.0"
+			},
+			"main": "dist/index.js",
+			"types": "types/index.d.ts"
+		},
+		"jest-worker@27.5.1": {
+			"dependencies": {
+				"@types/node": "@types/node@17.0.41",
+				"merge-stream": "merge-stream@2.0.0",
+				"supports-color": "supports-color@8.1.1"
+			},
+			"main": "./build/index.js",
+			"types": "./build/index.d.ts"
+		},
+		"@types/node@17.0.41": {
+			"dependencies": {},
+			"main": "",
+			"types": "index.d.ts"
+		},
+		"merge-stream@2.0.0": {
+			"dependencies": {}
+		},
+		"supports-color@8.1.1": {
+			"dependencies": {
+				"has-flag": "has-flag@4.0.0"
+			},
+			"browser": "browser.js"
+		},
+		"serialize-javascript@6.0.0": {
+			"dependencies": {
+				"randombytes": "randombytes@2.1.0"
+			},
+			"main": "index.js"
+		},
+		"randombytes@2.1.0": {
+			"dependencies": {
+				"safe-buffer": "safe-buffer@5.2.1"
+			},
+			"main": "index.js",
+			"browser": "browser.js"
+		},
+		"safe-buffer@5.2.1": {
+			"dependencies": {},
+			"main": "index.js",
+			"types": "index.d.ts"
+		},
+		"terser@5.14.0": {
+			"dependencies": {
+				"@jridgewell/source-map": "@jridgewell/source-map@0.3.2",
+				"acorn": "acorn@8.7.1",
+				"commander": "commander@2.20.3",
+				"source-map-support": "source-map-support@0.5.21"
+			},
+			"main": "dist/bundle.min.js",
+			"module": "./main.js",
+			"types": "tools/terser.d.ts"
+		},
+		"@jridgewell/source-map@0.3.2": {
+			"dependencies": {
+				"@jridgewell/gen-mapping": "@jridgewell/gen-mapping@0.3.1",
+				"@jridgewell/trace-mapping": "@jridgewell/trace-mapping@0.3.13"
+			},
+			"main": "dist/source-map.umd.js",
+			"module": "dist/source-map.mjs",
+			"typings": "dist/types/source-map.d.ts"
+		},
+		"commander@2.20.3": {
+			"dependencies": {},
+			"main": "index",
+			"typings": "typings/index.d.ts"
+		},
+		"source-map-support@0.5.21": {
+			"dependencies": {
+				"buffer-from": "buffer-from@1.1.2",
+				"source-map": "source-map@0.6.1"
+			},
+			"main": "./source-map-support.js"
+		},
+		"buffer-from@1.1.2": {
+			"dependencies": {}
+		},
+		"watchpack@2.4.0": {
+			"dependencies": {
+				"glob-to-regexp": "glob-to-regexp@0.4.1",
+				"graceful-fs": "graceful-fs@4.2.10"
+			},
+			"main": "./lib/watchpack.js"
+		},
+		"webpack-sources@3.2.3": {
+			"dependencies": {},
+			"main": "./lib/index.js"
+		},
+		"fs-extra@10.1.0": {
+			"dependencies": {
+				"graceful-fs": "graceful-fs@4.2.10",
+				"jsonfile": "jsonfile@6.1.0",
+				"universalify": "universalify@2.0.0"
+			},
+			"main": "./lib/index.js"
+		},
+		"jsonfile@6.1.0": {
+			"dependencies": {
+				"universalify": "universalify@2.0.0",
+				"graceful-fs": "graceful-fs@4.2.10"
+			},
+			"main": "index.js"
+		},
+		"universalify@2.0.0": {
+			"dependencies": {}
+		},
+		"github-slugger@1.4.0": {
+			"dependencies": {},
+			"main": "index.js"
+		},
+		"globby@11.1.0": {
+			"dependencies": {
+				"array-union": "array-union@2.1.0",
+				"dir-glob": "dir-glob@3.0.1",
+				"fast-glob": "fast-glob@3.2.11",
+				"ignore": "ignore@5.2.0",
+				"merge2": "merge2@1.4.1",
+				"slash": "slash@3.0.0"
+			},
+			"types": "./index.d.ts"
+		},
+		"array-union@2.1.0": {
+			"dependencies": {}
+		},
+		"dir-glob@3.0.1": {
+			"dependencies": {
+				"path-type": "path-type@4.0.0"
+			}
+		},
+		"fast-glob@3.2.11": {
+			"dependencies": {
+				"@nodelib/fs.stat": "@nodelib/fs.stat@2.0.5",
+				"@nodelib/fs.walk": "@nodelib/fs.walk@1.2.8",
+				"glob-parent": "glob-parent@5.1.2",
+				"merge2": "merge2@1.4.1",
+				"micromatch": "micromatch@4.0.5"
+			},
+			"main": "out/index.js",
+			"typings": "out/index.d.ts"
+		},
+		"@nodelib/fs.stat@2.0.5": {
+			"dependencies": {},
+			"main": "out/index.js",
+			"typings": "out/index.d.ts"
+		},
+		"@nodelib/fs.walk@1.2.8": {
+			"dependencies": {
+				"@nodelib/fs.scandir": "@nodelib/fs.scandir@2.1.5",
+				"fastq": "fastq@1.13.0"
+			},
+			"main": "out/index.js",
+			"typings": "out/index.d.ts"
+		},
+		"@nodelib/fs.scandir@2.1.5": {
+			"dependencies": {
+				"@nodelib/fs.stat": "@nodelib/fs.stat@2.0.5",
+				"run-parallel": "run-parallel@1.2.0"
+			},
+			"main": "out/index.js",
+			"typings": "out/index.d.ts"
+		},
+		"run-parallel@1.2.0": {
+			"dependencies": {
+				"queue-microtask": "queue-microtask@1.2.3"
+			},
+			"main": "index.js"
+		},
+		"queue-microtask@1.2.3": {
+			"dependencies": {},
+			"main": "index.js"
+		},
+		"fastq@1.13.0": {
+			"dependencies": {
+				"reusify": "reusify@1.0.4"
+			},
+			"main": "queue.js"
+		},
+		"reusify@1.0.4": {
+			"dependencies": {},
+			"main": "reusify.js"
+		},
+		"glob-parent@5.1.2": {
+			"dependencies": {
+				"is-glob": "is-glob@4.0.3"
+			},
+			"main": "index.js"
+		},
+		"is-glob@4.0.3": {
+			"dependencies": {
+				"is-extglob": "is-extglob@2.1.1"
+			},
+			"main": "index.js"
+		},
+		"is-extglob@2.1.1": {
+			"dependencies": {},
+			"main": "index.js"
+		},
+		"merge2@1.4.1": {
+			"dependencies": {},
+			"main": "./index.js"
+		},
+		"micromatch@4.0.5": {
+			"dependencies": {
+				"braces": "braces@3.0.2",
+				"picomatch": "picomatch@2.3.1"
+			},
+			"main": "index.js"
+		},
+		"braces@3.0.2": {
+			"dependencies": {
+				"fill-range": "fill-range@7.0.1"
+			},
+			"main": "index.js"
+		},
+		"fill-range@7.0.1": {
+			"dependencies": {
+				"to-regex-range": "to-regex-range@5.0.1"
+			},
+			"main": "index.js"
+		},
+		"to-regex-range@5.0.1": {
+			"dependencies": {
+				"is-number": "is-number@7.0.0"
+			},
+			"main": "index.js"
+		},
+		"is-number@7.0.0": {
+			"dependencies": {},
+			"main": "index.js"
+		},
+		"picomatch@2.3.1": {
+			"dependencies": {},
+			"main": "index.js"
+		},
+		"ignore@5.2.0": {
+			"dependencies": {},
+			"types": "./index.d.ts"
+		},
+		"slash@3.0.0": {
+			"dependencies": {}
+		},
+		"gray-matter@4.0.3": {
+			"dependencies": {
+				"js-yaml": "js-yaml@3.14.1",
+				"kind-of": "kind-of@6.0.3",
+				"section-matter": "section-matter@1.0.0",
+				"strip-bom-string": "strip-bom-string@1.0.0"
+			},
+			"main": "index.js",
+			"browser": {
+				"fs": false
+			},
+			"typings": "gray-matter.d.ts"
+		},
+		"js-yaml@3.14.1": {
+			"dependencies": {
+				"argparse": "argparse@1.0.10",
+				"esprima": "esprima@4.0.1"
+			},
+			"unpkg": "dist/js-yaml.min.js"
+		},
+		"argparse@1.0.10": {
+			"dependencies": {
+				"sprintf-js": "sprintf-js@1.0.3"
+			}
+		},
+		"sprintf-js@1.0.3": {
+			"dependencies": {},
+			"main": "src/sprintf.js"
+		},
+		"esprima@4.0.1": {
+			"dependencies": {},
+			"main": "dist/esprima.js"
+		},
+		"kind-of@6.0.3": {
+			"dependencies": {},
+			"main": "index.js"
+		},
+		"section-matter@1.0.0": {
+			"dependencies": {
+				"extend-shallow": "extend-shallow@2.0.1",
+				"kind-of": "kind-of@6.0.3"
+			},
+			"main": "index.js"
+		},
+		"extend-shallow@2.0.1": {
+			"dependencies": {
+				"is-extendable": "is-extendable@0.1.1"
+			},
+			"main": "index.js"
+		},
+		"is-extendable@0.1.1": {
+			"dependencies": {},
+			"main": "index.js"
+		},
+		"strip-bom-string@1.0.0": {
+			"dependencies": {},
+			"main": "index.js"
+		},
+		"js-yaml@4.1.0": {
+			"dependencies": {
+				"argparse": "argparse@2.0.1"
+			},
+			"module": "./dist/js-yaml.mjs",
+			"unpkg": "dist/js-yaml.min.js"
+		},
+		"argparse@2.0.1": {
+			"dependencies": {},
+			"main": "argparse.js"
+		},
+		"resolve-pathname@3.0.0": {
+			"dependencies": {},
+			"main": "index.js",
+			"module": "esm/resolve-pathname.js",
+			"unpkg": "umd/resolve-pathname.js"
+		},
+		"shelljs@0.8.5": {
+			"dependencies": {
+				"glob": "glob@7.2.3",
+				"interpret": "interpret@1.4.0",
+				"rechoir": "rechoir@0.6.2"
+			},
+			"main": "./shell.js"
+		},
+		"glob@7.2.3": {
+			"dependencies": {
+				"fs.realpath": "fs.realpath@1.0.0",
+				"inflight": "inflight@1.0.6",
+				"inherits": "inherits@2.0.4",
+				"minimatch": "minimatch@3.1.2",
+				"once": "once@1.4.0",
+				"path-is-absolute": "path-is-absolute@1.0.1"
+			},
+			"main": "glob.js"
+		},
+		"fs.realpath@1.0.0": {
+			"dependencies": {},
+			"main": "index.js"
+		},
+		"inflight@1.0.6": {
+			"dependencies": {
+				"once": "once@1.4.0",
+				"wrappy": "wrappy@1.0.2"
+			},
+			"main": "inflight.js"
+		},
+		"once@1.4.0": {
+			"dependencies": {
+				"wrappy": "wrappy@1.0.2"
+			},
+			"main": "once.js"
+		},
+		"wrappy@1.0.2": {
+			"dependencies": {},
+			"main": "wrappy.js"
+		},
+		"inherits@2.0.4": {
+			"dependencies": {},
+			"main": "./inherits.js",
+			"browser": "./inherits_browser.js"
+		},
+		"minimatch@3.1.2": {
+			"dependencies": {
+				"brace-expansion": "brace-expansion@1.1.11"
+			},
+			"main": "minimatch.js"
+		},
+		"brace-expansion@1.1.11": {
+			"dependencies": {
+				"balanced-match": "balanced-match@1.0.2",
+				"concat-map": "concat-map@0.0.1"
+			},
+			"main": "index.js"
+		},
+		"balanced-match@1.0.2": {
+			"dependencies": {},
+			"main": "index.js"
+		},
+		"concat-map@0.0.1": {
+			"dependencies": {},
+			"main": "index.js"
+		},
+		"path-is-absolute@1.0.1": {
+			"dependencies": {}
+		},
+		"interpret@1.4.0": {
+			"dependencies": {},
+			"main": "index.js"
+		},
+		"rechoir@0.6.2": {
+			"dependencies": {
+				"resolve": "resolve@1.22.0"
+			},
+			"main": "index.js"
+		},
+		"url-loader@4.1.1": {
+			"dependencies": {
+				"loader-utils": "loader-utils@2.0.2",
+				"mime-types": "mime-types@2.1.35",
+				"schema-utils": "schema-utils@3.1.1",
+				"webpack": "webpack@5.73.0",
+				"file-loader": "file-loader@6.2.0"
+			},
+			"main": "dist/cjs.js"
+		},
+		"commander@5.1.0": {
+			"dependencies": {},
+			"main": "index",
+			"typings": "typings/index.d.ts"
+		},
+		"prompts@2.4.2": {
+			"dependencies": {
+				"kleur": "kleur@3.0.3",
+				"sisteransi": "sisteransi@1.0.5"
+			},
+			"main": "index.js"
+		},
+		"kleur@3.0.3": {
+			"dependencies": {},
+			"types": "kleur.d.ts"
+		},
+		"sisteransi@1.0.5": {
+			"dependencies": {},
+			"main": "src/index.js",
+			"types": "./src/sisteransi.d.ts"
+		},
+		"semver@7.3.7": {
+			"dependencies": {
+				"lru-cache": "lru-cache@6.0.0"
+			},
+			"main": "index.js"
+		},
+		"lru-cache@6.0.0": {
+			"dependencies": {
+				"yallist": "yallist@4.0.0"
+			},
+			"main": "index.js"
+		},
+		"yallist@4.0.0": {
+			"dependencies": {},
+			"main": "yallist.js"
+		},
+		"supports-color@9.2.2": {
+			"dependencies": {},
+			"types": "./index.d.ts"
+		},
+		"@sindresorhus/is@4.6.0": {
+			"dependencies": {},
+			"main": "dist/index.js",
+			"types": "dist/index.d.ts"
+		},
+		"@szmarczak/http-timer@4.0.6": {
+			"dependencies": {
+				"defer-to-connect": "defer-to-connect@2.0.1"
+			},
+			"main": "dist/source",
+			"types": "dist/source"
+		},
+		"defer-to-connect@2.0.1": {
+			"dependencies": {},
+			"main": "dist/source",
+			"types": "dist/source/index.d.ts"
+		},
+		"@types/cacheable-request@6.0.2": {
+			"dependencies": {
+				"@types/http-cache-semantics": "@types/http-cache-semantics@4.0.1",
+				"@types/keyv": "@types/keyv@3.1.4",
+				"@types/node": "@types/node@17.0.41",
+				"@types/responselike": "@types/responselike@1.0.0"
+			},
+			"main": "",
+			"types": "index.d.ts"
+		},
+		"@types/http-cache-semantics@4.0.1": {
+			"dependencies": {},
+			"main": "",
+			"types": "index.d.ts"
+		},
+		"@types/keyv@3.1.4": {
+			"dependencies": {
+				"@types/node": "@types/node@17.0.41"
+			},
+			"main": "",
+			"types": "index.d.ts"
+		},
+		"@types/responselike@1.0.0": {
+			"dependencies": {
+				"@types/node": "@types/node@17.0.41"
+			},
+			"main": "",
+			"types": "index"
+		},
+		"cacheable-lookup@5.0.4": {
+			"dependencies": {},
+			"main": "source/index.js",
+			"types": "index.d.ts"
+		},
+		"cacheable-request@7.0.2": {
+			"dependencies": {
+				"clone-response": "clone-response@1.0.2",
+				"get-stream": "get-stream@5.2.0",
+				"http-cache-semantics": "http-cache-semantics@4.1.0",
+				"keyv": "keyv@4.3.0",
+				"lowercase-keys": "lowercase-keys@2.0.0",
+				"normalize-url": "normalize-url@6.1.0",
+				"responselike": "responselike@2.0.0"
+			},
+			"main": "src/index.js"
+		},
+		"clone-response@1.0.2": {
+			"dependencies": {
+				"mimic-response": "mimic-response@1.0.1"
+			},
+			"main": "src/index.js"
+		},
+		"mimic-response@1.0.1": {
+			"dependencies": {}
+		},
+		"get-stream@5.2.0": {
+			"dependencies": {
+				"pump": "pump@3.0.0"
+			}
+		},
+		"pump@3.0.0": {
+			"dependencies": {
+				"end-of-stream": "end-of-stream@1.4.4",
+				"once": "once@1.4.0"
+			},
+			"browser": {
+				"fs": false
+			}
+		},
+		"end-of-stream@1.4.4": {
+			"dependencies": {
+				"once": "once@1.4.0"
+			},
+			"main": "index.js"
+		},
+		"http-cache-semantics@4.1.0": {
+			"dependencies": {},
+			"main": "index.js"
+		},
+		"keyv@4.3.0": {
+			"dependencies": {
+				"compress-brotli": "compress-brotli@1.3.8",
+				"json-buffer": "json-buffer@3.0.1"
+			},
+			"main": "src/index.js",
+			"types": "./src/index.d.ts"
+		},
+		"compress-brotli@1.3.8": {
+			"dependencies": {
+				"@types/json-buffer": "@types/json-buffer@3.0.0",
+				"json-buffer": "json-buffer@3.0.1"
+			},
+			"main": "src/index.js",
+			"types": "src/index.d.ts"
+		},
+		"@types/json-buffer@3.0.0": {
+			"dependencies": {},
+			"main": "",
+			"types": "index"
+		},
+		"json-buffer@3.0.1": {
+			"dependencies": {}
+		},
+		"lowercase-keys@2.0.0": {
+			"dependencies": {}
+		},
+		"normalize-url@6.1.0": {
+			"dependencies": {}
+		},
+		"responselike@2.0.0": {
+			"dependencies": {
+				"lowercase-keys": "lowercase-keys@2.0.0"
+			},
+			"main": "src/index.js"
+		},
+		"decompress-response@6.0.0": {
+			"dependencies": {
+				"mimic-response": "mimic-response@3.1.0"
+			}
+		},
+		"mimic-response@3.1.0": {
+			"dependencies": {}
+		},
+		"http2-wrapper@1.0.3": {
+			"dependencies": {
+				"quick-lru": "quick-lru@5.1.1",
+				"resolve-alpn": "resolve-alpn@1.2.1"
+			},
+			"main": "source"
+		},
+		"quick-lru@5.1.1": {
+			"dependencies": {}
+		},
+		"resolve-alpn@1.2.1": {
+			"dependencies": {},
+			"main": "index.js"
+		},
+		"p-cancelable@2.1.1": {
+			"dependencies": {}
+		},
+		"ansi-escapes@4.3.2": {
+			"dependencies": {
+				"type-fest": "type-fest@0.21.3"
+			}
+		},
+		"type-fest@0.21.3": {
+			"dependencies": {},
+			"types": "./index.d.ts"
+		},
+		"cli-cursor@3.1.0": {
+			"dependencies": {
+				"restore-cursor": "restore-cursor@3.1.0"
+			}
+		},
+		"restore-cursor@3.1.0": {
+			"dependencies": {
+				"onetime": "onetime@5.1.2",
+				"signal-exit": "signal-exit@3.0.7"
+			}
+		},
+		"onetime@5.1.2": {
+			"dependencies": {
+				"mimic-fn": "mimic-fn@2.1.0"
+			}
+		},
+		"mimic-fn@2.1.0": {
+			"dependencies": {}
+		},
+		"signal-exit@3.0.7": {
+			"dependencies": {},
+			"main": "index.js"
+		},
+		"slice-ansi@4.0.0": {
+			"dependencies": {
+				"ansi-styles": "ansi-styles@4.3.0",
+				"astral-regex": "astral-regex@2.0.0",
+				"is-fullwidth-code-point": "is-fullwidth-code-point@3.0.0"
+			}
+		},
+		"astral-regex@2.0.0": {
+			"dependencies": {}
+		},
+		"is-fullwidth-code-point@3.0.0": {
+			"dependencies": {}
+		},
+		"wrap-ansi@6.2.0": {
+			"dependencies": {
+				"ansi-styles": "ansi-styles@4.3.0",
+				"string-width": "string-width@4.2.3",
+				"strip-ansi": "strip-ansi@6.0.1"
+			}
+		},
+		"string-width@4.2.3": {
+			"dependencies": {
+				"emoji-regex": "emoji-regex@8.0.0",
+				"is-fullwidth-code-point": "is-fullwidth-code-point@3.0.0",
+				"strip-ansi": "strip-ansi@6.0.1"
+			}
+		},
+		"emoji-regex@8.0.0": {
+			"dependencies": {},
+			"main": "index.js",
+			"types": "index.d.ts"
+		},
+		"strip-ansi@6.0.1": {
+			"dependencies": {
+				"ansi-regex": "ansi-regex@5.0.1"
+			}
+		},
+		"ansi-regex@5.0.1": {
+			"dependencies": {},
+			"types": "./index.d.ts"
+		},
+		"hosted-git-info@5.0.0": {
+			"dependencies": {
+				"lru-cache": "lru-cache@7.10.1"
+			},
+			"main": "./lib/index.js"
+		},
+		"lru-cache@7.10.1": {
+			"dependencies": {},
+			"main": "index.js",
+			"types": "./index.d.ts"
+		},
+		"validate-npm-package-name@4.0.0": {
+			"dependencies": {
+				"builtins": "builtins@5.0.1"
+			},
+			"main": "lib/"
+		},
+		"builtins@5.0.1": {
+			"dependencies": {
+				"semver": "semver@7.3.7"
+			},
+			"main": "index.js"
+		},
+		"component-emitter@1.3.0": {
+			"dependencies": {},
+			"main": "index.js"
+		},
+		"cookiejar@2.1.3": {
+			"dependencies": {},
+			"main": "cookiejar.js"
+		},
+		"fast-safe-stringify@2.1.1": {
+			"dependencies": {},
+			"main": "index.js",
+			"typings": "index"
+		},
+		"formidable@2.0.1": {
+			"dependencies": {
+				"dezalgo": "dezalgo@1.0.3",
+				"hexoid": "hexoid@1.0.0",
+				"once": "once@1.4.0",
+				"qs": "qs@6.9.3"
+			},
+			"main": "./src/index.js"
+		},
+		"dezalgo@1.0.3": {
+			"dependencies": {
+				"asap": "asap@2.0.6",
+				"wrappy": "wrappy@1.0.2"
+			},
+			"main": "dezalgo.js"
+		},
+		"asap@2.0.6": {
+			"dependencies": {},
+			"main": "./asap.js",
+			"browser": {
+				"./asap": "./browser-asap.js",
+				"./asap.js": "./browser-asap.js",
+				"./raw": "./browser-raw.js",
+				"./raw.js": "./browser-raw.js",
+				"./test/domain.js": "./test/browser-domain.js"
+			}
+		},
+		"hexoid@1.0.0": {
+			"dependencies": {},
+			"main": "dist/index.js",
+			"module": "dist/index.mjs",
+			"types": "hexoid.d.ts",
+			"unpkg": "dist/index.min.js"
+		},
+		"qs@6.9.3": {
+			"dependencies": {},
+			"main": "lib/index.js"
+		},
+		"methods@1.1.2": {
+			"dependencies": {},
+			"browser": {
+				"http": false
+			}
+		},
+		"mime@2.6.0": {
+			"dependencies": {}
+		},
+		"qs@6.10.5": {
+			"dependencies": {
+				"side-channel": "side-channel@1.0.4"
+			},
+			"main": "lib/index.js"
+		},
+		"side-channel@1.0.4": {
+			"dependencies": {
+				"call-bind": "call-bind@1.0.2",
+				"get-intrinsic": "get-intrinsic@1.1.1",
+				"object-inspect": "object-inspect@1.12.2"
+			},
+			"main": "index.js"
+		},
+		"object-inspect@1.12.2": {
+			"dependencies": {},
+			"main": "index.js",
+			"browser": {
+				"./util.inspect.js": false
+			}
+		},
+		"readable-stream@3.6.0": {
+			"dependencies": {
+				"inherits": "inherits@2.0.4",
+				"string_decoder": "string_decoder@1.3.0",
+				"util-deprecate": "util-deprecate@1.0.2"
+			},
+			"main": "readable.js",
+			"browser": {
+				"util": false,
+				"worker_threads": false,
+				"./errors": "./errors-browser.js",
+				"./readable.js": "./readable-browser.js",
+				"./lib/internal/streams/from.js": "./lib/internal/streams/from-browser.js",
+				"./lib/internal/streams/stream.js": "./lib/internal/streams/stream-browser.js"
+			}
+		},
+		"string_decoder@1.3.0": {
+			"dependencies": {
+				"safe-buffer": "safe-buffer@5.2.1"
+			},
+			"main": "lib/string_decoder.js"
+		},
+		"util-deprecate@1.0.2": {
+			"dependencies": {},
+			"main": "node.js",
+			"browser": "browser.js"
+		},
+		"chownr@2.0.0": {
+			"dependencies": {},
+			"main": "chownr.js"
+		},
+		"fs-minipass@2.1.0": {
+			"dependencies": {
+				"minipass": "minipass@3.1.6"
+			},
+			"main": "index.js"
+		},
+		"minipass@3.1.6": {
+			"dependencies": {
+				"yallist": "yallist@4.0.0"
+			},
+			"main": "index.js"
+		},
+		"minizlib@2.1.2": {
+			"dependencies": {
+				"minipass": "minipass@3.1.6",
+				"yallist": "yallist@4.0.0"
+			},
+			"main": "index.js"
+		},
+		"mkdirp@1.0.4": {
+			"dependencies": {},
+			"main": "index.js"
+		}
+	},
+	"warnings": {}
+}
