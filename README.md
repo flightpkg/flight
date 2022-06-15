@@ -115,4 +115,4 @@ $ yarn init
 
 ## License
 
-This project is licensed under Apache-2.0 - see the [LICENSE.md](LICENSE) file for details.
+Apache-2.0 © flightpkg - see the [LICENSE.md](LICENSE) file for details.
