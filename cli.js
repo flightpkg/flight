@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-
+ 
 const args = process.argv.slice(2);
 const logger = require('./src/shared/logger');
 const checks = require('./src/shared/checks')
