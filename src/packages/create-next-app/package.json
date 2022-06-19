@@ -50,5 +50,9 @@
   },
   "engines": {
     "node": ">=12.22.0"
+  },
+  "dependencies": {
+    "global": "^4.4.0",
+    "ts-node": "^10.8.1"
   }
 }

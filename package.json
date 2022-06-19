@@ -29,10 +29,11 @@
         "log-update": "4.0.0",
         "npm-package-arg": "^9.0.2",
         "superagent": "^7.1.2",
-        "tar": "^6.1.11"
+        "tar": "^6.1.11",
+        "typescript": "^4.7.4"
     },
     "devDependencies": {
-        "@vercel/ncc": "^0.33.4", 
+        "@vercel/ncc": "^0.33.4",
         "nodemon": "^2.0.16",
         "pkg": "^5.6.0",
         "rcedit": "^3.0.1"

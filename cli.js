@@ -12,6 +12,7 @@ const cp = require("child_process");
 const { getVer } = require('./src/cmds/version');
 const Sentry = require("@sentry/node");
 const Tracing = require("@sentry/tracing");
+const frameworks = require('./src/cmds/create')
 
 Sentry.init({
   dsn: "https://cb13f8ff8b9f48c080396de10bcdfe29@o1255033.ingest.sentry.io/6423338",
@@ -113,6 +114,12 @@ try {
       lib_py.install()
     }
   }
+
+  if (args[0] == "create" || args[0] == "init") {
+      frameworks.create(args[1])
+  }  
+
+// console.log(args[1])
 } catch(e) {
   logger.error('An error occurred when running the command requested.')
   checks.init(e)

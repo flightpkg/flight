@@ -10,6 +10,7 @@ import { getPkgManager } from './helpers/get-pkg-manager'
 import { validateNpmName } from './helpers/validate-pkg'
 import packageJson from './package.json'
 
+async function next_CLI() {
 let projectPath: string = ''
 
 const program = new Commander.Command(packageJson.name)
@@ -206,3 +207,4 @@ run()
 
     process.exit(1)
   })
+}
