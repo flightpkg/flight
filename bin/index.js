@@ -1,7 +1,4 @@
-#!/usr/bin/env node
-
-// this file can be ran alone without having to install any dependencies and it will still work as needed, go ahead try this out
-/******/ (() => { // webpackBootstrap
+#!/usr/bin/env node/******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
 /***/ 44355:
@@ -76548,6 +76545,7 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
 
+ 
 const args = process.argv.slice(2);
 const logger = __nccwpck_require__(45823);
 const checks = __nccwpck_require__(17130)
@@ -76668,6 +76666,7 @@ try {
 } finally {
   commandfail.finish();
 }
+
 })();
 
 module.exports = __webpack_exports__;
