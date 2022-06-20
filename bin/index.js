@@ -82484,7 +82484,7 @@ module.exports = {
   
     Options:
       -h, --help                          output usage information
-	    -v, --version 				              display installed version
+      -v, --version 		          display installed version
       -js, --js                           manage nodejs packages
       -luau --luau                        manage luau packages
       -rs --rs                            manage rust packages
@@ -82500,6 +82500,7 @@ module.exports = {
       - update
       - login
       - logout
+      - create
   
     Run flight --help COMMAND for more information on specific commands.\n`,
 
