@@ -126,7 +126,7 @@ try {
     if (args[1] == "next.js" || args[1] == "nextjs") {
       frameworks.create('nextjs')
     } else if (args[1] == "redwood" || args[1] == "redwoodjs") {
-      frameworks_redwood.init()
+      frameworks_redwood.init() // Errors in compiled binary, works in testing.
     } else {
       logger.error('The requested framework is not supported by flight yet.')
     }
