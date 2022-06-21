@@ -1,18 +1,18 @@
 {
-  "name": "create-next-app",
-  "version": "12.1.7-canary.41",
+  "name": "@flightpkg/create-next-app",
+  "version": "1.0.0",
   "keywords": [
     "react",
     "next",
     "next.js"
   ],
-  "description": "Create Next.js-powered React apps with one command",
+  "description": "Forked create-next-app for flight CLI.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/vercel/next.js",
-    "directory": "packages/create-next-app"
+    "url": "https://github.com/flightpkg/flight",
+    "directory": "src/packages/create-next-app"
   },
-  "author": "Next.js Team <support@vercel.com>",
+  "author": "Next.js Team <support@vercel.com>, CompeyDev <hi@devcomp.xyz>",
   "license": "MIT",
   "bin": {
     "create-next-app": "./dist/index.js"
@@ -24,7 +24,6 @@
     "dev": "ncc build ./index.ts -w -o dist/",
     "prerelease": "rimraf ./dist/",
     "release": "ncc build ./index.ts -o ./dist/ --minify --no-cache --no-source-map-register",
-    "prepublishOnly": "cd ../../ && turbo run build",
     "build": "pnpm release"
   },
   "devDependencies": {

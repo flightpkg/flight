@@ -12,9 +12,9 @@ gpg_key=6567A9918662A1C4
 flight_get_tarball() {
   printf "$cyan> Downloading tarball...$reset\n"
   if [ "$1" = '--nightly' ]; then
-    urlhttps://github.com/flightpkg/flight/releases/download/v0.0.5/v0.0.5.tar.gz
+    urlhttps://github.com/flightpkg/flight/releases/download/v0.34.0/v0.34.0.tar.gz
   elif [ "$1" = '--rc' ]; then
-    url=https://github.com/flightpkg/flight/releases/download/v0.0.5/v0.0.5.tar.gz
+    url=https://github.com/flightpkg/flight/releases/download/v0.34.0/v0.34.0.tar.gz
   elif [ "$1" = '--version' ]; then
     # Validate that the version matches MAJOR.MINOR.PATCH to avoid garbage-in/garbage-out behavior
     version=$2
@@ -25,7 +25,7 @@ flight_get_tarball() {
       exit 1;
     fi
   else
-    url=https://github.com/flightpkg/flight/releases/download/v0.0.5/v0.0.5.tar.gz
+    url=https://github.com/flightpkg/flight/releases/download/v0.34.0/v0.34.0.tar.gz
   fi
   # Get both the tarball and its GPG signature
   tarball_tmp=`mktemp -t flight.tar.gz.XXXXXXXXXX`
@@ -143,23 +143,23 @@ flight_install() {
       local specified_version
       local version_type
       if [ "$1" = '--nightly' ]; then
-        latest_url=https://github.com/flightpkg/flight/releases/download/v0.0.5/v0.0.5.tar.gz
+        latest_url=https://github.com/flightpkg/flight/releases/download/v0.34.0/v0.34.0.tar.gz
         specified_version=`curl -sS $latest_url`
         version_type='latest'
       elif [ "$1" = '--version' ]; then
         specified_version=$2
         version_type='specified'
       elif [ "$1" = '--rc' ]; then
-        latest_url=https://github.com/flightpkg/flight/releases/download/v0.0.5/v0.0.5.tar.gz
+        latest_url=https://github.com/flightpkg/flight/releases/download/v0.34.0/v0.34.0.tar.gz
         specified_version=`curl -sS $latest_url`
         version_type='rc'
       else
-        latest_url=https://github.com/flightpkg/flight/releases/download/v0.0.5/v0.0.5.tar.gz
+        latest_url=https://github.com/flightpkg/flight/releases/download/v0.34.0/v0.34.0.tar.gz
         specified_version=`curl -sS $latest_url`
         version_type='latest'
       fi
-      flight_version=`v0.0.5`
-      flight_alt_version=`v0.0.5`
+      flight_version=`v0.34.0`
+      flight_alt_version=`v0.34.0`
 
       if [ "$specified_version" = "$flight_version" = "$specified_version" = "$flight_alt_version" ]; then
         printf "$green> flight is already at the $specified_version version.$reset\n"

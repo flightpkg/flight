@@ -1,10 +1,10 @@
 {
-  "name": "create-redwood-app",
-  "version": "2.0.0",
+  "name": "@flightpkg/create-redwood-app",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/redwoodjs/redwood.git",
-    "directory": "packages/create-redwood-app"
+    "url": "https://github.com/redwoodjs/flight.git",
+    "directory": "src/packages/create-redwood-app"
   },
   "license": "MIT",
   "bin": "./dist/create-redwood-app.js",
@@ -16,7 +16,6 @@
     "build": "yarn build:js",
     "build:js": "babel src -d dist",
     "build:watch": "nodemon --watch src --ignore dist,template --exec \"yarn build\"",
-    "prepublishOnly": "NODE_ENV=production yarn build",
     "test": "jest src",
     "test:watch": "yarn test --watch"
   },
@@ -38,6 +37,5 @@
     "@babel/cli": "7.16.7",
     "jest": "27.5.1",
     "typescript": "4.7.3"
-  },
-  "gitHead": "3905ed045508b861b495f8d5630d76c7a157d8f1"
+  }
 }

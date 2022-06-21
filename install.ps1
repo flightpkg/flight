@@ -23,7 +23,7 @@ For ($i=0; $i -le 100; $i++) {
 }      
 
 echo "Adding to PATH..." 
-cd dist/js
+cd bin
 Rename-Item -Path "cli-win.exe" -NewName "flight.exe" >$null 2>&1
 Remove-Item -Path cli-linux -Force >$null 2>&1
 Remove-Item -Path cli-macos -Force >$null 2>&1
