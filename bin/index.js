@@ -82512,11 +82512,11 @@ module.exports = {
 
     Sha256_Checksum: `01ccffbd0d6c8a2a1935b9cc9256567b8c66abeef6171c3f813920b831ec1e47`,
 
-    version: `v0.0.5`,
+    version: `v0.34.0`,
 
     license: `Apache-2.0`,
 
-    download_url: `https://github.com/flightpkg/flight/releases/download/v0.0.5/v0.0.5.tar.gz`
+    download_url: `https://github.com/flightpkg/flight/releases/download/v0.34.0/v0.34.0.tar.gz`
 }
 
 
@@ -89174,7 +89174,7 @@ module.exports = JSON.parse('{"application/1d-interleaved-parityfec":{"source":"
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"name":"create-redwood-app","version":"2.0.0","repository":{"type":"git","url":"https://github.com/redwoodjs/redwood.git","directory":"packages/create-redwood-app"},"license":"MIT","bin":"./dist/create-redwood-app.js","files":["dist","template"],"scripts":{"build":"yarn build:js","build:js":"babel src -d dist","build:watch":"nodemon --watch src --ignore dist,template --exec \\"yarn build\\"","prepublishOnly":"NODE_ENV=production yarn build","test":"jest src","test:watch":"yarn test --watch"},"dependencies":{"@babel/core":"7.16.7","@babel/node":"7.16.7","@babel/runtime-corejs3":"7.16.7","@redwoodjs/internal":"2.0.0","@redwoodjs/telemetry":"2.0.0","check-node-version":"4.2.1","core-js":"3.23.1","execa":"5.1.1","fs-extra":"10.1.0","listr":"0.14.3","prompts":"^2.4.2","yargs":"17.5.1"},"devDependencies":{"@babel/cli":"7.16.7","jest":"27.5.1","typescript":"4.7.3"},"gitHead":"3905ed045508b861b495f8d5630d76c7a157d8f1"}');
+module.exports = JSON.parse('{"name":"@flightpkg/create-redwood-app","version":"1.0.0","repository":{"type":"git","url":"https://github.com/redwoodjs/flight.git","directory":"src/packages/create-redwood-app"},"license":"MIT","bin":"./dist/create-redwood-app.js","files":["dist","template"],"scripts":{"build":"yarn build:js","build:js":"babel src -d dist","build:watch":"nodemon --watch src --ignore dist,template --exec \\"yarn build\\"","test":"jest src","test:watch":"yarn test --watch"},"dependencies":{"@babel/core":"7.16.7","@babel/node":"7.16.7","@babel/runtime-corejs3":"7.16.7","@redwoodjs/internal":"2.0.0","@redwoodjs/telemetry":"2.0.0","check-node-version":"4.2.1","core-js":"3.23.1","execa":"5.1.1","fs-extra":"10.1.0","listr":"0.14.3","prompts":"^2.4.2","yargs":"17.5.1"},"devDependencies":{"@babel/cli":"7.16.7","jest":"27.5.1","typescript":"4.7.3"}}');
 
 /***/ })
 
