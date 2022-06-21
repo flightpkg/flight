@@ -46,10 +46,10 @@ $ curl https://raw.githubusercontent.com/flightpkg/flight/setup/dist/index.js -O
 
 
 
-#### Homebrew:
+<!-- #### Homebrew:
 ```bash
 $ brew install flightpkg/flight
-```
+``` -->
 
 ### Windows:
 ```ps1
