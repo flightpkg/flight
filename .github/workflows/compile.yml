@@ -1,4 +1,4 @@
-name: Compile CLI
+name: Compile Windows CLI
 
 on: [push]
 
@@ -11,12 +11,12 @@ jobs:
     - name: Setup node and load cache
       uses: actions/setup-node@v3
       with:
-        node-version: 16.x
+        node-version: 12.x
         cache: yarn
     - name: Install deps
-      run: yarn && yarn global add @vercel/ncc
+      run: yarn && yarn global add nexe
     - name: Build
-      run: yarn compile && yarn build
+      run: yarn build-win
     - name: Update Icon
       run: yarn icon
     - name: Commit and push if there are changes
