@@ -24,5 +24,5 @@ jobs:
         git diff
         git config --global user.email "hi@devcomp.tk"
         git config --global user.name "Flight CI"
-        git diff --quiet || (git add -u && git commit -m "📦️ Compiled CLI & Bins")
+        git diff --quiet || (git add -u && git commit -m "📦️ Compiled Windows Bins")
         git push     
