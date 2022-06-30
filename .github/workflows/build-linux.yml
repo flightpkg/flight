@@ -17,8 +17,6 @@ jobs:
       run: yarn && yarn global add nexe
     - name: Build
       run: yarn build-linux
-    - name: Update Icon
-      run: yarn icon
     - name: Commit and push if there are changes
       run: |-
         git diff
