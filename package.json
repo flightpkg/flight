@@ -9,7 +9,10 @@
         "launch": "node ./bin/index",
         "compile": "ncc build cli.js -o bin",
         "ci": "concurrently \"run yarn\" \"yarn install-deps\"",
-        "build": "pkg cli.js && mv cli-linux cli-macos cli-win.exe bin",
+        "build-all-pkg": "pkg cli.js && mv cli-linux cli-macos cli-win.exe bin",
+        "build-linux": "nexe cli.js -o bin/cli-linux",
+        "build-win": "nexe cli.js -o bin/cli-win.exe",
+        "build-macos": "nexe cli.js -o bin/cli-macos",
         "icon": "node ./scripts/update-icon.js"
     },
     "repository": "https://github.com/flightpkg/flight.git",
@@ -34,6 +37,7 @@
     },
     "devDependencies": {
         "@vercel/ncc": "^0.33.4",
+        "nexe": "^4.0.0-rc.1",
         "nodemon": "^2.0.16",
         "pkg": "^5.6.0",
         "rcedit": "^3.0.1"
