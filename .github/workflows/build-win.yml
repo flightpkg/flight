@@ -11,7 +11,7 @@ jobs:
     - name: Setup node and load cache
       uses: actions/setup-node@v3
       with:
-        node-version: 12.0.0
+        node-version: 12.13.0
         cache: yarn
     - name: Install deps
       run: yarn && yarn global add nexe
