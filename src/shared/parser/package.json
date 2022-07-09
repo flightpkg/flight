@@ -1,13 +1,13 @@
 {
-  "name": "@flightpkg/toml-parser",
+  "name": "@flightpkg/parser",
   "version": "0.1.0",
   "description": "",
   "main": "index.node",
   "scripts": {
     "build": "cargo-cp-artifact -nc index.node -- cargo build --message-format=json-render-diagnostics",
-    "build-debug": "npm run build --",
-    "build-release": "npm run build -- --release",
-    "install": "npm run build-release",
+    "build-debug": "yarn build --",
+    "build-release": "yarn build -- --release",
+    "install": "yarn build-release",
     "test": "cargo test"
   },
   "author": "",
