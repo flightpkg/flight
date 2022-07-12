@@ -1,4 +1,6 @@
-/*
+ #!/bin/bash
+
+text='/*
  *
  *    Copyright 2022 flightpkg Contributors
  *
@@ -14,16 +16,12 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
- 
-const axios = require('axios')
+ '
 
-async function fetch(uri){
-
-    const fetch = await axios.get(uri)
-    const data = fetch.data
-    return Promise.resolve(data.urls[0].url)
-}
-
-module.exports = {
-    fetch
-}
+FILES="$1/*/*/*.js"
+for f in $FILES
+do
+  echo "Processing $f file..."
+  j=`echo $text; cat $f`
+  echo "$j" > $f
+done
