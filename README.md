@@ -38,7 +38,7 @@ If the installer doesn't set your environment variables, add it using:
 $ echo "export PATH=~/flight/bin:$PATH" >> YOUR_SHELL_CONFIG_HERE
 ```
 ...and restart your shell to use the command `flight`
-
+<!--
 #### NodeJS based installer:
 ```bash
 $ curl https://raw.githubusercontent.com/flightpkg/flight/setup/dist/index.js -O && node index
@@ -46,16 +46,16 @@ $ curl https://raw.githubusercontent.com/flightpkg/flight/setup/dist/index.js -O
 
 
 
-<!-- #### Homebrew:
+#### Homebrew:
 ```bash
 $ brew install flightpkg/flight
-``` -->
+```
 
 ### Windows:
 ```ps1
 > Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/flightpkg/flight/main/install.ps1'))
 ```
-
+-->
 ## Build From Source
 Prerequisites: Git, Yarn and/or NPM, NodeJS.
 
