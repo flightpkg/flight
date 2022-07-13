@@ -127,6 +127,9 @@ flight_detect_profile() {
 
   if [ ! -z "$DETECTED_PROFILE" ]; then
     echo "export PATH=~/flight/bin:$PATH" >> $DETECTED_PROFILE
+    mkdir -p ~/flight/.cache
+    echo "export FLIGHT_CACHE=~/flight/.cache" >> $DETECTED_PROFILE
+    
   fi
 }
 

@@ -362,5 +362,4 @@ module.exports = {
   get,
   uninstall,
   resolve
-
 }

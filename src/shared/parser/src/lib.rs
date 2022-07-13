@@ -52,6 +52,7 @@ fn parse(mut cx: FunctionContext) -> JsResult<JsString> {
     Ok(cx.string(config.logging.debug))
 }
 
+
 #[neon::main]
 fn main(mut cx: ModuleContext) -> NeonResult<()> {
     cx.export_function("parse", parse)?;

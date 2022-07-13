@@ -5,3 +5,4 @@ node_modules/*
 .flight/*
 .flight
 package_lock.json
+prepare.sh

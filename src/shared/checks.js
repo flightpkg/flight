@@ -29,6 +29,7 @@ function init(e) {
         "installation": "${process.env.FLIGHT_INSTALLATION}",
         "version": "${version}",
         "SHA256": "${Sha256_Checksum}"
+        "cache": "${process.env.FLIGHT_CACHE}"
     }
     `
 

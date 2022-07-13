@@ -16,3 +16,4 @@
  */
 
 pub const VERSION: &str = "v0.0.5";
+pub const CHECKSUM: &str = "sha256:01ccffbd0d6c8a2a1935b9cc9256567b8c66abeef6171c3f813920b831ec1e47";

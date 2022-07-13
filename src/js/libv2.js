@@ -26,24 +26,7 @@ const zlib = require('zlib');
 const path = require('path');
 const tar = require('tar');
 const args = process.argv.slice(3);
-
-const deleteFolderRecursive = function(path) {
-  if (fs.existsSync(path)) {
-      fs.readdirSync(path).forEach(function(file) {
-          const curPath = path + "/" + file;
-          if (fs.lstatSync(curPath).isDirectory()) { // recurse
-              deleteFolderRecursive(curPath);
-          } else { // delete file
-              fs.unlinkSync(curPath);
-          }
-      });
-      fs.rmdirSync(path);
-  }
-};
-
-
-
-
+const { deleteFolderRecursive } = require('../shared/extendedfs')
 
 /**
  * Resolves dependencies using {@link Resolver}, and returns them in a JSON lockfile. 
@@ -249,7 +232,6 @@ async function install() {
 
                       start();
                   }
-                  // below org scope code is still pretty buggy (try fixing this if you can, the syntax for resDeps with org scope is @org/pkg)
                   if (raw.startsWith("@") == true) {
                       const split = raw.split('/')
                       const scope = split[0]
@@ -287,17 +269,17 @@ async function install() {
                               logger.downloaded(name, version)
                               const find = existsAsync('node_modules')
 
-                              if (find == true) {
-                                  execSync(`cd .flight ; tar zxvf ${name}-${version}.tgz -C ../node_modules`, {
-                                      stdio: "inherit"
-                                  });
-                              }
+                            //   if (find == true) {
+                            //       execSync(`cd .flight ; tar zxvf ${name}-${version}.tgz -C ../node_modules`, {
+                            //           stdio: "inherit"
+                            //       });
+                            //   }
 
-                              if (find == false) {
-                                  execSync(`mkdir node_modules ; cd .flight ; tar zxvf ${name}-${version}.tgz -C ../node_modules`, {
-                                      stdio: "inherit"
-                                  });
-                              }
+                            //   if (find == false) {
+                            //       execSync(`mkdir node_modules ; cd .flight ; tar zxvf ${name}-${version}.tgz -C ../node_modules`, {
+                            //           stdio: "inherit"
+                            //       });
+                            //   }
 
                               if (!fs.existsSync(`./node_modules/${name}/`)) {
                                   fs.mkdirSync(`./node_modules/${name}/`, {
@@ -311,6 +293,10 @@ async function install() {
                                       C: `./node_modules/${name}/`,
                                       strip: 1
                                   }))
+                                  .pipe(tar.extract({
+                                    C: `~/.flight/.cache/${name}/`,
+                                    strip: 1
+                                }))
                                   .on("finish", () => {
                                       fs.rmSync(`./.flight/${name}-${version}.tgz`)
                                       logger.unzipped(name, version)
