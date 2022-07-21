@@ -340,7 +340,7 @@ function uninstall(name) {
               deleteFolderRecursive(path.resolve(`./node_modules/${pkgname}/`))
               logger.uninstalled(pkgname)
           } catch (e) {
-              logger.error(pkgname + kleur.bold().red(" is not present in the  packages directory."))
+              logger.error(pkgname + kleur.bold().red(" is not present in the packages directory."))
           }
 
           delete pkgs[pkgname]
@@ -354,7 +354,7 @@ function uninstall(name) {
           logger.pkgjsonerr(pkgname)
       }
   } else {
-      logger.error('Please specify a package to uninstall.')
+      logger.error('Please specify a package to uninstall. (Flight or Node Package.)')
   }
 }
 
